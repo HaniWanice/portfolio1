@@ -3,7 +3,7 @@ import Link from 'next/link';
 export function Navbar() {
     return (
         <div className="fixed top-6 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
-            <header className="pointer-events-auto flex items-center gap-4 sm:gap-8 rounded-full border border-slate-200/60 bg-white/70 px-6 py-3 backdrop-blur-xl shadow-lg shadow-blue-900/5 transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/10">
+            <header className="pointer-events-auto flex items-center gap-4 sm:gap-8 rounded-full border border-slate-200/60 bg-white/20 px-6 py-3 backdrop-blur-xl shadow-lg shadow-blue-900/5 transition-all duration-300 hover:shadow-xl hover:shadow-blue-900/10">
                 <Link href="/" className="font-bold text-xl tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-indigo-600">
                     HW.
                 </Link>
