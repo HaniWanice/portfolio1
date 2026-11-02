@@ -9,7 +9,7 @@ export const site = {
   location: "Paris‑Est · Île-de-France",
   school: "Université Paris‑Est",
   github: "https://github.com/HaniWanice",
-  linkedin: "https://www.linkedin.com/in/aniwanis",
+  linkedin: "https://www.linkedin.com/in/hani-wanice-920a813b1/",
   cv: "/cv/hani-wanice-cv.pdf",
   siteUrl: "https://www.haniwanice.com",
 } as const;
