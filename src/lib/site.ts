@@ -10,7 +10,7 @@ export const site = {
   github: "https://github.com/HaniWanice",
   linkedin: "https://www.linkedin.com/in/aniwanis",
   cv: "/cv/hani-wanice-cv.pdf",
-  siteUrl: "https://haniwanice.com",
+  siteUrl: "https://www.haniwanice.com",
 } as const;
 
 export const availability = [
