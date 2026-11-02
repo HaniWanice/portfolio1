@@ -6,8 +6,8 @@ export const site = {
   email: "haniwanice@gmail.com",
   phone: "07 83 63 60 58",
   phoneHref: "+33783636058",
-  location: "Paris-Est · Île-de-France",
-  school: "Université Paris-Est",
+  location: "Paris‑Est · Île-de-France",
+  school: "Université Paris‑Est",
   github: "https://github.com/HaniWanice",
   linkedin: "https://www.linkedin.com/in/aniwanis",
   cv: "/cv/hani-wanice-cv.pdf",
@@ -34,7 +34,7 @@ export const stats = [
     count: 2,
     format: "pad" as const,
     label: "mois de stage",
-    detail: "DSI, Université Paris-Est",
+    detail: "DSI, Université Paris‑Est",
   },
   {
     count: 40000,
@@ -52,7 +52,7 @@ export const stats = [
     count: 2027,
     format: "raw" as const,
     label: "diplôme",
-    detail: "licence informatique",
+    detail: "licence informatique · Paris‑Est",
   },
 ];
 
@@ -84,7 +84,7 @@ export const projects: Project[] = [
   },
   {
     id: "portail",
-    name: "Portail Paris-Est",
+    name: "Portail Paris‑Est",
     kind: "Refonte d'interface",
     year: "2026",
     note: "La page d'accueil que le personnel de l'université ouvre chaque matin. Services regroupés par usage, navigation remise à plat, lisible sur téléphone.",
@@ -137,7 +137,7 @@ export const timeline: TimelineEntry[] = [
   {
     period: "2026",
     title: "Stagiaire développeur full-stack",
-    org: "Direction des systèmes d'information, Université Paris-Est",
+    org: "Direction des systèmes d'information, Université Paris‑Est",
     when: "mai à juillet 2026 · 2 mois",
     points: [
       "Pont entre deux GLPI isolés : ticket miroir, identifiant conservé, statut synchronisé des deux côtés.",

@@ -82,7 +82,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   );
 
   return (
-    <article className={`card card--${project.size}`}>
+    <article className={`card card--${project.size}`} data-tilt>
       {primary ? (
         <a
           className="card__media"

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export function PointerGlow() {
+export function PointerGlow({ dark = false }: { dark?: boolean }) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -47,5 +47,11 @@ export function PointerGlow() {
     };
   }, []);
 
-  return <div className="glow" ref={ref} aria-hidden="true" />;
+  return (
+    <div
+      className={dark ? "glow glow--dark" : "glow"}
+      ref={ref}
+      aria-hidden="true"
+    />
+  );
 }

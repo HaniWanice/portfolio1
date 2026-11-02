@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { Effects } from "@/components/Effects";
 import { site } from "@/lib/site";
 
 const display = localFont({
@@ -122,6 +123,7 @@ export default function RootLayout({
         <a className="skip" href="#contenu">
           Aller au contenu
         </a>
+        <Effects />
         <Nav />
         <main id="contenu">{children}</main>
         <Footer />

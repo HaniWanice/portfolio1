@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { Arrow } from "./Arrow";
+import { PointerGlow } from "./PointerGlow";
 import { Reveal } from "./Reveal";
 
 export function Contact() {
@@ -28,6 +29,7 @@ export function Contact() {
 
   return (
     <section className="contact" id="contact" aria-labelledby="contact-title">
+      <PointerGlow dark />
       <div className="wrap">
         <div className="contact__grid">
           <Reveal>
@@ -49,7 +51,11 @@ export function Contact() {
             </p>
 
             <div className="contact__actions">
-              <a className="btn btn--ink" href={`mailto:${site.email}`}>
+              <a
+                className="btn btn--ink"
+                href={`mailto:${site.email}`}
+                data-magnetic
+              >
                 {site.email}
                 <Arrow />
               </a>

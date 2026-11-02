@@ -1,8 +1,10 @@
+import { PointerGlow } from "./PointerGlow";
 import { Reveal } from "./Reveal";
 
 export function CaseStudy() {
   return (
     <section className="case" id="etude" aria-labelledby="case-title">
+      <PointerGlow dark />
       <div className="wrap">
         <Reveal>
           <p className="kicker kicker--light">
