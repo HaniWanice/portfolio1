@@ -31,7 +31,7 @@ function Cover({ id }: { id: Project["id"] }) {
 
   if (id === "keewic") {
     return (
-      <div className="cover cover--keewic" aria-hidden="true">
+      <div className="cover cover--keewic" aria-hidden="true" href="https://apps.apple.com/fr/app/keewic/id6761733932">
         <div className="phone">
           <div className="phone__screen">
             <b>Keewic</b>
