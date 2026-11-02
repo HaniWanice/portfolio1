@@ -31,7 +31,7 @@ function Cover({ id }: { id: Project["id"] }) {
 
   if (id === "keewic") {
     return (
-      <div className="cover cover--keewic" aria-hidden="true" href="https://apps.apple.com/fr/app/keewic/id6761733932">
+      <div className="cover cover--keewic" aria-hidden="true">
         <div className="phone">
           <div className="phone__screen">
             <b>Keewic</b>
@@ -137,7 +137,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 export function Projects() {
   return (
-    <section className="section projects" id="projets" aria-labelledby="projects-title">
+    <section
+      className="section projects"
+      id="projets"
+      aria-labelledby="projects-title"
+    >
       <div className="wrap">
         <div className="sec-head">
           <Reveal>

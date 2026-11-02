@@ -108,6 +108,7 @@ export const projects: Project[] = [
     name: "Keewic",
     kind: "Design d'app mobile",
     year: "2025",
+    href: "https://apps.apple.com/fr/app/keewic/id6761733932",
     note: "Une idée d'application dessinée avant d'être codée : parcours, écrans, identité. Livrée à un développeur freelance pour la mise en ligne.",
     tags: ["Figma", "UX", "UI"],
     size: "normal",
