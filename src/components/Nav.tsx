@@ -37,6 +37,7 @@ export function Nav() {
           <a
             className="btn btn--accent btn--sm"
             href={site.cv}
+            data-magnetic
             target="_blank"
             rel="noreferrer"
           >

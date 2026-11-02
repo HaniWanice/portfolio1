@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Terrain } from "@lucasmarkes/hairline/react";
 import { stats } from "@/lib/site";
 
 type Format = "pad" | "space" | "raw";
@@ -53,19 +54,33 @@ export function Numbers() {
 
   return (
     <section className="numbers" aria-label="Chiffres clés">
-      <div className="wrap numbers__grid" ref={ref}>
-        {stats.map((stat, index) => (
-          <div className="stat" key={stat.label}>
-            <span className="stat__num" aria-hidden="true">
-              {format(values ? values[index] : stat.count, stat.format as Format)}
-            </span>
-            <span className="sr-only">
-              {format(stat.count, stat.format as Format)} {stat.label}
-            </span>
-            <span className="stat__label">{stat.label}</span>
-            <span className="stat__detail">{stat.detail}</span>
-          </div>
-        ))}
+      <div className="wrap numbers__inner">
+        <div className="numbers__data" ref={ref}>
+          {stats.map((stat, index) => (
+            <div className="stat" key={stat.label}>
+              <span className="stat__num" aria-hidden="true">
+                {format(values ? values[index] : stat.count, stat.format as Format)}
+              </span>
+              <span className="sr-only">
+                {format(stat.count, stat.format as Format)} {stat.label}
+              </span>
+              <span className="stat__label">{stat.label}</span>
+              <span className="stat__detail">{stat.detail}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="numbers__figure">
+          <Terrain
+            intensity={0.75}
+            play
+            theme="dark"
+            label="Grille isométrique de piliers qui se lèvent autour du curseur : le système construit pendant le stage."
+          />
+          <p className="numbers__caption mono">
+            Des systèmes réels, pas des exercices
+          </p>
+        </div>
       </div>
     </section>
   );

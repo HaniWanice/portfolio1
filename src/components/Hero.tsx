@@ -18,6 +18,7 @@ export function Hero() {
             Stage 2 à 4 mois dès avril 2027 · alternance dès septembre 2027
           </p>
 
+
           <h1 className="hero__title" id="hero-title">
             <span className="hero__name" aria-label="Hani">
               <span aria-hidden="true">
@@ -38,17 +39,20 @@ export function Hero() {
           </h1>
 
           <p className="hero__meta">
-            <span>
-              Hani Wanice · {site.age} ans
-            </span>
-            <span>L3 informatique · université Paris-Est</span>
+            <span>Hani Wanice · {site.age} ans</span>
+            <span>Licence 3 informatique · université Paris‑Est</span>
+          </p>
+
+          <p className="hero__exp">
+            <span className="hero__exp-badge">2 mois</span>
+            d&apos;expérience en entreprise · DSI, université Paris‑Est
           </p>
 
           <p className="hero__text">
-            Deux mois dans le service informatique de mon université, à faire
-            dialoguer deux outils qui s&apos;ignoraient : 40&nbsp;000 étudiants
-            d&apos;un côté, le personnel de l&apos;autre. Les tickets passent
-            maintenant de l&apos;un à l&apos;autre, sans qu&apos;aucune donnée ne
+            Étudiant en licence 3 d&apos;informatique à l&apos;université
+            Paris‑Est, j&apos;ai passé deux mois dans son service informatique.
+            Mission : faire dialoguer deux outils qui s&apos;ignoraient, pour
+            40&nbsp;000 étudiants — sans qu&apos;aucune donnée du personnel ne
             fuite.
           </p>
 
@@ -58,6 +62,7 @@ export function Hero() {
               href={site.cv}
               target="_blank"
               rel="noreferrer"
+              data-magnetic
             >
               Télécharger mon CV
               <span className="btn__meta">PDF</span>
@@ -94,9 +99,12 @@ export function Hero() {
 
         <aside className="search" aria-labelledby="search-title">
           <div className="search__head">
-            <h2 className="search__title" id="search-title">
-              Ce que je cherche
-            </h2>
+            <div>
+              <p className="search__eyebrow">Ma recherche</p>
+              <h2 className="search__title" id="search-title">
+                Ce que je cherche
+              </h2>
+            </div>
             <span className="search__pulse" aria-hidden="true" />
           </div>
 
@@ -118,7 +126,7 @@ export function Hero() {
           <div className="search__facts">
             <p>
               <span className="search__key">Formation</span>
-              Licence 3 informatique · Université Paris-Est
+              Licence 3 informatique · Université Paris‑Est
             </p>
             <p>
               <span className="search__key">Zone</span>

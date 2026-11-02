@@ -26,7 +26,7 @@ export function Footer() {
 
         <div className="footer__inner">
           <span>
-            © 2026 Hani Wanice · 24 ans · Université Paris-Est, licence
+            © 2026 Hani Wanice · 24 ans · Université Paris‑Est, licence
             informatique
           </span>
           <span>Conçu et codé à Paris · Next.js</span>
