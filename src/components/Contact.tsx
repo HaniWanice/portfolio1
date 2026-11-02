@@ -45,9 +45,11 @@ export function Contact() {
             </h2>
 
             <p className="contact__sub">
-              Stage de 2 à 4 mois à partir d&apos;avril 2027, alternance à
-              partir de septembre 2027. Je réponds vite, et je peux être en
-              entretien dès cette semaine.
+              Étudiant en licence 3 informatique à l'université Paris‑Est,
+              je cherche un stage de 2 à 4 mois à partir d&apos;avril 2027
+              (développement web, data ou SI) et une alternance d&apos;ici
+              septembre 2027. Je réponds vite, et je peux être en entretien
+              dès cette semaine.
             </p>
 
             <div className="contact__actions">
@@ -93,7 +95,7 @@ export function Contact() {
                 <dt>LinkedIn</dt>
                 <dd>
                   <a href={site.linkedin} target="_blank" rel="noreferrer">
-                    /in/aniwanis
+                    /in/hani-wanice-920a813b1
                   </a>
                 </dd>
               </div>
