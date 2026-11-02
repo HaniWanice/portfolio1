@@ -1,6 +1,6 @@
 /* ---------------------------------------------
    Hani Wanice — portfolio
-   Identity: paper, ink, cobalt. Technical editorial.
+   Identity: paper, ink, orange. Technical editorial.
 ---------------------------------------------- */
 
 :root {
@@ -8,12 +8,14 @@
   --ink-2: #15151c;
   --paper: #f7f6f2;
   --paper-2: #efeee7;
-  --night: #08080d;
+  --night: #0a0908;
   --muted: #5d5d67;
   --line: rgba(11, 11, 15, 0.14);
   --line-strong: rgba(11, 11, 15, 0.32);
-  --accent: #1b2cff;
-  --accent-soft: #e6e8ff;
+  --accent: #ff4d00;
+  --accent-ink: #a53400;
+  --accent-lift: #ff8a52;
+  --accent-soft: #ffe3d5;
   --radius: 24px;
   --nav-h: 76px;
   --gutter: clamp(18px, 4vw, 56px);
@@ -85,7 +87,7 @@ ol {
 
 ::selection {
   background: var(--accent);
-  color: #fff;
+  color: var(--ink);
 }
 
 :focus-visible {
@@ -270,7 +272,7 @@ ol {
   padding: 6px 12px;
   border-radius: 999px;
   background: var(--accent-soft);
-  color: #101a9e;
+  color: var(--accent-ink);
   font-family: var(--font-mono), monospace;
   font-size: 0.6rem;
   letter-spacing: 0.09em;
@@ -330,8 +332,9 @@ ol {
 
 .btn--ink:hover {
   background: var(--accent);
+  color: var(--ink);
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px -24px rgba(27, 44, 255, 0.8);
+  box-shadow: 0 20px 40px -24px rgba(255, 77, 0, 0.55);
 }
 
 .btn--line {
@@ -345,13 +348,16 @@ ol {
   transform: translateY(-2px);
 }
 
-.btn--acid {
+.btn--accent {
   background: var(--accent);
-  color: #fff;
+  color: var(--ink);
+  box-shadow: 0 16px 34px -24px rgba(255, 77, 0, 0.9);
 }
 
-.btn--acid:hover {
+.btn--accent:hover {
   background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-2px);
 }
 
 .btn__meta {
@@ -360,7 +366,11 @@ ol {
   letter-spacing: 0.12em;
   padding: 4px 7px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(11, 11, 15, 0.12);
+}
+
+.btn--accent:hover .btn__meta {
+  background: rgba(247, 246, 242, 0.16);
 }
 
 .btn--copy {
@@ -406,7 +416,7 @@ ol {
   transition: opacity 0.5s ease;
   background: radial-gradient(
     420px circle at var(--mx, 50%) var(--my, 40%),
-    rgba(27, 44, 255, 0.12),
+    rgba(255, 77, 0, 0.13),
     transparent 62%
   );
 }
@@ -476,7 +486,7 @@ ol {
 
 .hero__name {
   display: block;
-  font-size: clamp(4.6rem, 15.5vw, 13rem);
+  font-size: clamp(4.6rem, 14.5vw, 11.6rem);
 }
 
 .hero__letter {
@@ -517,9 +527,45 @@ ol {
   color: var(--accent);
 }
 
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 0;
+  margin-top: clamp(14px, 1.8vw, 20px);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero__meta span:first-child {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.hero__meta span + span {
+  margin-left: 14px;
+  padding-left: 14px;
+  position: relative;
+}
+
+.hero__meta span + span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 3px;
+  margin-top: -1.5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
 .hero__text {
   max-width: 52ch;
-  margin-top: clamp(20px, 2.4vw, 30px);
+  margin-top: clamp(16px, 2vw, 24px);
   font-size: clamp(0.98rem, 1.15vw, 1.08rem);
   line-height: 1.62;
   color: var(--muted);
@@ -568,8 +614,8 @@ ol {
 }
 
 .hero__contact a:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent-ink);
 }
 
 .hero__contact svg {
@@ -580,6 +626,7 @@ ol {
 
 .eyebrow,
 .hero__role,
+.hero__meta,
 .hero__text,
 .hero__actions,
 .hero__contact {
@@ -592,6 +639,10 @@ ol {
 
 .hero__role {
   animation-delay: 0.38s;
+}
+
+.hero__meta {
+  animation-delay: 0.44s;
 }
 
 .hero__text {
@@ -634,7 +685,7 @@ ol {
   position: absolute;
   inset: 0 0 auto 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), #8f9bff 55%, transparent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-lift) 55%, transparent);
 }
 
 .search {
@@ -684,7 +735,7 @@ ol {
   font-size: 0.58rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 
 .search__value {
@@ -749,7 +800,7 @@ ol {
 }
 
 .search__mail:hover {
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 
 .search__mail:hover svg {
@@ -878,7 +929,7 @@ ol {
 }
 
 .kicker span {
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 
 .kicker span::after {
@@ -937,8 +988,8 @@ ol {
 }
 
 .inline-link:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent-ink);
 }
 
 /* ---------- case study ---------- */
@@ -959,7 +1010,7 @@ ol {
   top: -240px;
   right: -180px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(27, 44, 255, 0.28), transparent 68%);
+  background: radial-gradient(circle, rgba(255, 77, 0, 0.26), transparent 68%);
   pointer-events: none;
 }
 
@@ -981,7 +1032,7 @@ ol {
 .case__text h2 em {
   font-family: var(--font-serif), Georgia, serif;
   font-style: normal;
-  color: #8f9bff;
+  color: var(--accent-lift);
 }
 
 .case__lead {
@@ -1022,6 +1073,15 @@ ol {
   line-height: 1.35;
   color: rgba(247, 246, 242, 0.5);
   max-width: 12ch;
+}
+
+.case__proof {
+  margin-top: 22px;
+  padding-left: 12px;
+  border-left: 2px solid var(--accent);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: rgba(247, 246, 242, 0.82);
 }
 
 .case__stack {
@@ -1092,13 +1152,13 @@ ol {
 }
 
 .flow__panel--alt .flow__ticket {
-  border-color: rgba(143, 155, 255, 0.4);
-  background: rgba(27, 44, 255, 0.12);
+  border-color: rgba(255, 138, 82, 0.4);
+  background: rgba(255, 77, 0, 0.12);
 }
 
 .flow__panel--alt .flow__state {
-  background: rgba(143, 155, 255, 0.22);
-  color: #cfd4ff;
+  background: rgba(255, 138, 82, 0.22);
+  color: #ffd2ba;
 }
 
 .flow__panel--alt .flow__ticket {
@@ -1108,10 +1168,10 @@ ol {
 @keyframes mirrorGlow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(143, 155, 255, 0);
+    box-shadow: 0 0 0 0 rgba(255, 138, 82, 0);
   }
   50% {
-    box-shadow: 0 0 0 4px rgba(143, 155, 255, 0.09);
+    box-shadow: 0 0 0 4px rgba(255, 138, 82, 0.09);
   }
 }
 
@@ -1143,8 +1203,8 @@ ol {
   border-radius: 50%;
   background: var(--accent);
   box-shadow:
-    0 0 0 4px rgba(27, 44, 255, 0.22),
-    0 0 18px rgba(27, 44, 255, 0.9);
+    0 0 0 4px rgba(255, 77, 0, 0.22),
+    0 0 18px rgba(255, 77, 0, 0.9);
   animation: packet 4s cubic-bezier(0.6, 0, 0.4, 1) infinite;
 }
 
@@ -1271,7 +1331,7 @@ ol {
 
 .card__open:hover {
   background: var(--accent);
-  color: #fff;
+  color: var(--ink);
 }
 
 .card__body {
@@ -1280,6 +1340,13 @@ ol {
   flex: 1;
   gap: 8px;
   padding: 16px 18px 18px;
+}
+
+.card__kind {
+  color: var(--accent-ink);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  margin-bottom: -2px;
 }
 
 .card__top {
@@ -1355,8 +1422,8 @@ ol {
 }
 
 .card__links a:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent-ink);
 }
 
 .card__links svg {
@@ -1377,8 +1444,8 @@ ol {
 
 .cover--airline {
   background:
-    radial-gradient(120% 100% at 80% 0%, #26307a 0%, transparent 60%),
-    #101018;
+    radial-gradient(120% 100% at 80% 0%, #6b2200 0%, transparent 60%),
+    #14100e;
 }
 
 .cover--airline .mock {
@@ -1420,7 +1487,7 @@ ol {
   width: 22px;
   height: 5px;
   border-radius: 3px;
-  background: rgba(143, 155, 255, 0.55);
+  background: rgba(255, 138, 82, 0.55);
 }
 
 .cover--keewic {
@@ -1466,7 +1533,7 @@ ol {
 
 .cover--keewic .phone__screen i:nth-child(3) {
   width: 70%;
-  background: #1b2cff;
+  background: var(--accent);
   height: 14px;
   border-radius: 5px;
 }
@@ -1502,7 +1569,7 @@ ol {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: linear-gradient(140deg, #1b2cff, #8f9bff);
+  background: linear-gradient(140deg, var(--accent), var(--accent-lift));
 }
 
 .cover--card .idcard__name {
@@ -1554,7 +1621,7 @@ ol {
 }
 
 .strength__n {
-  color: var(--accent);
+  color: var(--accent-ink);
   font-size: 0.58rem;
 }
 
@@ -1639,7 +1706,7 @@ ol {
 }
 
 .tl__when {
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 
 .tl__points {
@@ -1743,7 +1810,7 @@ ol {
   bottom: -60%;
   width: 70%;
   height: 120%;
-  background: radial-gradient(circle, rgba(27, 44, 255, 0.22), transparent 62%);
+  background: radial-gradient(circle, rgba(255, 77, 0, 0.2), transparent 62%);
   pointer-events: none;
 }
 
@@ -1766,7 +1833,7 @@ ol {
 .contact h2 em {
   font-family: var(--font-serif), Georgia, serif;
   font-style: normal;
-  color: #8f9bff;
+  color: var(--accent-lift);
 }
 
 .contact__sub {
@@ -1792,7 +1859,7 @@ ol {
 
 .contact .btn--ink:hover {
   background: var(--accent);
-  color: #fff;
+  color: var(--ink);
 }
 
 .contact .btn--line {
@@ -1833,7 +1900,7 @@ ol {
 }
 
 .contact__row a:hover {
-  color: #8f9bff;
+  color: var(--accent-lift);
 }
 
 .contact__avail {
@@ -1959,6 +2026,19 @@ ol {
 
   .hero__name {
     font-size: clamp(4.2rem, 19vw, 8rem);
+  }
+
+  .hero__meta {
+    gap: 3px 0;
+  }
+
+  .hero__meta span + span {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .hero__meta span + span::before {
+    display: none;
   }
 
   .numbers__grid {

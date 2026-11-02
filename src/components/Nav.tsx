@@ -35,7 +35,7 @@ export function Nav() {
             Stage · avril 2027
           </span>
           <a
-            className="btn btn--acid btn--sm"
+            className="btn btn--accent btn--sm"
             href={site.cv}
             target="_blank"
             rel="noreferrer"

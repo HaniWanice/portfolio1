@@ -101,6 +101,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       )}
 
       <div className="card__body">
+        <p className="card__kind mono">{project.kind}</p>
         <div className="card__top">
           <h3>{project.name}</h3>
           <span className="mono card__year">{project.year}</span>
@@ -145,17 +146,17 @@ export function Projects() {
               Projets
             </p>
             <h2 id="projects-title">
-              Cinq projets.
+              Des projets qui tournent.
               <br />
-              Cinq <em>problèmes</em> résolus.
+              Pas des <em>maquettes</em>.
             </h2>
           </Reveal>
 
           <Reveal delay={100} className="sec-head__side">
             <p>
-              Chaque projet part d&apos;un problème réel. Du CRUD universitaire à
-              la refonte d&apos;un portail utilisé chaque jour : trois se visitent
-              en ligne.
+              Trois se visitent en ligne, tous ont leur code public. Chacun
+              règle un problème que j&apos;ai rencontré — pas un exercice de
+              tutoriel.
             </p>
             <a
               className="inline-link"
