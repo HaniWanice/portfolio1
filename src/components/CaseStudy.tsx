@@ -7,14 +7,14 @@ export function CaseStudy() {
         <Reveal>
           <p className="kicker kicker--light">
             <span>01</span>
-            Étude de cas · stage DSI, 2026
+            Le stage, en détail · 2026
           </p>
         </Reveal>
 
         <div className="case__grid">
           <Reveal className="case__text">
             <h2 id="case-title">
-              Deux GLPI.
+              Deux outils.
               <br />
               Un pont.
               <br />
@@ -22,25 +22,31 @@ export function CaseStudy() {
             </h2>
 
             <p className="case__lead">
-              Le personnel et les étudiants ne partagent pas le même GLPI, et ne
-              doivent pas le partager. Il fallait pourtant qu&apos;un ticket
-              passe de l&apos;un à l&apos;autre, sans jamais fusionner les bases.
+              L&apos;université gère son support dans deux logiciels séparés :
+              un pour les étudiants, un pour le personnel. Ils ne doivent jamais
+              se mélanger. Il fallait pourtant qu&apos;un ticket passe de l&apos;un
+              à l&apos;autre — sans fusionner les données.
             </p>
 
             <div className="case__facts">
               <div>
                 <strong>2</strong>
-                <span>installations isolées</span>
+                <span>outils reliés</span>
               </div>
               <div>
                 <strong>40 000</strong>
-                <span>comptes étudiants</span>
+                <span>étudiants concernés</span>
               </div>
               <div>
                 <strong>0</strong>
-                <span>donnée du personnel exposée</span>
+                <span>donnée partagée</span>
               </div>
             </div>
+
+            <p className="case__proof">
+              Prototype validé avec mon tuteur, puis repris par l&apos;équipe
+              support pour la recette.
+            </p>
 
             <p className="case__stack mono">
               Next.js · Server Actions · API REST · Docker Compose · MariaDB
@@ -50,7 +56,7 @@ export function CaseStudy() {
           <Reveal className="case__visual" delay={120}>
             <div className="flow">
               <div className="flow__panel">
-                <span className="mono flow__name">GLPI · étudiants</span>
+                <span className="mono flow__name">Support · étudiants</span>
                 <div className="flow__ticket">
                   <span className="mono">#2481</span>
                   <p>Wi-Fi coupé au bâtiment I</p>
@@ -63,7 +69,7 @@ export function CaseStudy() {
               </div>
 
               <div className="flow__panel flow__panel--alt">
-                <span className="mono flow__name">GLPI · DSI</span>
+                <span className="mono flow__name">Support · personnel</span>
                 <div className="flow__ticket flow__ticket--mirror">
                   <span className="mono">#9074</span>
                   <p>[ETU-2481] Wi-Fi coupé au bâtiment I</p>

@@ -108,7 +108,6 @@ export function Contact() {
             <p className="contact__avail">
               <span>Stage · avril 2027</span>
               <span>Alternance · septembre 2027</span>
-              <span>Paris-Est</span>
             </p>
           </Reveal>
         </div>

@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Hani Wanice — CV 2027</title>
+<meta name="robots" content="noindex" />
+<style>
+  @font-face { font-family: "General Sans"; src: url("/fonts/general-400.woff2") format("woff2"); font-weight: 400; font-display: block; }
+  @font-face { font-family: "General Sans"; src: url("/fonts/general-500.woff2") format("woff2"); font-weight: 500; font-display: block; }
+  @font-face { font-family: "General Sans"; src: url("/fonts/general-600.woff2") format("woff2"); font-weight: 600; font-display: block; }
+  @font-face { font-family: "Gambarino"; src: url("/fonts/gambarino.woff2") format("woff2"); font-weight: 400; font-display: block; }
+  @font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-500.woff2") format("woff2"); font-weight: 500; font-display: block; }
+
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --ink: #0b0b0f;
+    --soft: #5d5d67;
+    --accent: #ff4d00;
+    --accent-ink: #a53400;
+    --line: #d8d7cf;
+    --tint: #ffe3d5;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+
+  body {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 11.5mm 14mm 8mm;
+    font-family: "General Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 9.15pt;
+    line-height: 1.38;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  p { margin: 0; }
+
+  /* ---------- header ---------- */
+
+  .head { padding-bottom: 3.4mm; border-bottom: 1.6pt solid var(--ink); }
+
+  .head__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6mm;
+    margin-bottom: 3.2mm;
+  }
+
+  .avail {
+    display: inline-flex;
+    align-items: center;
+    gap: 2mm;
+    padding: 1.15mm 2.8mm;
+    border-radius: 999px;
+    background: var(--tint);
+    color: var(--accent-ink);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 6.6pt;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+  }
+
+  .avail::before {
+    content: "";
+    width: 1.4mm;
+    height: 1.4mm;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .stamp {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 6.6pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 34pt;
+    font-weight: 600;
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+  }
+
+  .role {
+    margin-top: 1.6mm;
+    font-size: 13pt;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+
+  .role em {
+    font-family: "Gambarino", Georgia, serif;
+    font-style: normal;
+    color: var(--accent);
+    letter-spacing: 0;
+  }
+
+  .contact {
+    margin: 3mm 0 0;
+    font-size: 8.3pt;
+    line-height: 1.55;
+    color: var(--soft);
+  }
+
+  .contact p { display: flex; flex-wrap: wrap; align-items: center; }
+
+  .contact p span { display: inline-flex; align-items: center; white-space: nowrap; }
+
+  .contact p span + span::before {
+    content: "";
+    width: 0.7mm;
+    height: 0.7mm;
+    margin: 0 2.4mm;
+    border-radius: 50%;
+    background: #c3c2ba;
+  }
+
+  .contact a { color: var(--ink); border-bottom: 0.4pt solid var(--line); }
+
+  /* ---------- sections ---------- */
+
+  section { margin-top: 2.9mm; }
+
+  h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 2mm;
+    margin: 0 0 2.2mm;
+    padding-bottom: 1.1mm;
+    border-bottom: 0.6pt solid var(--line);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 7pt;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  h2 b {
+    font-weight: 500;
+    color: var(--accent-ink);
+    letter-spacing: 0.08em;
+  }
+
+  .entry + .entry { margin-top: 2.1mm; }
+
+  .entry h3 {
+    margin: 0;
+    font-size: 9.6pt;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    line-height: 1.3;
+  }
+
+  .when {
+    margin-right: 2.2mm;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 7pt;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--accent-ink);
+    white-space: nowrap;
+  }
+
+  .org { color: var(--soft); font-size: 8.5pt; }
+
+  .entry > p + p { margin-top: 0.6mm; }
+
+  ul { margin: 1.2mm 0 0; padding: 0 0 0 3.6mm; }
+  li { margin-bottom: 0.5mm; }
+  li:last-child { margin-bottom: 0; }
+  li::marker { color: var(--accent); }
+
+  .lead { max-width: 176mm; }
+
+  .skills p { margin-bottom: 1.15mm; }
+  .skills p:last-child { margin-bottom: 0; }
+  .skills b { font-weight: 600; }
+
+  .link { color: var(--accent-ink); border-bottom: 0.4pt solid #ffc4a8; }
+
+  .note { color: var(--soft); }
+
+  .grid-2 {
+    display: flex;
+    gap: 12mm;
+  }
+
+  .grid-2 > div { flex: 1; }
+
+  .two { margin-top: 3.1mm; display: flex; gap: 10mm; }
+  .two section { flex: 1; margin-top: 0; }
+
+  .two section + section { flex: 0 0 58mm; }
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="head__top">
+    <p class="avail">Stage 2 à 4 mois · avril 2027 &nbsp;—&nbsp; Alternance · septembre 2027</p>
+    <p class="stamp">CV 2027</p>
+  </div>
+
+  <h1>Hani Wanice</h1>
+  <p class="role">développeur <em>full-stack</em></p>
+
+  <div class="contact">
+    <p>
+      <span><a href="mailto:haniwanice@gmail.com">haniwanice@gmail.com</a></span>
+      <span><a href="tel:+33783636058">07 83 63 60 58</a></span>
+      <span>24 ans · Paris-Est · Île-de-France</span>
+    </p>
+    <p>
+      <span><a href="https://www.linkedin.com/in/aniwanis">linkedin.com/in/aniwanis</a></span>
+      <span><a href="https://github.com/HaniWanice">github.com/HaniWanice</a></span>
+      <span><a href="https://haniwanice.com">haniwanice.com</a></span>
+    </p>
+  </div>
+</header>
+
+<section>
+  <h2><b>01</b> Profil</h2>
+  <p class="lead">
+    Troisième année de licence informatique à l’université Paris-Est. Pendant deux mois, j’ai relié les deux logiciels de support de l’université, qui s’ignoraient : un ticket ouvert côté étudiants arrive côté personnel, statut synchronisé, sans que les deux bases de données ne se mélangent. 40 000 comptes étudiants concernés. Je cherche un stage de 2 à 4 mois dès avril 2027, puis une alternance en développement web en septembre 2027.
+  </p>
+</section>
+
+<section>
+  <h2><b>02</b> Expérience professionnelle</h2>
+  <article class="entry">
+    <h3><span class="when">2026 · 2 mois</span>Stagiaire développeur full-stack</h3>
+    <p class="org">Direction des systèmes d’information — Université Paris-Est</p>
+    <ul>
+      <li>Conçu un pont entre deux installations GLPI isolées, sans fusion des bases ni exposition des données du personnel.</li>
+      <li>Écrit l’orchestrateur en Next.js (App Router, Server Actions) : ticket miroir côté DSI, identifiant d’origine conservé, statut synchronisé des deux côtés.</li>
+      <li>Comparé trois approches avant de coder (entités partagées, transfert natif, webhooks), puis contourné les limites de l’API GLPI : webhooks incomplets, réponses 200 sans effet.</li>
+      <li>Conteneurisé la pile avec Docker Compose (GLPI, MariaDB) et validé le scénario de bout en bout avec le tuteur.</li>
+      <li>Documenté les endpoints utilisés et présenté le prototype à l’équipe support, qui s’en est servi de base pour la recette.</li>
+    </ul>
+  </article>
+</section>
+
+<section>
+  <h2><b>03</b> Formation</h2>
+  <article class="entry">
+    <h3><span class="when">2023 — 2027</span>Licence informatique</h3>
+    <p class="org">Université Paris-Est · 3e année en cours</p>
+    <p>Algorithmique, bases de données et SQL, développement web, réseaux et systèmes.</p>
+  </article>
+  <article class="entry">
+    <h3><span class="when">2024</span>Certification Responsive Web Design</h3>
+    <p class="org">freeCodeCamp · 40 heures</p>
+    <p>HTML, CSS, mise en page mobile-first et accessibilité.</p>
+  </article>
+</section>
+
+<section>
+  <h2><b>04</b> Projets</h2>
+
+  <article class="entry">
+    <h3><span class="when">2026</span>Todo Smart <span class="note">— application de tâches, React et Firebase</span></h3>
+    <p>Synchronisation Firestore en temps réel, glisser-déposer, filtres et tri, tri couvert par des tests. <a class="link" href="https://haniwanice.github.io/todo-smart/">démo</a> · <a class="link" href="https://github.com/HaniWanice/todo-smart">code</a></p>
+  </article>
+
+  <article class="entry">
+    <h3><span class="when">2026</span>Portail Paris-Est <span class="note">— refonte d’interface, HTML et CSS</span></h3>
+    <p>Page d’accueil du portail d’applications du personnel repensée par usage et pour le mobile. <a class="link" href="https://github.com/HaniWanice/Protail-design-upec">code</a></p>
+  </article>
+
+  <article class="entry">
+    <h3><span class="when">2025</span>Compagnie aérienne <span class="note">— application web, Laravel et SQLite</span></h3>
+    <p>Gestion complète des utilisateurs en CRUD, base SQLite, interface HTML et CSS faite main.</p>
+  </article>
+
+  <article class="entry">
+    <h3><span class="when">2025</span>Keewic <span class="note">— design d’application mobile, Figma</span></h3>
+    <p>Pitchs et maquettes d’une application mobile, remis à un développeur freelance pour la mise en ligne.</p>
+  </article>
+</section>
+
+<section class="skills">
+  <h2><b>05</b> Compétences</h2>
+  <p><b>Front-end :</b> React, Next.js (App Router, Server Actions), TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, responsive design.</p>
+  <p><b>Back-end et données :</b> PHP, Laravel, Node.js, SQL (PostgreSQL, MySQL, SQLite), API REST, CRUD, authentification.</p>
+  <p><b>Outils :</b> Git, GitHub, Docker, Docker Compose, Linux, Figma, Visual Studio Code.</p>
+</section>
+
+<div class="two">
+  <section>
+    <h2><b>06</b> Langues</h2>
+    <p><b>Français :</b> langue maternelle · <b>Anglais :</b> courant, documentation technique et échanges écrits sans difficulté · <b>Espagnol :</b> intermédiaire (B2).</p>
+  </section>
+  <section>
+    <h2><b>07</b> Intérêts</h2>
+    <p>Piano depuis huit ans, violon et composition · natation et vélo · voyages en Europe · bénévole au refuge canin Booglaw.</p>
+  </section>
+</div>
+
+</body>
+</html>

@@ -15,7 +15,7 @@ export function Hero() {
         <div className="hero__lead">
           <p className="eyebrow">
             <span className="eyebrow__dot" aria-hidden="true" />
-            Disponible pour un stage de 2 à 4 mois, dès avril 2027
+            Stage 2 à 4 mois dès avril 2027 · alternance dès septembre 2027
           </p>
 
           <h1 className="hero__title" id="hero-title">
@@ -37,25 +37,33 @@ export function Hero() {
             </span>
           </h1>
 
+          <p className="hero__meta">
+            <span>
+              Hani Wanice · {site.age} ans
+            </span>
+            <span>L3 informatique · université Paris-Est</span>
+          </p>
+
           <p className="hero__text">
-            Étudiant en L3 informatique à l&apos;université Paris-Est. Pendant
-            deux mois, j&apos;ai relié deux GLPI isolés pour la DSI : un ticket
-            miroir, un statut synchronisé, 40&nbsp;000 comptes étudiants d&apos;un
-            côté et aucune donnée du personnel de l&apos;autre.
+            Deux mois dans le service informatique de mon université, à faire
+            dialoguer deux outils qui s&apos;ignoraient : 40&nbsp;000 étudiants
+            d&apos;un côté, le personnel de l&apos;autre. Les tickets passent
+            maintenant de l&apos;un à l&apos;autre, sans qu&apos;aucune donnée ne
+            fuite.
           </p>
 
           <div className="hero__actions">
             <a
-              className="btn btn--ink"
+              className="btn btn--accent"
               href={site.cv}
               target="_blank"
               rel="noreferrer"
             >
-              Télécharger le CV
+              Télécharger mon CV
               <span className="btn__meta">PDF</span>
             </a>
             <a className="btn btn--line" href="#projets">
-              Voir les projets
+              Voir mes projets
               <span className="btn__down" aria-hidden="true">
                 ↓
               </span>
@@ -115,6 +123,10 @@ export function Hero() {
             <p>
               <span className="search__key">Zone</span>
               Paris-Est et Île-de-France
+            </p>
+            <p>
+              <span className="search__key">Langues</span>
+              Français · anglais courant · espagnol
             </p>
           </div>
 
