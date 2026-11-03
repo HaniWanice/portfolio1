@@ -51,7 +51,8 @@ export function GlpiSim() {
   }, [log, reduce]);
 
   const write = useCallback(async (t: string, kind?: Line["kind"], wait = 260) => {
-    setLog((l) => [...l, { id: seq.current++, t, kind }]);
+    // La ligne d'accueil disparaît dès la première action.
+    setLog((l) => [...l.filter((x) => x.id !== 0), { id: seq.current++, t, kind }]);
     await sleep(reduce ? 40 : wait);
   }, [reduce]);
 
@@ -69,9 +70,11 @@ export function GlpiSim() {
       await write("POST etu/initSession   → 200, session ouverte");
       await write("POST dsi/initSession   → 200, session ouverte");
       await write(`GET  dsi/search/Ticket?name=[ESCALADE ETU - ID:${t.id}]`);
-      const exists = dsi.some((d) => d.ref === t.id);
-      if (exists) {
-        await write("     → déjà présent : rien à créer (anti-doublon)", "warn");
+      const existing = dsi.find((d) => d.ref === t.id);
+      if (existing) {
+        await write(`     → déjà présent (#${existing.id}) : rien à créer (anti-doublon)`, "warn");
+        if (existing.status === "resolu")
+          await write("     limite du prototype : une relance sur un ticket résolu ne le rouvre pas", "warn");
         return;
       }
       await write("     → aucun résultat, on peut créer");
@@ -130,7 +133,7 @@ export function GlpiSim() {
         <p>Essayez : transmettez un ticket, résolvez-le côté DSI, puis transmettez-le une deuxième fois.</p>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           <button className="sim-btn ghost" onClick={() => setBroken((b) => !b)} aria-pressed={broken} disabled={busy}>
-            {broken ? "API DSI en panne" : "Simuler une panne"}
+            {broken ? "Panne active · réparer" : "Simuler une panne de l'API DSI"}
           </button>
           <button className="sim-btn ghost" onClick={reset} disabled={busy} aria-label="Remettre la simulation à zéro">
             <Refresh className="" />
@@ -140,9 +143,9 @@ export function GlpiSim() {
 
       <div className="sim-body">
         <div className="sim-col">
-          <h4>
+          <h3 className="sim-h">
             <b>GLPI étudiant</b> base MariaDB n°1
-          </h4>
+          </h3>
           <AnimatePresence initial={false}>
             {etu.map((t) => (
               <motion.article key={t.id} layout className="ticket" data-hl={t.status === "escalade"}>
@@ -178,10 +181,10 @@ export function GlpiSim() {
         </div>
 
         <div className="sim-col">
-          <h4>
+          <h3 className="sim-h">
             <b>GLPI DSI</b> base MariaDB n°2
-          </h4>
-          {dsi.length === 0 && <p className="sim-empty">Aucun ticket étudiant n&apos;est arrivé ici. C&apos;est voulu.</p>}
+          </h3>
+          {dsi.length === 0 && <p className="sim-empty">Aucun ticket étudiant n&apos;est encore arrivé ici.</p>}
           <AnimatePresence initial={false}>
             {dsi.map((d) => (
               <motion.article
@@ -214,6 +217,10 @@ export function GlpiSim() {
           </div>
         ))}
       </div>
+      <p className="sim-foot">
+        Limites du prototype, visibles ici aussi : si un technicien renomme le ticket DSI, la balise disparaît et le lien
+        est perdu ; si le second appel échoue après le premier, rien n&apos;annule le ticket déjà créé.
+      </p>
     </div>
   );
 }

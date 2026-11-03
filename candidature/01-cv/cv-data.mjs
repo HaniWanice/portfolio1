@@ -20,7 +20,7 @@ const stage = {
   lead:
     "Seul développeur sur le sujet, encadré par un ingénieur de la DSI. Objectif : permettre aux étudiants d'écrire au support sans leur donner accès au GLPI du personnel.",
   points: [
-    "Prototype complet : deux GLPI isolés (une base MariaDB chacun, sous Docker Compose) et une application Next.js / TypeScript qui écrit dans les deux via l'API REST, dans la même action.",
+    "Prototype fonctionnel : deux GLPI isolés (une base MariaDB chacun, sous Docker Compose) et une application Next.js / TypeScript qui écrit dans les deux via l'API REST, dans la même action.",
     "Escalade d'un ticket en un clic, puis retour des statuts et des réponses de la DSI vers l'étudiant. Coupe-circuit contre les boucles, détection des faux « 200 OK » de GLPI, sessions API fermées même en cas d'erreur.",
     "Webhooks et transfert natif testés puis écartés, raisons à l'appui. Prototype validé par le tuteur sur un scénario de bout en bout, et rapport de 37 pages qui détaille aussi ses limites.",
   ],
@@ -46,7 +46,7 @@ const projetsCommuns = [
     url: SITE + "/labo",
     when: "2026",
     text:
-      "La même page produit codée deux fois en Next.js, une version naïve et une version optimisée. Lighthouse mobile : score 53 → 98, affichage principal 15,1 s → 2,4 s, poids 4,2 Mo → 227 ko. Les deux se mesurent aussi en direct sur le site.",
+      "Une page produit codée deux fois en Next.js : d'abord avec les erreurs courantes (tout côté client, images brutes, requêtes en cascade), puis optimisée. Lighthouse mobile : score 57 → 97, poids 4,2 Mo → 219 ko.",
   },
   {
     name: "Todo Smart",
@@ -115,6 +115,16 @@ const base = {
   photo: true,
 };
 
+// Variante grand public de la puce technique du stage (CV classique) : même fait, moins de jargon.
+const stageClassique = {
+  ...stage,
+  points: [
+    stage.points[0],
+    "Envoi d'un ticket à la DSI en un clic, et retour des statuts et des réponses vers l'étudiant. Gestion des doublons, des boucles de synchronisation et des pannes de l'API.",
+    stage.points[2],
+  ],
+};
+
 export const variants = {
   methode: {
     ...base,
@@ -124,7 +134,7 @@ export const variants = {
     methode: {
       title: "Comment je travaille",
       text: [
-        "Je développe avec Claude Code, configuré pour chaque projet (règles, skills, sous-agents de relecture). Je découpe en petites étapes, je relis chaque diff et je teste avant de committer. Les règles que je donne à l'agent sont publiques dans le dépôt de mon site.",
+        "Je développe avec Claude Code, configuré pour chaque projet (règles, skills, sous-agents de relecture). Petites étapes, relecture de chaque diff, tests de bout en bout avec Playwright. Le fichier de règles de mon site est public sur GitHub.",
         "Données sensibles : modèles en local (Ollama, LM Studio). Pour le reste, je m'aligne sur les règles de l'équipe.",
       ],
     },
@@ -133,6 +143,7 @@ export const variants = {
     ...base,
     file: "cv-hani-wanice-classique",
     label: "CV « Classique » (sans mention de l'IA)",
+    experiences: [stageClassique, keewic],
     projets: [...projetsCommuns, projetUniv],
     methode: null,
   },
@@ -140,6 +151,7 @@ export const variants = {
     ...base,
     file: "cv-hani-wanice-classique-sans-photo",
     label: "CV « Classique », sans photo (recruteurs traditionnels)",
+    experiences: [stageClassique, keewic],
     projets: [...projetsCommuns, projetUniv],
     methode: null,
     photo: false,

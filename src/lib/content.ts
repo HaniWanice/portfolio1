@@ -70,7 +70,7 @@ export const story: Step[] = [
     when: "Mai 2026",
     title: "Deux mois dans une DSI",
     text:
-      "Un vrai problème, des vraies contraintes, un tuteur exigeant. Le chapitre suivant raconte comment ça s'est passé.",
+      "Huit semaines sur un sujet de la DSI, avec un ingénieur qui validait chaque étape. Le détail est juste en dessous.",
     tag: "Next.js · Docker · GLPI",
   },
   {
@@ -87,7 +87,7 @@ export const stage = {
   when: "4 mai au 1er juillet 2026",
   intro: [
     "La DSI gère ses demandes de support dans GLPI. Les étudiants, jusqu'à 40 000 personnes, avaient aussi besoin d'écrire au support. Mais pas question de leur ouvrir l'instance interne, avec les tickets du personnel dedans.",
-    "Mon travail : trouver comment faire passer une demande d'un monde à l'autre, sans que les deux bases ne se touchent.",
+    "Mon travail : trouver comment faire passer une demande d'un monde à l'autre, sans que les deux bases se touchent.",
   ],
   rejected: [
     {
@@ -96,7 +96,7 @@ export const stage = {
     },
     {
       name: "Les webhooks",
-      why: "Asynchrone, élégant sur le papier. En pratique, il fallait gérer les échecs, les doublons, l'ordre des messages, pour un volume qui ne le justifiait pas.",
+      why: "J'ai commencé par là. Le 2 juin, en testant le ticket n°27, j'ai compris que GLPI ne déclenche pas ses webhooks quand la modification vient de l'API. La moitié du flux ne pouvait pas marcher.",
     },
     {
       name: "La synchronisation automatique",
@@ -106,9 +106,10 @@ export const stage = {
   built: [
     "Deux instances GLPI isolées, chacune avec sa base MariaDB, sous Docker Compose.",
     "Une application Next.js qui parle aux deux via l'API REST, avec des Server Actions côté serveur.",
-    "Une escalade en un clic : ticket miroir côté DSI, statut mis à jour côté étudiant, lien gardé par une balise dans le titre.",
+    "Une escalade en un clic : ticket miroir côté DSI, statut mis à jour côté étudiant. Le lien passe par une balise dans le titre, parce que le champ external_id prévu pour ça n'est pas interrogeable par l'API de recherche.",
+    "Un anti-doublon, après une démo où chaque modification d'un ticket étudiant en recréait un côté DSI.",
     "Le chemin retour, ajouté par mon tuteur en pleine démo du 22 mai, au moment où je pensais avoir fini.",
-    "Un garde-fou anti-boucle, et l'ouverture et la fermeture systématiques des sessions API pour ne pas saturer GLPI.",
+    "Un coupe-circuit contre les boucles de synchronisation, et des sessions API fermées dans un finally, après avoir saturé GLPI de sessions fantômes.",
   ],
   limits:
     "Ce que le prototype ne prouve pas : la tenue à 40 000 utilisateurs, l'authentification centralisée, les pièces jointes. Je l'ai écrit noir sur blanc dans mon rapport de 37 pages, parce que la personne qui reprendra le projet doit le savoir avant moi.",
@@ -134,7 +135,7 @@ export const projects: Project[] = [
     name: "Labo perf",
     kind: "Démo · performance web",
     year: "2026",
-    text: "La même page Next.js écrite deux fois : comme on la croise souvent, puis optimisée. Les mesures sont prises en direct dans votre navigateur.",
+    text: "La même page Next.js écrite deux fois : une version qui accumule les erreurs courantes, puis une version optimisée. Lighthouse mobile : 57 contre 97.",
     stack: "Next.js · Web Vitals · next/image",
     image: "/images/labo.jpg",
     href: "/labo",
@@ -182,7 +183,7 @@ export const projects: Project[] = [
 export const methode = {
   title: "Comment je travaille",
   intro:
-    "Je code avec des agents IA, surtout Claude Code. Je préfère le dire clairement, et expliquer ce que ça veut dire chez moi.",
+    "Je code souvent avec un agent IA, Claude Code. Voici comment, et avec quelles limites.",
   steps: [
     {
       t: "Cadrer",
@@ -198,7 +199,7 @@ export const methode = {
     },
     {
       t: "Vérifier",
-      d: "Lancer, tester, mesurer. Un sous-agent relit le code avec une grille différente de la mienne, ce qui attrape ce que je ne vois plus.",
+      d: "Lancer, mesurer, tester. Ce site a des tests de bout en bout (Playwright) qui rejouent le simulateur et le labo. Un sous-agent relit aussi chaque diff avec une grille différente de la mienne.",
     },
     {
       t: "Documenter",
@@ -206,12 +207,22 @@ export const methode = {
     },
   ],
   guardrails: [
-    "Rien de confidentiel dans un service en ligne. Pour ce qui est sensible, j'utilise des modèles qui tournent en local (Ollama, LM Studio).",
-    "Pas de secret, de clé ou de donnée personnelle dans un prompt.",
     "Les règles de l'équipe passent avant mes habitudes. Si vous travaillez sans IA, je travaille sans IA.",
+    "Rien de confidentiel dans un service en ligne. Pour ce qui est sensible, j'utilise des modèles qui tournent en local (Ollama, LM Studio).",
+    "Pas de secret, de clé ou de donnée personnelle dans un prompt. Le code de mon stage n'est pas public et ne l'a jamais été.",
   ],
   outro:
-    "Ce site a été construit comme ça. Le code est sur GitHub, avec l'historique des commits : vous pouvez regarder comment il a été fait.",
+    "Ce site a été construit comme ça. Le code, l'historique des commits et le fichier de règles que l'agent lit à chaque session sont sur GitHub.",
+};
+
+export const notYet = {
+  title: "Ce que je ne sais pas encore faire",
+  intro: "C'est en partie pour ça que je cherche un stage plutôt qu'une mission en freelance.",
+  items: [
+    "Travailler à plusieurs sur le même dépôt, avec des revues de code régulières. Jusqu'ici, j'ai surtout codé seul, avec un tuteur qui validait.",
+    "Écrire des tests unitaires sur une vraie base de code, avec une intégration continue qui bloque ce qui casse.",
+    "Mettre en production quelque chose dont des milliers de personnes se servent, puis le surveiller. Mon prototype de stage n'a jamais dépassé l'environnement de test.",
+  ],
 };
 
 export const outside = [

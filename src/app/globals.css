@@ -632,14 +632,14 @@ html {
   flex-direction: column;
   gap: 12px;
 }
-.sim-col h4 {
+.sim-col .sim-h {
   display: flex;
   align-items: center;
   justify-content: space-between;
   font: 400 0.8125rem/1.4 var(--mono);
   color: var(--night-muted);
 }
-.sim-col h4 b {
+.sim-col .sim-h b {
   font-weight: 400;
   color: var(--paper);
 }
@@ -1300,4 +1300,90 @@ html {
   .prow .code {
     margin-left: calc(90px + 64px + (100% - 90px - 24px - 96px) * 1.1 / 2.1);
   }
+}
+
+/* Entrée du hero, en CSS pur (pas de dépendance au JavaScript) */
+.in-rise,
+.in-fade,
+.in-reveal {
+  animation-duration: 1s;
+  animation-timing-function: var(--ease);
+  animation-fill-mode: both;
+  animation-delay: var(--d, 0ms);
+}
+.hero h1 .line > .in-rise {
+  animation-name: rise;
+}
+.in-fade {
+  animation-name: fade-up;
+  animation-duration: 0.9s;
+}
+.in-reveal {
+  animation: none;
+}
+.in-reveal img {
+  animation: settle 1.8s var(--ease) both;
+}
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes reveal-up {
+  from {
+    clip-path: inset(100% 0 0 0 round 20px);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 20px);
+  }
+}
+@keyframes settle {
+  from {
+    transform: scale(1.08);
+    filter: saturate(0.6);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .in-rise,
+  .in-fade,
+  .in-reveal,
+  .in-reveal img {
+    animation: none;
+  }
+}
+
+.sim-foot {
+  padding: 12px 20px 16px;
+  border-top: 1px solid var(--night-line);
+  font-size: 0.875rem;
+  color: var(--night-muted);
+}
+
+/* Ce que je ne sais pas encore faire : une note en marge, pas un argument */
+.notyet {
+  max-width: 760px;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: 20px;
+  background: var(--paper-2);
+}
+.notyet h2 {
+  font: 400 clamp(1.7rem, 3.2vw, 2.4rem) / 1.1 var(--serif);
+}
+.notyet > p {
+  margin-top: 10px;
+}
+.notyet ul {
+  margin-top: 18px;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 10px;
+}
+.notyet li::marker {
+  color: var(--accent);
 }
