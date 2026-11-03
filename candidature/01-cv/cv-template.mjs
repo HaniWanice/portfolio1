@@ -4,6 +4,8 @@
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+const sup = (s) => s.replace(/\b1er\b/g, "1<sup>er</sup>");
+
 const link = (url, label = url) =>
   `<a href="https://${url}">${esc(label)}</a>`;
 
@@ -14,7 +16,7 @@ export function renderCV(v, c) {
     <article class="item">
       <header>
         <h3>${esc(e.role)}</h3>
-        <p class="when">${esc(e.when)}${e.length ? ` <span>(${esc(e.length)})</span>` : ""}</p>
+        <p class="when">${sup(esc(e.when))}${e.length ? ` <span>(${esc(e.length)})</span>` : ""}</p>
       </header>
       <p class="org">${esc(e.org)}</p>
       ${e.lead ? `<p class="lead">${esc(e.lead)}</p>` : ""}
@@ -100,7 +102,8 @@ h3{font-weight:600;font-size:9.3pt;line-height:1.3}
 .lead{margin-top:1.2mm;font-style:normal;color:var(--ink)}
 ul{margin-top:1.2mm;list-style:none}
 li{position:relative;padding-left:3.4mm;margin-top:.9mm;color:#2c2b31}
-li::before{content:"";position:absolute;left:.3mm;top:2.05mm;width:1.5mm;height:.3mm;background:var(--accent)}
+li::before{content:"";position:absolute;left:.3mm;top:2mm;width:1.6mm;height:.4mm;background:var(--accent)}
+sup{font-size:.7em;line-height:0}
 .stack{margin-top:1.4mm;font:400 7.2pt/1.4 "Mono",monospace;color:var(--soft)}
 .proj+.proj{margin-top:2.6mm}
 .proj p{margin-top:.6mm;color:#2c2b31}

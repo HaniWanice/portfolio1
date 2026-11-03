@@ -2,21 +2,21 @@
   "date": "3 novembre 2026",
   "tool": "Lighthouse 12.8",
   "naive": {
-    "score": 53,
-    "lcp": 15141,
-    "fcp": 764,
-    "tbt": 778,
-    "cls": 0.017,
-    "si": 1071,
-    "bytes": 4171416
+    "score": 57,
+    "lcp": 16529,
+    "fcp": 767,
+    "tbt": 584,
+    "cls": 0.111,
+    "si": 767,
+    "bytes": 4171364
   },
   "optim": {
-    "score": 98,
-    "lcp": 2372,
-    "fcp": 768,
-    "tbt": 59,
+    "score": 97,
+    "lcp": 2396,
+    "fcp": 767,
+    "tbt": 84,
     "cls": 0,
-    "si": 768,
-    "bytes": 226731
+    "si": 767,
+    "bytes": 219102
   }
 }

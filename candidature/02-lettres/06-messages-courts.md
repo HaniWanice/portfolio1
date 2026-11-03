@@ -4,7 +4,7 @@ cible: E-mail d'accompagnement, message LinkedIn, relance
 ---
 E-MAIL D'ACCOMPAGNEMENT (CV + lettre en pièces jointes)
 
-Objet : Stage développeur full-stack, avril 2027, Hani Wanice
+Objet : Stage développeur web, avril 2027, Hani Wanice
 
 Bonjour [Prénom],
 

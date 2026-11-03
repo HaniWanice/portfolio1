@@ -120,6 +120,8 @@ Sources : CV 2026 V2, rapport de stage DSI (PDF + HTML), profil LinkedIn export�
 | Mini-jeu JavaScript (universitaire) | Événements, timers, conditions de victoire. | — |
 | Profil card (2025) | Composant HTML/CSS sans dépendance. | haniwanice.github.io/profil-card |
 | Portfolio haniwanice.com (2026) | Refait de zéro en novembre 2026, Next.js + démos interactives. | haniwanice.com |
+| Labo perf (mesures) | Lighthouse 12.8 mobile, médiane de 3, serveur local, 3/11/2026 : naïf 57 (LCP 16,5 s, 4,2 Mo), optimisé 97 (LCP 2,4 s, 219 ko). Aucune latence artificielle dans la version naïve ; seul le calcul lourd est un exemple volontaire. | haniwanice.com/labo |
+| Tests du portfolio | 6 tests de bout en bout Playwright (`npm test`) : accueil, sans JS, simulateur, labo, mobile. | dépôt |
 | Démos du portfolio (2026) | Labo perf « même stack, deux résultats », simulateur du pont GLPI, etc. Construites avec Claude Code, à comprendre et à savoir expliquer **avant** de les citer en entretien. | haniwanice.com/labo |
 
 ## Compétences (niveau honnête)
@@ -149,3 +151,8 @@ Sources : CV 2026 V2, rapport de stage DSI (PDF + HTML), profil LinkedIn export�
 
 Statut de réfugié, arrivée en France à 11 ans, TDAH / RQTH éventuelle, suivi thérapeutique,
 art-thérapie (Centre Sainte-Anne), montant et statut fiscal de la mission Keewic, redoublements en détail.
+
+## Décisions ajoutées au round 3
+- Le code du stage n'est pas public (propriété de l'UPEC) : on le dit, on ne le montre pas.
+- Slogan « pourquoi elles tiennent debout » abandonné partout (jugé « slogan » par le panel) au profit de
+  « de l'interface à la base de données ».

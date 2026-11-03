@@ -75,7 +75,7 @@ export default function Labo() {
           {n && o ? (
             <>
               <p className="muted" style={{ marginBottom: 16 }}>
-                {lh.tool}, profil mobile (CPU ralenti ×4, réseau 4G lent simulé), {lh.date}. Médiane de 3 passages.
+                {lh.tool}, profil mobile (CPU ralenti ×4, réseau 4G lent simulé), {lh.date}. Médiane de 3 passages, sur un serveur local.
               </p>
               <table className="lab-table">
                 <thead>
@@ -101,10 +101,17 @@ export default function Labo() {
           )}
           <h2 style={{ marginTop: 40 }}>Les limites de cette démo</h2>
           <p className="muted">
-            La latence de l&apos;API naïve est simulée (700 ms puis 450 ms), comme un back-end un peu lent. Le calcul
-            lourd est un exemple, choisi pour qu&apos;on le sente. Les deux pages partagent votre navigateur et votre
-            connexion, donc les chiffres en direct varient d&apos;un chargement à l&apos;autre, et le deuxième
-            chargement profite du cache. C&apos;est pour ça qu&apos;il y a aussi la mesure de laboratoire, plus stable.
+            La version naïve n&apos;est pas ralentie artificiellement : son API répond aussi vite que le serveur le permet.
+            Le calcul lourd, en revanche, est un exemple choisi pour qu&apos;on le sente. Les mesures en direct dépendent de
+            votre machine et de votre connexion, et le deuxième chargement profite du cache. D&apos;où la mesure de
+            laboratoire, plus stable.
+          </p>
+          <h2 style={{ marginTop: 40 }}>Une erreur de mesure, corrigée</h2>
+          <p className="muted">
+            Dans la première version de ce labo, les deux pages se chargeaient en même temps et affichaient exactement le
+            même temps de blocage. Deux iframes de la même origine partagent le fil principal de la page qui les contient :
+            quand la version naïve calculait, la version optimisée était bloquée avec elle, et la sonde comptait le blocage
+            des deux côtés. Les pages se chargent maintenant l&apos;une après l&apos;autre.
           </p>
         </div>
       </div>

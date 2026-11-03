@@ -7,7 +7,7 @@ import { Projects } from "@/components/Projects";
 import { Figure } from "@/components/Figure";
 import { RevealObserver } from "@/components/RevealObserver";
 import { ArrowRight, Key, Shield, Users } from "@/components/Icons";
-import { methode, outside, site, stage } from "@/lib/content";
+import { methode, notYet, outside, site, stage } from "@/lib/content";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
       <section id="parcours" className="chapter wrap" aria-labelledby="t-parcours">
         <header className="chapter-head reveal">
           <h2 id="t-parcours">D&apos;une page HTML bancale à un vrai sujet de DSI</h2>
-          <p>Le chemin, en six étapes. Il n&apos;est pas en ligne droite, et c&apos;est très bien comme ça.</p>
+          <p>Du premier site à aujourd&apos;hui, en six étapes.</p>
         </header>
         <Story />
       </section>
@@ -92,9 +92,9 @@ export default function Home() {
               Labo : une page, deux versions
             </h2>
             <p>
-              La même page produit, codée deux fois avec Next.js. D&apos;un côté, des habitudes qu&apos;on croise souvent ;
-              de l&apos;autre, la version optimisée. Les deux tournent côte à côte, et les mesures sont prises en direct dans
-              votre navigateur.
+              La même page produit, codée deux fois avec Next.js : une version qui accumule les erreurs courantes, et une
+              version optimisée. Sur Lighthouse mobile, 57 contre 97, et 4,2 Mo contre 219 ko. Les deux tournent aussi
+              côte à côte, mesurées en direct dans votre navigateur.
             </p>
             <Link className="btn btn-ink" href="/labo">
               Ouvrir le labo
@@ -139,12 +139,28 @@ export default function Home() {
             </ul>
             <p className="muted" style={{ marginTop: 22 }}>
               {methode.outro}{" "}
-              <a href="https://github.com/HaniWanice/portfolio1" target="_blank" rel="noreferrer">
+              <a href="https://github.com/haniwanice/portfolio1" target="_blank" rel="noreferrer">
                 Voir le dépôt
+              </a>{" "}
+              et{" "}
+              <a href="https://github.com/haniwanice/portfolio1/blob/main/CLAUDE.md" target="_blank" rel="noreferrer">
+                les règles de l&apos;agent
               </a>
               .
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="chapter wrap" aria-labelledby="t-notyet" style={{ paddingTop: 0 }}>
+        <div className="notyet reveal">
+          <h2 id="t-notyet">{notYet.title}</h2>
+          <p className="muted">{notYet.intro}</p>
+          <ul>
+            {notYet.items.map((it) => (
+              <li key={it}>{it}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -164,9 +180,9 @@ export default function Home() {
 
       <footer id="contact" className="contact" aria-labelledby="t-contact">
         <div className="wrap">
-          <h2 id="t-contact">On en parle autour d&apos;un café ?</h2>
+          <h2 id="t-contact">Me contacter</h2>
           <p className="lead">
-            Un stage de 2 à 5 mois, d&apos;avril à fin août 2027, à Paris ou ailleurs en Île-de-France. Le plus simple, c&apos;est un e-mail.
+            Un stage de 2 à 5 mois, d&apos;avril à fin août 2027, à Paris ou ailleurs en Île-de-France.
           </p>
           <a className="mail" href={`mailto:${site.email}`}>
             {site.email}

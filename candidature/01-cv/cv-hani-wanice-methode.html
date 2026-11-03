@@ -39,7 +39,8 @@ h3{font-weight:600;font-size:9.3pt;line-height:1.3}
 .lead{margin-top:1.2mm;font-style:normal;color:var(--ink)}
 ul{margin-top:1.2mm;list-style:none}
 li{position:relative;padding-left:3.4mm;margin-top:.9mm;color:#2c2b31}
-li::before{content:"";position:absolute;left:.3mm;top:2.05mm;width:1.5mm;height:.3mm;background:var(--accent)}
+li::before{content:"";position:absolute;left:.3mm;top:2mm;width:1.6mm;height:.4mm;background:var(--accent)}
+sup{font-size:.7em;line-height:0}
 .stack{margin-top:1.4mm;font:400 7.2pt/1.4 "Mono",monospace;color:var(--soft)}
 .proj+.proj{margin-top:2.6mm}
 .proj p{margin-top:.6mm;color:#2c2b31}
@@ -91,11 +92,11 @@ dd{color:#2c2b31}
     <article class="item">
       <header>
         <h3>Stagiaire développeur</h3>
-        <p class="when">4 mai – 1er juil. 2026 <span>(8 semaines)</span></p>
+        <p class="when">4 mai – 1<sup>er</sup> juil. 2026 <span>(8 semaines)</span></p>
       </header>
       <p class="org">Direction des systèmes d'information, Université Paris-Est Créteil</p>
       <p class="lead">Seul développeur sur le sujet, encadré par un ingénieur de la DSI. Objectif : permettre aux étudiants d'écrire au support sans leur donner accès au GLPI du personnel.</p>
-      <ul><li>Prototype complet : deux GLPI isolés (une base MariaDB chacun, sous Docker Compose) et une application Next.js / TypeScript qui écrit dans les deux via l'API REST, dans la même action.</li><li>Escalade d'un ticket en un clic, puis retour des statuts et des réponses de la DSI vers l'étudiant. Coupe-circuit contre les boucles, détection des faux « 200 OK » de GLPI, sessions API fermées même en cas d'erreur.</li><li>Webhooks et transfert natif testés puis écartés, raisons à l'appui. Prototype validé par le tuteur sur un scénario de bout en bout, et rapport de 37 pages qui détaille aussi ses limites.</li></ul>
+      <ul><li>Prototype fonctionnel : deux GLPI isolés (une base MariaDB chacun, sous Docker Compose) et une application Next.js / TypeScript qui écrit dans les deux via l'API REST, dans la même action.</li><li>Escalade d'un ticket en un clic, puis retour des statuts et des réponses de la DSI vers l'étudiant. Coupe-circuit contre les boucles, détection des faux « 200 OK » de GLPI, sessions API fermées même en cas d'erreur.</li><li>Webhooks et transfert natif testés puis écartés, raisons à l'appui. Prototype validé par le tuteur sur un scénario de bout en bout, et rapport de 37 pages qui détaille aussi ses limites.</li></ul>
       <p class="stack">Next.js · TypeScript · API REST · Docker Compose · MariaDB · GLPI</p>
     </article>
     <article class="item">
@@ -117,7 +118,7 @@ dd{color:#2c2b31}
         <h3>Labo perf : une page, deux versions</h3>
         <p class="when">2026</p>
       </header>
-      <p>La même page produit codée deux fois en Next.js, une version naïve et une version optimisée. Lighthouse mobile : score 53 → 98, affichage principal 15,1 s → 2,4 s, poids 4,2 Mo → 227 ko. Les deux se mesurent aussi en direct sur le site. <span class="url"><a href="https://haniwanice.com/labo">→ haniwanice.com/labo</a></span></p>
+      <p>Une page produit codée deux fois en Next.js : d'abord avec les erreurs courantes (tout côté client, images brutes, requêtes en cascade), puis optimisée. Lighthouse mobile : score 57 → 97, poids 4,2 Mo → 219 ko. <span class="url"><a href="https://haniwanice.com/labo">→ haniwanice.com/labo</a></span></p>
     </article>
     <article class="proj">
       <header>
@@ -136,7 +137,7 @@ dd{color:#2c2b31}
       </section>
       <section class="methode">
         <h2>Comment je travaille</h2>
-        <p>Je développe avec Claude Code, configuré pour chaque projet (règles, skills, sous-agents de relecture). Je découpe en petites étapes, je relis chaque diff et je teste avant de committer. Les règles que je donne à l'agent sont publiques dans le dépôt de mon site.</p><p>Données sensibles : modèles en local (Ollama, LM Studio). Pour le reste, je m'aligne sur les règles de l'équipe.</p>
+        <p>Je développe avec Claude Code, configuré pour chaque projet (règles, skills, sous-agents de relecture). Petites étapes, relecture de chaque diff, tests de bout en bout avec Playwright. Le fichier de règles de mon site est public sur GitHub.</p><p>Données sensibles : modèles en local (Ollama, LM Studio). Pour le reste, je m'aligne sur les règles de l'équipe.</p>
       </section>
     </main>
     <aside>
