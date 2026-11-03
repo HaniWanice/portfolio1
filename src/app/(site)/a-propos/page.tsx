@@ -24,7 +24,7 @@ export default function APropos() {
           <p className="lead">{about.lead}</p>
         </div>
         <div className="about-photo" style={{ justifySelf: "end", marginRight: 20 }}>
-          <Image src="/images/hani.jpg" alt="Hani Wanice" width={960} height={1200} sizes="(min-width: 900px) 420px, 90vw" priority />
+          <Image src="/images/hani.jpg" alt="Hani Wanice" width={960} height={1200} sizes="(min-width: 900px) 300px, 70vw" priority />
         </div>
       </section>
 

@@ -125,7 +125,7 @@ Ce document est écrit pour Hani et pour un agent (Claude Code ou autre) qui aur
 <p>Choisir <strong>A</strong>. B est l'alternative si tu vises surtout les startups.</p>
 <div class="box copy"><button type="button">Copier</button><pre>Étudiant en L3 Informatique · Développement web Next.js / TypeScript · Stage DSI : deux GLPI reliés sans exposer les données · Je cherche un stage d'avril à août 2027</pre></div>
 <p class="count">A · 172 caractères</p>
-<div class="box copy"><button type="button">Copier</button><pre>Développeur web en formation (L3 Info, UPEC) · Next.js, TypeScript, API, Docker · Labo perf : score Lighthouse 57 → 97 · Stage dès avril 2027</pre></div>
+<div class="box copy"><button type="button">Copier</button><pre>Développeur web en formation (L3 Info, UPEC) · Next.js, TypeScript, API, Docker · Labo perf : score Lighthouse 65 → 97 · Stage dès avril 2027</pre></div>
 <p class="count">B · 145 caractères</p>
 
 <h2 id="infos">5. Infos (à propos)</h2>
@@ -134,7 +134,7 @@ Ce document est écrit pour Hani et pour un agent (Claude Code ou autre) qui aur
 
 Ce stage m'a appris que le code n'est souvent pas la partie difficile. Il a fallu comprendre ce que la DSI avait le droit de faire, écarter deux solutions qui semblaient évidentes (le transfert natif de GLPI, les webhooks), puis livrer un prototype que mon tuteur pouvait tester de bout en bout : deux GLPI isolés sous Docker, une application Next.js / TypeScript entre les deux, et un rapport de 37 pages qui dit aussi ce que le prototype ne sait pas faire.
 
-En dehors des cours, je construis des choses que j'utilise ou que je peux mesurer. Sur haniwanice.com, il y a une page codée deux fois avec le même framework, une version naïve et une version optimisée : 57 contre 97 sur Lighthouse mobile, 4,2 Mo contre 219 ko.
+En dehors des cours, je construis des choses que j'utilise ou que je peux mesurer. Sur haniwanice.com, il y a une page codée deux fois avec le même framework, une version naïve et une version optimisée : 65 contre 97 sur Lighthouse mobile, 11,8 Mo contre 437 ko.
 
 Ce que je sais faire aujourd'hui : React, Next.js, TypeScript, API REST, SQL, Docker Compose, Git, Figma. Vu en licence : C, Java, Python.
 
@@ -177,7 +177,7 @@ Le besoin : permettre aux étudiants (jusqu'à 40 000 utilisateurs potentiels) d
 <h2 id="projets">8. Projets</h2>
 <p>Section « Projets » (Ajouter une section → Recommandé → Projets). Quatre entrées.</p>
 <div class="box copy"><button type="button">Copier</button><pre>Labo perf : une page, deux versions (2026)
-La même page produit codée deux fois en Next.js : une version naïve, une version optimisée. Lighthouse mobile : score 57 → 97, poids 4,2 Mo → 219 ko. Les deux versions se mesurent aussi en direct sur le site.
+La même page produit codée deux fois en Next.js : une version naïve, une version optimisée. Lighthouse mobile : score 65 → 97, poids 11,8 Mo → 437 ko. Les deux versions se mesurent aussi en direct sur le site.
 Lien : https://www.haniwanice.com/labo</pre></div>
 <div class="box copy"><button type="button">Copier</button><pre>Todo Smart (2026)
 Ma liste de tâches, synchronisée en temps réel entre téléphone et ordinateur avec React et Firestore. Je l'utilise tous les jours.
@@ -190,7 +190,7 @@ Mission pour un porteur de projet : parcours, wireframes et maquettes Figma de l
 
 <h2 id="selection">9. Sélection (Featured)</h2>
 <ol>
-<li><strong>Lien</strong> : https://www.haniwanice.com/labo · titre « Une page, deux versions : 57 → 97 sur Lighthouse ».</li>
+<li><strong>Lien</strong> : https://www.haniwanice.com/labo · titre « Une page, deux versions : 65 → 97 sur Lighthouse ».</li>
 <li><strong>Lien</strong> : https://www.haniwanice.com/#stage · titre « Deux GLPI qui ne devaient pas se parler (simulation interactive) ».</li>
 <li><strong>Post</strong> : le post n°1 de la section 13, une fois publié.</li>
 </ol>
@@ -246,15 +246,15 @@ Il y a une simulation du pont sur haniwanice.com, si vous voulez essayer de cré
 #développementweb #stage</pre></div>
 
 <h3>Post 2 · semaine 3 · le labo perf</h3>
-<div class="box copy"><button type="button">Copier</button><pre>J'ai codé la même page deux fois. Même Next.js, mêmes images, même CSS.
+<div class="box copy"><button type="button">Copier</button><pre>J'ai codé la même boutique en ligne deux fois. Même Next.js, mêmes photos, même CSS.
 
-Lighthouse mobile : 57 pour la première, 97 pour la seconde. 4,2 Mo téléchargés d'un côté, 219 ko de l'autre.
+Lighthouse mobile : 65 pour la première, 97 pour la seconde. 11,8 Mo téléchargés d'un côté, 437 ko de l'autre.
 
 Les différences :
 1. La première version est entièrement rendue dans le navigateur. La seconde arrive en HTML complet depuis le serveur.
-2. La première va chercher ses données après le chargement, l'une après l'autre. La seconde les a déjà.
-3. La première charge des images de 1 800 px pour des cases de 250. La seconde laisse next/image choisir la bonne taille et le bon format.
-4. La première refait un calcul lourd à chaque visite. La seconde le fait une fois, au build.
+2. La première va chercher ses données après le chargement, trois requêtes l'une après l'autre. La seconde les a déjà.
+3. La première charge des photos de 2 000 px dans de petites cases. La seconde laisse next/image choisir la bonne taille et le bon format.
+4. La première trie 8 000 lignes de catalogue dans le navigateur à chaque visite. La seconde le fait une fois, au build.
 
 Aucune de ces corrections n'est compliquée. Il faut surtout savoir où le navigateur passe son temps.
 

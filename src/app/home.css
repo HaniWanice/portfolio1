@@ -19,12 +19,12 @@
   overflow: clip;
 }
 .portrait-scroll {
-  --pw: 50vw;
+  --pw: 40vw;
   position: relative;
   z-index: 1;
   align-self: flex-end;
   width: var(--pw);
-  max-width: 300px;
+  max-width: 240px;
   margin-right: 22px;
 }
 .portrait-depth {
@@ -196,10 +196,10 @@
     margin-top: 0;
   }
   .portrait-scroll {
-    --pw: min(36vw, 50svh);
+    --pw: min(27vw, 40svh);
     position: absolute;
-    right: calc(var(--gutter) + 6vw);
-    top: calc(var(--nav-h) + 3svh);
+    right: calc(var(--gutter) + 8vw);
+    top: calc(var(--nav-h) + 11svh);
     width: var(--pw);
     max-width: none;
     margin: 0;

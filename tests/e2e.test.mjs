@@ -41,27 +41,43 @@ async function open(path, viewport = { width: 1280, height: 900 }) {
   return { page, errors };
 }
 
-test("l'accueil se charge sans erreur et montre les chapitres", async () => {
+test("l'accueil se charge sans erreur, avec le nom, les contacts et les trois projets", async () => {
   const { page, errors } = await open("/");
-  assert.equal(await page.locator("h1").innerText().then((t) => t.replace(/\s+/g, " ").trim()), "Hani Wanice");
-  for (const id of ["parcours", "stage", "projets", "labo", "methode", "contact"]) {
+  assert.equal(await page.locator("h1").first().getAttribute("aria-label"), "Hani Wanice");
+  // Les contacts sont dans le premier écran, pas seulement en bas de page.
+  const first = page.locator(".hero");
+  for (const t of ["haniwanice@gmail.com", "07 83 63 60 58", "LinkedIn", "GitHub"]) {
+    assert.ok(await first.getByText(t).first().isVisible(), `contact « ${t} » absent du premier écran`);
+  }
+  for (const id of ["t-glpi", "t-todo", "t-labo", "t-contact"]) {
     assert.equal(await page.locator(`#${id}`).count(), 1, `section #${id} manquante`);
   }
   assert.deepEqual(errors, []);
   await page.close();
 });
 
+test("les pages détaillées existent et se chargent", async () => {
+  for (const path of ["/projets", "/projets/pont-glpi", "/a-propos", "/labo"]) {
+    const { page, errors } = await open(path);
+    assert.ok((await page.locator("h1").count()) >= 1, `${path} sans titre`);
+    assert.deepEqual(errors, [], path);
+    await page.close();
+  }
+});
+
 test("le contenu reste lisible sans JavaScript", async () => {
   const ctx = await browser.newContext({ javaScriptEnabled: false });
   const page = await ctx.newPage();
   await page.goto(BASE + "/");
-  const visible = await page.locator("#t-stage").isVisible();
-  assert.ok(visible, "le titre du stage doit être visible sans JS");
+  assert.ok(await page.locator("#t-glpi").isVisible(), "le titre du projet doit être visible sans JS");
+  assert.ok(await page.locator(".statement-text").isVisible(), "la phrase de présentation doit être visible sans JS");
+  const o = await page.locator(".statement-text .w").first().evaluate((e) => getComputedStyle(e).opacity);
+  assert.equal(o, "1", "les mots ne doivent pas rester grisés sans JS");
   await ctx.close();
 });
 
 test("simulateur GLPI : escalade, anti-doublon, retour, panne", async () => {
-  const { page, errors } = await open("/#stage");
+  const { page, errors } = await open("/projets/pont-glpi");
   const sim = page.getByRole("group", { name: "Simulation du pont entre les deux GLPI" });
   const log = sim.getByLabel("Journal des appels API");
 

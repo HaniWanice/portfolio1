@@ -15,7 +15,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const only = process.argv[2];
 // Palette du CV : candidature/05-design/palettes.json (CV_PALETTE=<id> pour en essayer une autre).
 const palettes = JSON.parse(readFileSync(join(root, "05-design", "palettes.json"), "utf8"));
-const palette = palettes.find((x) => x.id === (process.env.CV_PALETTE || "lavande")) || palettes[0];
+const palette = palettes.find((x) => x.id === (process.env.CV_PALETTE || "corail")) || palettes[0];
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 2 });
