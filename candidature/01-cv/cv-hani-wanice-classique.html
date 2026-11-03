@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Hani Wanice, CV</title>
+<meta name="author" content="Hani Wanice">
+<style>
+@font-face{font-family:"Gambarino";src:url(../_assets/fonts/gambarino.woff2) format("woff2");font-display:block}
+@font-face{font-family:"General";src:url(../_assets/fonts/general-400.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"General";src:url(../_assets/fonts/general-500.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"General";src:url(../_assets/fonts/general-600.woff2) format("woff2");font-weight:600}
+@font-face{font-family:"Mono";src:url(../_assets/fonts/jetbrains-400.woff2) format("woff2")}
+@page{size:A4;margin:0}
+:root{--ink:#19181d;--muted:#5c5a63;--soft:#8a8790;--line:#e3dfd8;--accent:#b4410f;--tint:#f6efe8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#fff}
+body{width:210mm;height:297mm;padding:13mm 13mm 11mm;color:var(--ink);font:400 8.6pt/1.42 "General",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden}
+a{color:inherit;text-decoration:none}
+/* En-tête */
+.top{display:grid;grid-template-columns:1fr 27mm;gap:8mm;align-items:start}
+h1{font:400 30pt/1 "Gambarino",Georgia,serif;letter-spacing:-.01em}
+.title{margin-top:2.2mm;font-weight:500;font-size:10.4pt}
+.search{display:inline-block;margin-top:2.6mm;padding:1mm 2.4mm;background:var(--tint);color:var(--accent);font-weight:600;font-size:8.6pt;border-radius:1.2mm}
+.contact{margin-top:3.2mm;display:flex;flex-wrap:wrap;gap:.6mm 4mm;font:400 7.7pt/1.5 "Mono",monospace;color:var(--muted)}
+.contact a{border-bottom:.25mm solid var(--line)}
+.photo{width:27mm;height:33.75mm;object-fit:cover;border-radius:1.6mm;filter:saturate(.92)}
+.accroche{margin-top:5.2mm;padding:3mm 0 3.4mm;border-top:.3mm solid var(--ink);border-bottom:.3mm solid var(--line);font-size:9.6pt;line-height:1.5;}
+/* Grille */
+.grid{display:grid;grid-template-columns:1fr 56mm;gap:8mm;margin-top:5mm}
+h2{font:600 7.2pt/1 "General",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:2.6mm}
+section+section{margin-top:5mm}
+.item+.item{margin-top:3.8mm}
+.item header,.proj header{display:flex;justify-content:space-between;align-items:baseline;gap:3mm}
+h3{font-weight:600;font-size:9.3pt;line-height:1.3}
+.org{margin-top:.3mm;font-weight:500;color:var(--muted)}
+.when{flex:none;font:400 7.4pt/1.3 "Mono",monospace;color:var(--muted);white-space:nowrap}
+.when span{color:var(--soft)}
+.lead{margin-top:1.2mm;font-style:normal;color:var(--ink)}
+ul{margin-top:1.2mm;list-style:none}
+li{position:relative;padding-left:3.4mm;margin-top:.9mm;color:#2c2b31}
+li::before{content:"";position:absolute;left:.3mm;top:2.05mm;width:1.5mm;height:.3mm;background:var(--accent)}
+.stack{margin-top:1.4mm;font:400 7.2pt/1.4 "Mono",monospace;color:var(--soft)}
+.proj+.proj{margin-top:2.6mm}
+.proj p{margin-top:.6mm;color:#2c2b31}
+.url{white-space:nowrap;font:400 7.2pt "Mono",monospace;color:var(--accent)}
+/* Colonne de droite */
+aside{border-left:.3mm solid var(--line);padding-left:5mm}
+.side-item+.side-item{margin-top:3mm}
+.side-item h3{font-size:8.9pt}
+.meta{margin:.5mm 0 .8mm;font:400 7.2pt/1.45 "Mono",monospace;color:var(--muted)}
+.side-item p:last-child{color:#2c2b31}
+dl .kv+.kv{margin-top:1.8mm}
+dt{font-weight:600;font-size:7.8pt}
+dd{color:#2c2b31}
+.methode{background:var(--tint);margin-left:-3mm;padding:3mm 3mm 3.2mm;border-radius:1.6mm}
+.methode p+p{margin-top:1.4mm}
+.methode p{color:#2c2b31}
+.interets{list-style:none}
+.interets li{padding-left:0;margin-top:.8mm}
+.interets li::before{display:none}
+.plain{color:#2c2b31}
+.foot{position:absolute;left:13mm;right:13mm;bottom:8mm;font:400 6.8pt "Mono",monospace;color:var(--soft);display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Hani Wanice</h1>
+      <p class="title">Développeur web full-stack, en L3 Informatique</p>
+      <p class="search">Stage de 2 à 5 mois · à partir d'avril 2027</p>
+      <p class="contact">
+        <span>07 83 63 60 58</span>
+        <a href="mailto:haniwanice@gmail.com">haniwanice@gmail.com</a>
+        <a href="https://haniwanice.com">haniwanice.com</a>
+        <a href="https://github.com/HaniWanice">github.com/HaniWanice</a>
+        <a href="https://linkedin.com/in/hani-wanice-920a813b1">LinkedIn</a>
+        <span>Île-de-France · mobile Paris et La Défense</span>
+      </p>
+    </div>
+    <img class="photo" src="../_assets/photo-cv.jpg" alt="Photo de Hani Wanice">
+  </header>
+
+  <p class="accroche">Pendant mon stage à la DSI de l'UPEC, j'ai fait communiquer deux logiciels qui n'avaient pas le droit de partager leurs données. Je cherche ce genre de problème : un vrai besoin, des contraintes, et à la fin quelque chose qui tourne et que je sais expliquer.</p>
+
+  <div class="grid">
+    <main>
+      <section>
+        <h2>Expérience</h2>
+        
+    <article class="item">
+      <header>
+        <h3>Stagiaire développeur full-stack</h3>
+        <p class="when">mai – juil. 2026 <span>(2 mois)</span></p>
+      </header>
+      <p class="org">DSI, Université Paris-Est Créteil</p>
+      <p class="lead">Les étudiants devaient pouvoir écrire au support de la DSI sans jamais accéder au GLPI interne du personnel. J'ai conçu et codé le prototype qui fait le lien.</p>
+      <ul><li>Deux instances GLPI isolées, chacune avec sa base MariaDB, sous Docker Compose. Entre les deux, une application Next.js / TypeScript qui passe par l'API REST.</li><li>Escalade d'un ticket en un clic : un ticket miroir est créé côté DSI, le statut redescend côté étudiant, et un garde-fou empêche la synchronisation de tourner en boucle.</li><li>Avant d'écrire le code, j'ai testé et écarté trois pistes (plugin natif, webhooks, synchronisation automatique). Les limites du prototype sont écrites noir sur blanc dans un rapport de 37 pages.</li></ul>
+      <p class="stack">Next.js · TypeScript · Server Actions · API REST · Docker · MariaDB · GLPI</p>
+    </article>
+    <article class="item">
+      <header>
+        <h3>Designer UX/UI, mission indépendante</h3>
+        <p class="when">2025</p>
+      </header>
+      <p class="org">Application mobile Keewic</p>
+      
+      <ul><li>Parcours et maquettes Figma de la première version, remis à un développeur pour le passage au code.</li><li>Aide au pitch, et beaucoup de questions au porteur du projet pour trancher ce qui méritait d'exister dans la V1.</li></ul>
+      <p class="stack">Figma · wireframes · prototypage</p>
+    </article>
+      </section>
+      <section>
+        <h2>Projets</h2>
+        
+    <article class="proj">
+      <header>
+        <h3>Labo perf : même stack, deux résultats</h3>
+        <p class="when">2026</p>
+      </header>
+      <p>La même page Next.js écrite deux fois : comme on la croise souvent, puis optimisée. Les Web Vitals sont mesurés en direct dans le navigateur du visiteur, et pas recopiés d'un tableau. <span class="url"><a href="https://haniwanice.com/labo">→ haniwanice.com/labo</a></span></p>
+    </article>
+    <article class="proj">
+      <header>
+        <h3>Todo Smart</h3>
+        <p class="when">2026</p>
+      </header>
+      <p>Ma liste de tâches, synchronisée en temps réel entre téléphone et ordinateur (React, Firestore). Je m'en sers tous les jours, c'est donc moi qui trouve les bugs en premier. <span class="url"><a href="https://haniwanice.github.io/todo-smart">→ haniwanice.github.io/todo-smart</a></span></p>
+    </article>
+    <article class="proj">
+      <header>
+        <h3>Refonte du portail du personnel UPEC</h3>
+        <p class="when">2026</p>
+      </header>
+      <p>Proposition personnelle : services regroupés par usage, navigation remise à plat, lisible sur téléphone. HTML et CSS, sans framework. <span class="url"><a href="https://haniwanice.github.io/Protail-design-upec">→ haniwanice.github.io/Protail-design-upec</a></span></p>
+    </article>
+    <article class="proj">
+      <header>
+        <h3>Gestion d'une compagnie aérienne</h3>
+        <p class="when">2025 · projet de licence</p>
+      </header>
+      <p>Application Laravel + SQLite : comptes utilisateurs, CRUD complet, de la base de données à l'interface.</p>
+    </article>
+      </section>
+      
+    </main>
+    <aside>
+      <section>
+        <h2>Formation</h2>
+        
+    <div class="side-item">
+      <h3>Licence 3 Informatique</h3>
+      <p class="meta">Université Paris-Est Créteil<br>en cours · 2026-2027</p>
+      <p>Algorithmique, bases de données, C, Java, développement web, systèmes.</p>
+    </div>
+    <div class="side-item">
+      <h3>Responsive Web Design</h3>
+      <p class="meta">freeCodeCamp, certification en ligne<br>2025</p>
+      <p>Environ 40 h, suivies en dehors des cours.</p>
+    </div>
+      </section>
+      <section>
+        <h2>Compétences</h2>
+        <dl><div class="kv"><dt>Front</dt><dd>React, Next.js, TypeScript, JavaScript, HTML, CSS</dd></div><div class="kv"><dt>Back et données</dt><dd>Node.js, API REST, SQL, MariaDB/MySQL, PHP/Laravel</dd></div><div class="kv"><dt>Outils</dt><dd>Git, GitHub, Docker Compose, Figma, Vercel</dd></div><div class="kv"><dt>Vu en cours</dt><dd>C, Java, Python</dd></div></dl>
+      </section>
+      <section>
+        <h2>Langues</h2>
+        <p class="plain">Français et anglais courants · espagnol intermédiaire</p>
+      </section>
+      <section>
+        <h2>En dehors</h2>
+        <ul class="interets"><li>Piano depuis 8 ans, violon en débutant</li><li>Dessin, et un faible pour les belles interfaces</li><li>Natation, vélo</li><li>Bénévolat : promenades de chiens en refuge</li></ul>
+      </section>
+    </aside>
+  </div>
+</body>
+</html>

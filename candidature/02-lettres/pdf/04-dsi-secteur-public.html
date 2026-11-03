@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Lettre, Hani Wanice</title>
+<style>
+@font-face{font-family:"Gambarino";src:url(../../_assets/fonts/gambarino.woff2) format("woff2")}
+@font-face{font-family:"General";src:url(../../_assets/fonts/general-400.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"General";src:url(../../_assets/fonts/general-600.woff2) format("woff2");font-weight:600}
+@font-face{font-family:"Mono";src:url(../../_assets/fonts/jetbrains-400.woff2) format("woff2")}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:210mm;height:297mm;padding:20mm 22mm 16mm;color:#19181d;font:400 10.2pt/1.6 "General",system-ui,sans-serif;overflow:hidden}
+.head{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:5mm;border-bottom:.3mm solid #19181d}
+.name{font:400 22pt/1 "Gambarino",Georgia,serif}
+.coords{text-align:right;font:400 7.8pt/1.6 "Mono",monospace;color:#5c5a63}
+.dest{margin-top:9mm;display:flex;justify-content:space-between;font-size:9.4pt;color:#5c5a63}
+.objet{margin-top:8mm;font-weight:600}
+.salut{margin-top:6mm}
+.body p{margin-top:3.4mm;text-align:left;hyphens:manual}
+.sign{margin-top:7mm}
+.sign strong{display:block;margin-top:1mm;font:400 15pt "Gambarino",Georgia,serif;font-weight:400}
+mark{background:#fbe7c9;color:inherit;padding:0 .6mm;border-radius:.6mm}
+</style></head>
+<body>
+<div class="head">
+  <div class="name">Hani Wanice</div>
+  <div class="coords">07 83 63 60 58<br>haniwanice@gmail.com<br>haniwanice.com</div>
+</div>
+<div class="dest"><span><mark>[Établissement]</mark>, <mark>[Direction / service]</mark></span><span>Île-de-France, le <mark>[date]</mark></span></div>
+<p class="objet">Objet : Stage en développement au sein de la DSI (avril à août 2027)</p>
+<p class="salut">Madame, Monsieur,</p>
+<div class="body">
+<p>Étudiant en troisième année de licence informatique à l'Université Paris-Est Créteil, je cherche un stage de 2 à 5 mois à partir d'avril 2027. J'ai déjà passé deux mois dans une DSI, celle de l'UPEC, et c'est cette expérience qui me fait candidater chez vous.</p>
+<p>Le sujet paraissait simple : permettre aux étudiants de déposer des demandes d'assistance sans leur ouvrir le GLPI utilisé par le personnel. En pratique, il fallait respecter la séparation des données, ne rien casser dans un outil en production et rester compréhensible pour les techniciens du support. Après avoir écarté le transfert natif et les webhooks, j'ai construit un prototype avec deux instances GLPI isolées et une application Next.js qui transmet les tickets de l'une à l'autre, et fait remonter les réponses.</p>
+<p>Mon tuteur m'a souvent rappelé qu'en DSI, une partie du travail consiste à expliquer à des non-techniciens pourquoi une solution simple en apparence peut être un piège. C'est la compétence que j'ai le plus travaillée pendant ce stage, avec la documentation : mon rapport détaille les choix, les limites et les pistes pour une mise en production.</p>
+<p>Je serais heureux de mettre cette expérience au service de <mark>[Établissement]</mark>, par exemple sur <mark>[un projet connu : refonte d'un intranet, outil interne, migration, portail usagers]</mark>. Je reste à votre disposition pour un entretien.</p>
+</div>
+<div class="sign">Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.<strong>Hani Wanice</strong></div>
+</body></html>
