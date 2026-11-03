@@ -1,19 +1,20 @@
 ---
 format: lettre
 cible: DSI (université, collectivité, hôpital, administration) ou service informatique interne
-cv: classique
+cv: classique (ou classique sans photo)
 entreprise: [Établissement], [Direction / service]
-objet: Stage en développement au sein de la DSI (avril à août 2027)
+objet: Candidature, stage en développement au sein de la DSI (avril à août 2027)
 destinataire: Madame, Monsieur,
 signature: Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
 ---
-Étudiant en troisième année de licence informatique à l'Université Paris-Est Créteil, je cherche un stage de 2 à 5 mois à partir d'avril 2027. J'ai déjà passé deux mois dans une DSI, celle de l'UPEC, et c'est cette expérience qui me fait candidater chez vous.
+Étudiant en troisième année de licence informatique à l'Université Paris-Est Créteil, je cherche un stage de deux à cinq mois à partir d'avril 2027. J'ai déjà passé huit semaines dans une DSI, celle de l'UPEC, au printemps 2026, et je souhaite poursuivre dans ce cadre.
 
-Le sujet paraissait simple : permettre aux étudiants de déposer des demandes d'assistance sans leur ouvrir le GLPI utilisé par le personnel. En pratique, il fallait respecter la séparation des données, ne rien casser dans un outil en production et rester compréhensible pour les techniciens du support. Après avoir écarté le transfert natif et les webhooks, j'ai construit un prototype avec deux instances GLPI isolées et une application Next.js qui transmet les tickets de l'une à l'autre, et fait remonter les réponses.
+Le sujet paraissait simple : permettre aux étudiants de déposer des demandes d'assistance sans leur ouvrir le GLPI utilisé par le personnel. Il fallait garder les deux bases séparées, ne jamais toucher à l'instance de production, et proposer un outil que les techniciens du support puissent utiliser sans formation. J'ai construit un prototype composé de deux instances GLPI isolées et d'une application Next.js qui transmet les tickets de l'une à l'autre et fait redescendre les réponses.
 
-Mon tuteur m'a souvent rappelé qu'en DSI, une partie du travail consiste à expliquer à des non-techniciens pourquoi une solution simple en apparence peut être un piège. C'est la compétence que j'ai le plus travaillée pendant ce stage, avec la documentation : mon rapport détaille les choix, les limites et les pistes pour une mise en production.
+La question des données a guidé plusieurs choix. Le ticket transmis à la DSI ne contient que ce qui sert à traiter la demande, les jetons d'accès à l'API sont tenus hors du code, et tous les essais ont été faits sur des données fictives. Mon rapport de stage détaille ces choix, les limites du prototype (authentification centralisée, montée en charge) et les étapes à prévoir avant une mise en production.
 
-Je serais heureux de mettre cette expérience au service de [Établissement], par exemple sur [un projet connu : refonte d'un intranet, outil interne, migration, portail usagers]. Je reste à votre disposition pour un entretien.
+Je souhaiterais mettre cette expérience à profit au sein de [Établissement], par exemple sur [un projet identifié : portail usagers, outil interne, migration]. Je suis disponible pour un entretien, sur place ou à distance.
 <!-- notes -->
-Les DSI publiques recrutent souvent via les offres de stage des établissements (place de l'emploi public, sites des universités, CHU).
-Penser à demander à Miguel Cancela Da Fonseca s'il accepte d'être cité comme référence.
+Vérifier avant envoi : « le ticket transmis ne contient que ce qui sert à traiter la demande » doit correspondre à ton code (titre, description, catégorie mappée).
+Les DSI publiques recrutent souvent via leurs propres sites, la PEP (place de l'emploi public) et les bureaux des stages.
+Demander à Miguel Cancela Da Fonseca s'il accepte d'être cité comme référence.

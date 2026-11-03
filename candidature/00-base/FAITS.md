@@ -64,6 +64,33 @@ Sources : CV 2026 V2, rapport de stage DSI (PDF + HTML), profil LinkedIn export�
   ne pas saturer le serveur. Mapping des catégories entre les deux instances.
 - Jalons : premier crash d'installation semaine 1 ; changement de cap semaine 2 ; démonstration
   du 22 mai, où le tuteur a ajouté l'objectif de synchronisation retour ; présentation finale le 8 juin.
+
+#### Détails vérifiés dans le rapport (utilisables en entretien et dans les textes)
+
+- Seul développeur sur le sujet, encadré par le tuteur (validation à chaque étape).
+- 22 mai, démo du flux aller (bouton « Transmettre DSI »). Le tuteur demande que la clôture d'un côté clôture l'autre.
+- Bug des clones : chaque modification du ticket étudiant recréait un ticket DSI. Correctif : lecture avant écriture
+  (on cherche la balise avant de créer).
+- 25 mai, boucle infinie au retour : coupe-circuit basé sur l'ID de l'auteur de la modification (le compte API est ignoré).
+- `ERROR_GLPI_TOO_MANY_SESSIONS` : sessions API jamais fermées en cas d'erreur, d'où le `killSession` dans un `finally`.
+- 26 mai : le champ `external_id` n'est pas interrogeable via l'API de recherche (erreur 400), d'où la balise
+  `[ESCALADE ETU - ID:42]` dans le titre et la regex.
+- Bug `[object Object]` : le statut renvoyé était un objet et non un entier.
+- 28 mai : synchronisation dans les deux sens fonctionnelle.
+- Semaine 5 : migration de machine, conteneurs perdus, bases récupérées depuis les volumes MariaDB, tunnel SSH
+  pour passer le pare-feu de l'université.
+- 2 juin : les webhooks GLPI ne se déclenchent pas sur les appels API (ticket #27). Passage à la double écriture
+  synchrone (Server Actions) comme architecture principale. Wrapper qui détecte les « faux 200 » de GLPI
+  (code 200 avec une erreur dans le corps JSON).
+- 3 au 5 juin : réponses (ITILFollowup) synchronisées, tri des tickets, refonte des pages étudiant et DSI.
+- 8 juin : présentation finale, prototype validé par le tuteur.
+- Tests : scénario de validation de bout en bout (manuel) + test de charge léger manuel (10 escalades successives).
+  **Pas de tests automatisés** : ne jamais prétendre le contraire.
+- Le « retour » n'est pas une réplication : quand la DSI change un statut ou répond depuis l'interface Next.js,
+  les deux tickets sont mis à jour dans la même action. La « synchronisation automatique » écartée = la recopie
+  continue des bases.
+- Jetons d'API en variables d'environnement. Aucune donnée réelle d'étudiant : données fictives.
+
 - Limites assumées : prototype local, pas de SSO, pas de pièces jointes, pas testé à l'échelle.
 - Livrables : prototype fonctionnel + rapport de stage de 37 pages.
 - ⚠️ LinkedIn indique « avr. 2026 – juil. 2026 · 4 mois » : **faux**, à corriger en mai-juil., 2 mois.

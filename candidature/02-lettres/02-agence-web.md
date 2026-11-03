@@ -7,12 +7,13 @@ objet: Stage développeur front-end, d'avril à fin août 2027
 destinataire: Bonjour [Prénom Nom],
 signature: Bien à vous,
 ---
-Mon premier contact avec le métier, c'était un stage de 3e dans une agence web. J'étais censé observer. J'ai surtout demandé si je pouvais essayer, et je suis reparti avec une page HTML bancale et l'envie de recommencer. Aujourd'hui je suis en troisième année de licence informatique, et je cherche un stage de développeur front-end chez [Agence], d'avril à fin août 2027.
+Mon premier contact avec le métier, c'était un stage de 3e dans une agence web. J'étais censé observer. J'ai surtout demandé si je pouvais essayer, et je suis reparti avec une page HTML bancale et l'envie de recommencer. Je suis aujourd'hui en L3 informatique et je cherche un stage de développeur front-end chez [Agence], d'avril à fin août 2027.
 
-J'ai regardé [un projet précis de leur portfolio]. [Ce qui t'a plu, concrètement : une transition, la façon de traiter la typo, un choix d'interface]. C'est le genre de travail où la différence se joue sur des détails que le client ne saura pas nommer, mais qu'il sentira.
+J'ai passé du temps sur [un projet précis de leur portfolio]. [Ce que tu as remarqué, et qu'ils peuvent vérifier : une transition, un choix typographique, le comportement du menu sur mobile.]
 
-Je viens du design autant que du code. En 2025, j'ai dessiné sur Figma la première version d'une application mobile (parcours, écrans, maquettes) pour un porteur de projet, puis je l'ai remise à un développeur. J'ai appris à défendre un choix d'interface, et aussi à en abandonner un quand l'argument d'en face était meilleur. Côté code, mon stage à la DSI de l'UPEC m'a fait passer de l'autre côté : Next.js, TypeScript, API REST, Docker, et un prototype complet livré en deux mois.
+Le design, je l'ai pratiqué avant le code. En 2025, pour un porteur de projet, j'ai dessiné sur Figma la première version d'une application mobile, du parcours aux maquettes, puis je l'ai transmise à un développeur. Il fallait justifier chaque écran, et j'en ai refait plusieurs quand ses objections tenaient la route. Côté code, mon stage de huit semaines à la DSI de l'UPEC m'a fait travailler avec Next.js, TypeScript et une API REST.
 
-Mon portfolio (haniwanice.com) est ma meilleure lettre de motivation : les animations, l'accessibilité et le poids des pages sont là pour être inspectés. Je serais content d'en parler avec vous, et de voir comment vous travaillez entre design et développement.
+Sur haniwanice.com, vous trouverez [l'élément du site le plus proche de leur travail : les animations du parcours, le comparatif de performance]. J'aimerais voir comment vous passez de la maquette à l'intégration chez [Agence], et y prendre ma part.
 <!-- notes -->
 Le paragraphe 2 est obligatoire et doit être vrai. Une agence repère une lettre générique en trois secondes.
+Round 1 : retiré « meilleure lettre de motivation », « détails que le client ne saura pas nommer », « prototype complet livré ».

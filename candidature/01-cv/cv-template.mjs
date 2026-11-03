@@ -42,7 +42,7 @@ export function renderCV(v, c) {
       (f) => `
     <div class="side-item">
       <h3>${esc(f.title)}</h3>
-      <p class="meta">${esc(f.org)}<br>${esc(f.when)}</p>
+      <p class="meta">${esc(f.org)}${f.when ? `<br>${esc(f.when)}` : ""}</p>
       <p>${esc(f.detail)}</p>
     </div>`,
     )
@@ -79,10 +79,11 @@ body{width:210mm;height:297mm;padding:13mm 13mm 11mm;color:var(--ink);font:400 8
 a{color:inherit;text-decoration:none}
 /* En-tête */
 .top{display:grid;grid-template-columns:1fr 27mm;gap:8mm;align-items:start}
+.top.nophoto{grid-template-columns:1fr}
 h1{font:400 30pt/1 "Gambarino",Georgia,serif;letter-spacing:-.01em}
 .title{margin-top:2.2mm;font-weight:500;font-size:10.4pt}
-.search{display:inline-block;margin-top:2.6mm;padding:1mm 2.4mm;background:var(--tint);color:var(--accent);font-weight:600;font-size:8.6pt;border-radius:1.2mm}
-.contact{margin-top:3.2mm;display:flex;flex-wrap:wrap;gap:.6mm 4mm;font:400 7.7pt/1.5 "Mono",monospace;color:var(--muted)}
+.search{margin-top:2mm;color:var(--accent);font-weight:600;font-size:9pt}
+.contact{margin-top:3mm;display:flex;flex-wrap:wrap;gap:.6mm 3.6mm;font:400 8.2pt/1.5 "General",sans-serif;color:var(--muted)}
 .contact a{border-bottom:.25mm solid var(--line)}
 .photo{width:27mm;height:33.75mm;object-fit:cover;border-radius:1.6mm;filter:saturate(.92)}
 .accroche{margin-top:5.2mm;padding:3mm 0 3.4mm;border-top:.3mm solid var(--ink);border-bottom:.3mm solid var(--line);font-size:9.6pt;line-height:1.5;}
@@ -108,12 +109,12 @@ li::before{content:"";position:absolute;left:.3mm;top:2.05mm;width:1.5mm;height:
 aside{border-left:.3mm solid var(--line);padding-left:5mm}
 .side-item+.side-item{margin-top:3mm}
 .side-item h3{font-size:8.9pt}
-.meta{margin:.5mm 0 .8mm;font:400 7.2pt/1.45 "Mono",monospace;color:var(--muted)}
+.meta{margin:.4mm 0 .8mm;font-size:7.9pt;line-height:1.45;color:var(--muted)}
 .side-item p:last-child{color:#2c2b31}
 dl .kv+.kv{margin-top:1.8mm}
 dt{font-weight:600;font-size:7.8pt}
 dd{color:#2c2b31}
-.methode{background:var(--tint);margin-left:-3mm;padding:3mm 3mm 3.2mm;border-radius:1.6mm}
+.methode{background:var(--tint);padding:3mm 3.4mm 3.2mm;border-radius:1.6mm}
 .methode p+p{margin-top:1.4mm}
 .methode p{color:#2c2b31}
 .interets{list-style:none}
@@ -124,7 +125,7 @@ dd{color:#2c2b31}
 </style>
 </head>
 <body>
-  <header class="top">
+  <header class="top${v.photo ? "" : " nophoto"}">
     <div>
       <h1>${esc(c.name)}</h1>
       <p class="title">${esc(v.title)}</p>
@@ -138,7 +139,7 @@ dd{color:#2c2b31}
         <span>${esc(c.location)}</span>
       </p>
     </div>
-    <img class="photo" src="../_assets/photo-cv.jpg" alt="Photo de Hani Wanice">
+    ${v.photo ? `<img class="photo" src="../_assets/photo-cv.jpg" alt="Photo de Hani Wanice">` : ""}
   </header>
 
   <p class="accroche">${esc(v.accroche)}</p>

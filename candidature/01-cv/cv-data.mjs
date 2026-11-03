@@ -9,56 +9,58 @@ export const contact = {
   site: "haniwanice.com",
   github: "github.com/HaniWanice",
   linkedin: "linkedin.com/in/hani-wanice-920a813b1",
-  location: "Île-de-France · mobile Paris et La Défense",
+  location: "Île-de-France, mobile dans toute la région",
 };
 
 const stage = {
-  role: "Stagiaire développeur full-stack",
-  org: "DSI, Université Paris-Est Créteil",
-  when: "mai – juil. 2026",
-  length: "2 mois",
+  role: "Stagiaire développeur",
+  org: "Direction des systèmes d'information, Université Paris-Est Créteil",
+  when: "4 mai – 1er juil. 2026",
+  length: "8 semaines",
   lead:
-    "Les étudiants devaient pouvoir écrire au support de la DSI sans jamais accéder au GLPI interne du personnel. J'ai conçu et codé le prototype qui fait le lien.",
+    "Seul développeur sur le sujet, encadré par un ingénieur de la DSI. Objectif : permettre aux étudiants d'écrire au support sans leur donner accès au GLPI du personnel.",
   points: [
-    "Deux instances GLPI isolées, chacune avec sa base MariaDB, sous Docker Compose. Entre les deux, une application Next.js / TypeScript qui passe par l'API REST.",
-    "Escalade d'un ticket en un clic : un ticket miroir est créé côté DSI, le statut redescend côté étudiant, et un garde-fou empêche la synchronisation de tourner en boucle.",
-    "Avant d'écrire le code, j'ai testé et écarté trois pistes (plugin natif, webhooks, synchronisation automatique). Les limites du prototype sont écrites noir sur blanc dans un rapport de 37 pages.",
+    "Prototype complet : deux GLPI isolés (une base MariaDB chacun, sous Docker Compose) et une application Next.js / TypeScript qui écrit dans les deux via l'API REST, dans la même action.",
+    "Escalade d'un ticket en un clic, puis retour des statuts et des réponses de la DSI vers l'étudiant. Coupe-circuit contre les boucles, détection des faux « 200 OK » de GLPI, sessions API fermées même en cas d'erreur.",
+    "Webhooks et transfert natif testés puis écartés, raisons à l'appui. Prototype validé par le tuteur sur un scénario de bout en bout, et rapport de 37 pages qui détaille aussi ses limites.",
   ],
-  stack: "Next.js · TypeScript · Server Actions · API REST · Docker · MariaDB · GLPI",
+  stack: "Next.js · TypeScript · API REST · Docker Compose · MariaDB · GLPI",
 };
 
 const keewic = {
-  role: "Designer UX/UI, mission indépendante",
-  org: "Application mobile Keewic",
+  role: "Design UX/UI d'une application mobile",
+  org: "Mission pour un porteur de projet (Keewic)",
   when: "2025",
   points: [
-    "Parcours et maquettes Figma de la première version, remis à un développeur pour le passage au code.",
-    "Aide au pitch, et beaucoup de questions au porteur du projet pour trancher ce qui méritait d'exister dans la V1.",
+    "Parcours, wireframes et maquettes Figma de la première version, remis à un développeur pour le passage au code.",
+    "Aide au pitch, et beaucoup de questions au porteur de projet pour décider de ce qui entrait dans la V1.",
   ],
   stack: "Figma · wireframes · prototypage",
 };
 
+const SITE = "haniwanice.com";
+
 const projetsCommuns = [
   {
-    name: "Labo perf : même stack, deux résultats",
-    url: "haniwanice.com/labo",
+    name: "Labo perf : une page, deux versions",
+    url: SITE + "/labo",
     when: "2026",
     text:
-      "La même page Next.js écrite deux fois : comme on la croise souvent, puis optimisée. Les Web Vitals sont mesurés en direct dans le navigateur du visiteur, et pas recopiés d'un tableau.",
+      "La même page produit codée deux fois en Next.js, une version naïve et une version optimisée. Lighthouse mobile : score 53 → 98, affichage principal 15,1 s → 2,4 s, poids 4,2 Mo → 227 ko. Les deux se mesurent aussi en direct sur le site.",
   },
   {
     name: "Todo Smart",
-    url: "haniwanice.github.io/todo-smart",
+    url: SITE + "/#projets",
     when: "2026",
     text:
-      "Ma liste de tâches, synchronisée en temps réel entre téléphone et ordinateur (React, Firestore). Je m'en sers tous les jours, c'est donc moi qui trouve les bugs en premier.",
+      "Liste de tâches synchronisée en temps réel entre téléphone et ordinateur (React, Firestore). Je l'utilise tous les jours depuis sa mise en ligne.",
   },
   {
     name: "Refonte du portail du personnel UPEC",
-    url: "haniwanice.github.io/Protail-design-upec",
+    url: SITE + "/#projets",
     when: "2026",
     text:
-      "Proposition personnelle : services regroupés par usage, navigation remise à plat, lisible sur téléphone. HTML et CSS, sans framework.",
+      "Proposition personnelle : services regroupés par usage, navigation simplifiée, version mobile. HTML et CSS, sans framework.",
   },
 ];
 
@@ -73,68 +75,73 @@ const formation = [
   {
     title: "Licence 3 Informatique",
     org: "Université Paris-Est Créteil",
-    when: "en cours · 2026-2027",
-    detail: "Algorithmique, bases de données, C, Java, développement web, systèmes.",
+    when: "En cours, 2026-2027. Poursuite en master envisagée.",
+    detail: "Algorithmique, bases de données, développement web. Projets en C et en Java.",
   },
   {
-    title: "Responsive Web Design",
-    org: "freeCodeCamp, certification en ligne",
-    when: "2025",
-    detail: "Environ 40 h, suivies en dehors des cours.",
+    title: "Certification Responsive Web Design",
+    org: "freeCodeCamp, 2025",
+    when: null,
+    detail: "Suivie en autonomie, en plus des cours.",
   },
 ];
 
 const competences = [
-  { label: "Front", items: "React, Next.js, TypeScript, JavaScript, HTML, CSS" },
-  { label: "Back et données", items: "Node.js, API REST, SQL, MariaDB/MySQL, PHP/Laravel" },
-  { label: "Outils", items: "Git, GitHub, Docker Compose, Figma, Vercel" },
-  { label: "Vu en cours", items: "C, Java, Python" },
+  { label: "Front", items: "React, Next.js, TypeScript, HTML/CSS (responsive, accessibilité)" },
+  { label: "Back et données", items: "API REST, Node.js, SQL (MariaDB, MySQL, SQLite), PHP/Laravel, Firebase" },
+  { label: "Outils", items: "Git, GitHub, Docker Compose, Postman, Figma" },
+  { label: "Aussi en licence", items: "C, Java, Python" },
 ];
 
-const langues = "Français et anglais courants · espagnol intermédiaire";
+const langues = "Français et anglais courants, espagnol intermédiaire";
 
 const interets = [
   "Piano depuis 8 ans, violon en débutant",
-  "Dessin, et un faible pour les belles interfaces",
+  "Dessin",
   "Natation, vélo",
-  "Bénévolat : promenades de chiens en refuge",
+  "Bénévole dans un refuge pour chiens",
 ];
+
+const base = {
+  title: "Étudiant en L3 Informatique · développement web",
+  search: "Stage développeur web · avril à août 2027 (2 à 5 mois)",
+  accroche:
+    "À la DSI de l'UPEC, j'ai relié l'outil de support des étudiants à celui du personnel, sans que l'un puisse lire l'autre. Je cherche un stage où l'on me confie un sujet de ce genre, avec quelqu'un qui relit mon code.",
+  experiences: [stage, keewic],
+  formation,
+  competences,
+  langues,
+  interets,
+  photo: true,
+};
 
 export const variants = {
   methode: {
+    ...base,
     file: "cv-hani-wanice-methode",
     label: "CV « Méthode » (mentionne l'IA)",
-    title: "Développeur web full-stack, en L3 Informatique",
-    search: "Stage de 2 à 5 mois · à partir d'avril 2027",
-    accroche:
-      "Pendant mon stage à la DSI de l'UPEC, j'ai fait communiquer deux logiciels qui n'avaient pas le droit de partager leurs données. Je cherche ce genre de problème : un vrai besoin, des contraintes, et à la fin quelque chose qui tourne et que je sais expliquer.",
-    experiences: [stage, keewic],
     projets: projetsCommuns,
-    formation,
-    competences,
     methode: {
       title: "Comment je travaille",
       text: [
-        "Je code avec des agents IA (Claude Code), que je configure moi-même : règles de projet, skills, sous-agents pour la relecture. Je découpe le travail, je relis chaque modification, je teste, et je ne garde que le code que je peux expliquer ligne par ligne.",
-        "Pour les données sensibles, j'utilise des modèles qui tournent en local (Ollama, LM Studio). Si l'équipe préfère s'en passer, je suis ses règles.",
+        "Je développe avec Claude Code, configuré pour chaque projet (règles, skills, sous-agents de relecture). Je découpe en petites étapes, je relis chaque diff et je teste avant de committer. Les règles que je donne à l'agent sont publiques dans le dépôt de mon site.",
+        "Données sensibles : modèles en local (Ollama, LM Studio). Pour le reste, je m'aligne sur les règles de l'équipe.",
       ],
     },
-    langues,
-    interets,
   },
   classique: {
+    ...base,
     file: "cv-hani-wanice-classique",
     label: "CV « Classique » (sans mention de l'IA)",
-    title: "Développeur web full-stack, en L3 Informatique",
-    search: "Stage de 2 à 5 mois · à partir d'avril 2027",
-    accroche:
-      "Pendant mon stage à la DSI de l'UPEC, j'ai fait communiquer deux logiciels qui n'avaient pas le droit de partager leurs données. Je cherche ce genre de problème : un vrai besoin, des contraintes, et à la fin quelque chose qui tourne et que je sais expliquer.",
-    experiences: [stage, keewic],
     projets: [...projetsCommuns, projetUniv],
-    formation,
-    competences,
     methode: null,
-    langues,
-    interets,
+  },
+  classiqueSansPhoto: {
+    ...base,
+    file: "cv-hani-wanice-classique-sans-photo",
+    label: "CV « Classique », sans photo (recruteurs traditionnels)",
+    projets: [...projetsCommuns, projetUniv],
+    methode: null,
+    photo: false,
   },
 };

@@ -56,7 +56,7 @@ mark{background:#fbe7c9;color:inherit;padding:0 .6mm;border-radius:.6mm}
   <div class="name">${esc(c.name)}</div>
   <div class="coords">${esc(c.phone)}<br>${esc(c.email)}<br>${esc(c.site)}</div>
 </div>
-<div class="dest"><span>${mark(l.entreprise || "[Entreprise]")}</span><span>${mark(l.date || "Île-de-France, le [date]")}</span></div>
+<div class="dest"><span>${mark(l.entreprise || "[Entreprise]")}</span><span>${mark(l.date || "Le [date]")}</span></div>
 <p class="objet">Objet : ${mark(l.objet)}</p>
 <p class="salut">${mark(l.destinataire || "Madame, Monsieur,")}</p>
 <div class="body">
