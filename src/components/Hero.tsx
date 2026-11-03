@@ -11,7 +11,7 @@ export function Hero() {
       <div className="hero-grid">
         <div>
           <p className="status in-fade" style={{ ["--d" as string]: "0ms" }}>
-            <i aria-hidden="true" /> Disponible pour un stage à partir d&apos;avril 2027
+            <i aria-hidden="true" /> Stage dès avril 2027 · 2 à 5 mois
           </p>
           <h1 id="hero-title">
             <span className="line">

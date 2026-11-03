@@ -66,6 +66,34 @@ Ce qui a changé ensuite (round 3) :
 - Performance du portfolio lui-même : 67 → 91-96 sur Lighthouse mobile. Le hero est en CSS pur et
   les figures sont chargées à la demande. Accessibilité, bonnes pratiques et SEO : 100.
 
+## Round 3 : CV v3, lettres v3, portfolio v2
+
+Note globale moyenne **13,0/20**, convocation **45 %**. Portfolio **13,7/20**, « humain » **6,5/10**
+(contre 5,7). Le simulateur GLPI, testé par les 5 agents avec Playwright, est cité comme « la meilleure
+pièce de la candidature ».
+
+Ce qui restait à corriger, et qui l'a été (version finale) :
+
+- **Le chemin retour était flou.** Si les webhooks ne se déclenchent pas sur les appels d'API, qu'est-ce
+  qui détecte la résolution d'un ticket ? Le site le dit maintenant : les techniciens traitent les
+  tickets depuis l'espace DSI de l'application, et la première version branchée sur les webhooks a
+  été abandonnée le 2 juin. Le tuteur a « demandé » le chemin retour (il ne l'a pas « ajouté » lui-même).
+- **Des chutes de paragraphe restaient** (« Personne ne me l'a demandé », « le CSS a arrêté d'être de
+  la magie », « mon obsession pour les marges »). Elles sont retirées. « Quelqu'un qui relit mon code »
+  ne reste que dans le CV.
+- **Mesure en direct trompeuse** : les lignes « Requêtes » et « CLS » contredisaient la mesure de
+  laboratoire. Elles sont retirées du direct et restent dans le tableau Lighthouse.
+- Le simulateur cache « Résoudre » sur un ticket déjà résolu, et le bouton de remise à zéro a un nom accessible.
+- Les étiquettes du hero ne répètent plus « Ce que je… », et le mot « prouvé » a disparu.
+- Le badge « Disponible » n'apparaît plus deux fois. La photo est réduite sur mobile, et la vignette du labo n'est plus déformée.
+- Lettre DSI : la phrase sur l'IA attirait l'attention d'un lecteur hostile. Elle est remplacée par
+  l'engagement de respecter la charte informatique de l'établissement.
+- CV classique : la protection des données (données fictives, jetons hors du code) apparaît aussi dans le CV.
+- Lettre courte : « logiciels de gestion des demandes d'assistance » au lieu de « ticketing ».
+
+On s'arrête là. Entre le round 2 et le round 3, les notes ont gagné 0,4 point, et les critiques
+restantes ne se règlent plus par l'écriture (voir ci-dessous).
+
 ## Ce que le panel ne peut pas résoudre
 
 - **Le parcours non daté.** Deux profils (bureau des stages, ESN) préféreraient voir les années. C'est

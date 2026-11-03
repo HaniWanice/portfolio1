@@ -69,7 +69,7 @@ export function GlpiSim() {
       await write(`> Transmettre #${t.id}`, "verb");
       await write("POST etu/initSession   → 200, session ouverte");
       await write("POST dsi/initSession   → 200, session ouverte");
-      await write(`GET  dsi/search/Ticket?name=[ESCALADE ETU - ID:${t.id}]`);
+      await write(`GET  dsi/search/Ticket   (titre contient [ESCALADE ETU - ID:${t.id}])`);
       const existing = dsi.find((d) => d.ref === t.id);
       if (existing) {
         await write(`     → déjà présent (#${existing.id}) : rien à créer (anti-doublon)`, "warn");
@@ -135,7 +135,7 @@ export function GlpiSim() {
           <button className="sim-btn ghost" onClick={() => setBroken((b) => !b)} aria-pressed={broken} disabled={busy}>
             {broken ? "Panne active · réparer" : "Simuler une panne de l'API DSI"}
           </button>
-          <button className="sim-btn ghost" onClick={reset} disabled={busy} aria-label="Remettre la simulation à zéro">
+          <button className="sim-btn ghost" onClick={reset} disabled={busy} aria-label="Remettre la simulation à zéro" title="Remettre à zéro">
             <Refresh className="" />
           </button>
         </div>
@@ -200,9 +200,11 @@ export function GlpiSim() {
                 </p>
                 <div className="ticket-row">
                   <span className="badge" data-s={d.status}>{LABEL[d.status]}</span>
-                  <button className="sim-btn" disabled={busy || d.status === "resolu"} onClick={() => resolve(d)}>
-                    Résoudre
-                  </button>
+                  {d.status !== "resolu" && (
+                    <button className="sim-btn" disabled={busy} onClick={() => resolve(d)}>
+                      Résoudre
+                    </button>
+                  )}
                 </div>
               </motion.article>
             ))}

@@ -24,15 +24,15 @@ export const chapters = [
 
 export const quick = [
   {
-    k: "Ce que je fais",
+    k: "Mon métier",
     v: "Des applications web de bout en bout : interface, API, base de données, conteneurs.",
   },
   {
-    k: "Ce que j'ai prouvé",
-    v: "Deux mois à la DSI de l'UPEC, un prototype qui relie deux GLPI isolés, livré et documenté.",
+    k: "Mon expérience",
+    v: "Huit semaines à la DSI de l'UPEC : un prototype qui relie deux GLPI isolés, validé par mon tuteur et documenté.",
   },
   {
-    k: "Ce que je cherche",
+    k: "Ma recherche",
     v: "Un stage de développeur de 2 à 5 mois, d'avril à fin août 2027, à Paris ou en Île-de-France.",
   },
 ];
@@ -63,7 +63,7 @@ export const story: Step[] = [
     when: "2025",
     title: "Le responsive, tout seul",
     text:
-      "La certification Responsive Web Design de freeCodeCamp, environ 40 heures le soir. C'est là que le CSS a arrêté d'être de la magie.",
+      "La certification Responsive Web Design de freeCodeCamp, environ 40 heures le soir, en plus des cours : flexbox, grid, media queries.",
     tag: "HTML · CSS",
   },
   {
@@ -77,7 +77,7 @@ export const story: Step[] = [
     when: "Avril 2027",
     title: "La suite, peut-être chez vous",
     text:
-      "Je cherche un stage de 2 à 5 mois : un vrai sujet à prendre en main, et quelqu'un pour relire mon code.",
+      "Je cherche un stage de 2 à 5 mois, dans une équipe qui me confie un vrai sujet.",
   },
 ];
 
@@ -96,7 +96,7 @@ export const stage = {
     },
     {
       name: "Les webhooks",
-      why: "J'ai commencé par là. Le 2 juin, en testant le ticket n°27, j'ai compris que GLPI ne déclenche pas ses webhooks quand la modification vient de l'API. La moitié du flux ne pouvait pas marcher.",
+      why: "Ma première version du chemin retour reposait dessus. Le 2 juin, en testant le ticket n°27, j'ai compris que GLPI ne les déclenche pas quand la modification vient de l'API. J'ai tout basculé sur une double écriture : chaque action passe par l'application, qui met à jour les deux GLPI.",
     },
     {
       name: "La synchronisation automatique",
@@ -108,7 +108,7 @@ export const stage = {
     "Une application Next.js qui parle aux deux via l'API REST, avec des Server Actions côté serveur.",
     "Une escalade en un clic : ticket miroir côté DSI, statut mis à jour côté étudiant. Le lien passe par une balise dans le titre, parce que le champ external_id prévu pour ça n'est pas interrogeable par l'API de recherche.",
     "Un anti-doublon, après une démo où chaque modification d'un ticket étudiant en recréait un côté DSI.",
-    "Le chemin retour, ajouté par mon tuteur en pleine démo du 22 mai, au moment où je pensais avoir fini.",
+    "Le chemin retour, demandé par mon tuteur pendant la démo du 22 mai, au moment où je pensais avoir fini. Les techniciens traitent les tickets escaladés depuis l'espace DSI de l'application, qui répercute statut et réponses côté étudiant.",
     "Un coupe-circuit contre les boucles de synchronisation, et des sessions API fermées dans un finally, après avoir saturé GLPI de sessions fantômes.",
   ],
   limits:
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     name: "Labo perf",
     kind: "Démo · performance web",
     year: "2026",
-    text: "La même page Next.js écrite deux fois : une version qui accumule les erreurs courantes, puis une version optimisée. Lighthouse mobile : 57 contre 97.",
+    text: "La même page Next.js écrite deux fois : une version qui accumule les erreurs courantes, puis une version optimisée, mesurées côte à côte dans votre navigateur.",
     stack: "Next.js · Web Vitals · next/image",
     image: "/images/labo.jpg",
     href: "/labo",
@@ -156,7 +156,7 @@ export const projects: Project[] = [
     name: "Portail du personnel UPEC",
     kind: "Refonte d'interface · proposition perso",
     year: "2026",
-    text: "La page que le personnel de l'université ouvre chaque matin, repensée : services regroupés par usage, navigation remise à plat, lisible sur téléphone. Personne ne me l'a demandé.",
+    text: "La page que le personnel de l'université ouvre chaque matin, repensée : services regroupés par usage, navigation remise à plat, lisible sur téléphone. Un projet personnel, fait pour m'exercer sur un vrai cas.",
     stack: "HTML · CSS",
     image: "/images/portail-paris-est.jpg",
     href: "https://haniwanice.github.io/Protail-design-upec/",
@@ -227,7 +227,7 @@ export const notYet = {
 
 export const outside = [
   { t: "Piano", d: "Depuis 8 ans. Beaucoup d'Einaudi, un peu de violon en débutant." },
-  { t: "Dessin", d: "C'est probablement de là que vient mon obsession pour les marges." },
-  { t: "Natation, vélo", d: "Les meilleurs endroits pour débloquer un bug." },
+  { t: "Dessin", d: "Surtout au crayon, dans un carnet." },
+  { t: "Natation, vélo", d: "Pour sortir un peu de l'écran." },
   { t: "Refuge", d: "Je promène des chiens dans un refuge, en bénévole." },
 ];
