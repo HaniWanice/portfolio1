@@ -47,7 +47,6 @@ export function Hero() {
             placeholder="blur"
             sizes="(min-width: 900px) 440px, 78vw"
           />
-          <figcaption>Disponible dès avril 2027</figcaption>
         </figure>
       </div>
 

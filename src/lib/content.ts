@@ -56,7 +56,7 @@ export const story: Step[] = [
     when: "2025",
     title: "Dessiner avant de coder",
     text:
-      "Une mission de design pour une application mobile : parcours, écrans, maquettes Figma. J'ai appris à défendre un choix d'interface, et à en lâcher un quand l'argument d'en face était meilleur.",
+      "Une mission de design pour une application mobile : parcours, écrans, maquettes Figma. Le porteur du projet me demandait de justifier chaque écran, et j'en ai refait plusieurs.",
     tag: "Figma · UX",
   },
   {
