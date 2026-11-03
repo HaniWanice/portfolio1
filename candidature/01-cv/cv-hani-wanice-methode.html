@@ -7,124 +7,174 @@
 <style>
 @font-face{font-family:"Bricolage";src:url(../_assets/fonts/bricolage.woff2) format("woff2");font-weight:200 800;font-stretch:75% 100%;font-display:block}
 @page{size:A4;margin:0}
-:root{--ink:#2a1d1b;--accent:#c9463a;--hl:#ffe48c;--side:#ffd6c2;
-/* Hiérarchie par nuances d'encre : titres très noirs, puis de plus en plus gris. */
---t1:var(--ink);
---t2:color-mix(in srgb,var(--ink) 84%,transparent);
---t3:color-mix(in srgb,var(--ink) 68%,transparent);
---t4:color-mix(in srgb,var(--ink) 58%,transparent)}
+:root{
+  --ink:#16110f;
+  --accent:#c9463a;
+  --hl:#ffe48c;
+  --side:#ffd6c2;
+  /* Nuances d'encre : 1 titres, 2 texte, 3 secondaire, 4 métadonnées. Toutes restent lisibles. */
+  --t1:#16110f;
+  --t2:#3b3433;
+  --t3:#5c5452;
+  --t4:#6d6563;
+  --edge:rgba(22,17,15,.13);
+  --card:#faf7f5;
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#fff}
-body{position:relative;width:210mm;height:297mm;overflow:hidden;color:var(--t2);font:400 8.5pt/1.45 "Bricolage",system-ui,sans-serif;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased}
+body{position:relative;width:210mm;height:297mm;overflow:hidden;color:var(--t2);font:400 8.2pt/1.4 "Bricolage",system-ui,sans-serif;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.side{position:absolute;left:0;top:0;bottom:0;width:68mm;background:var(--side);padding:12mm 8mm 10mm}
-.photo{width:46mm;height:57.5mm;border-radius:4.5mm;object-fit:cover;display:block}
-.side h2{margin:6mm 0 2mm;font:700 7.2pt/1 "Bricolage";letter-spacing:.1em;text-transform:uppercase;color:var(--t1)}
-.side h2:first-of-type{margin-top:7mm}
-.side p,.side dd{font-size:8.2pt;line-height:1.42;color:var(--t2)}
-.contact{display:grid;gap:1.2mm;list-style:none;color:var(--t2)}
+h2{font:700 6.9pt/1 "Bricolage";letter-spacing:.11em;text-transform:uppercase;color:var(--t1);margin-bottom:2.2mm}
+h3{font-weight:700;font-size:8.8pt;line-height:1.25;letter-spacing:-.01em;color:var(--t1)}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:2mm}
+.when{flex:none;font-size:7.3pt;color:var(--t4);white-space:nowrap}
+.org{margin-top:.3mm;font-weight:600;color:var(--t3)}
+
+/* Barre latérale */
+.side{position:absolute;left:0;top:0;bottom:0;width:66mm;background:var(--side);padding:9mm 6.5mm 8mm}
+.photo{display:block;width:40mm;height:50mm;border-radius:4mm;object-fit:cover;object-position:50% 30%;border:.3mm solid var(--edge)}
+.side .card{margin-top:3mm;padding:2.8mm 3mm 3mm;border-radius:3mm;background:rgba(255,255,255,.55);border:.25mm solid var(--edge)}
+.contact{list-style:none;display:grid;gap:.9mm;color:var(--t2)}
 .contact li{overflow-wrap:anywhere}
-.side-item+.side-item{margin-top:2.4mm}
-.side-item h3{font-size:8.6pt;font-weight:700;line-height:1.25;color:var(--t1)}
-.meta{margin-top:.4mm;color:var(--t3);font-size:7.8pt}
-.kv+.kv{margin-top:2mm}
-dt{font-weight:700;font-size:8pt;color:var(--t1)}
-dd{color:var(--t3)}
-.langues,.interets{list-style:none;color:var(--t3)}
-.interets li+li{margin-top:.8mm}
-main{position:absolute;left:68mm;right:0;top:0;bottom:0;padding:12mm 13mm 9mm 12mm}
-h1{font:700 33pt/.92 "Bricolage";letter-spacing:-.045em;font-variation-settings:"wdth" 88;color:var(--t1)}
-.title{margin-top:3mm;font-weight:600;font-size:10pt;letter-spacing:-.01em;color:var(--t2)}
-.search{display:inline-block;margin-top:2.4mm;padding:1mm 3mm;border-radius:2.4mm;background:var(--hl);font-weight:600;font-size:8.6pt;color:var(--t1)}
-.accroche{margin-top:5mm;font-size:9.4pt;line-height:1.45;font-weight:500;letter-spacing:-.005em;color:var(--t2)}
-main h2{margin:6mm 0 2.4mm;font:700 7.2pt/1 "Bricolage";letter-spacing:.1em;text-transform:uppercase;color:var(--t1)}
-.item+.item{margin-top:3.6mm}
-header{display:flex;justify-content:space-between;align-items:baseline;gap:3mm}
-h3{font-weight:700;font-size:9.2pt;line-height:1.25;letter-spacing:-.01em;color:var(--t1)}
-.when{flex:none;font-size:7.6pt;color:var(--t4);white-space:nowrap}
-.org{margin-top:.3mm;color:var(--t3);font-weight:600}
-.lead{margin-top:1.2mm;color:var(--t2)}
-ul{list-style:none;margin-top:1.2mm}
-main li{position:relative;padding-left:3.4mm;margin-top:.9mm;color:var(--t2)}
-main li::before{content:"";position:absolute;left:0;top:2mm;width:1.6mm;height:1.6mm;border-radius:50%;background:var(--accent)}
-.stack{margin-top:1.4mm;font-size:7.5pt;color:var(--t4)}
-.proj+.proj{margin-top:2.6mm}
-.proj p{margin-top:.4mm;color:var(--t3)}
-.url{white-space:nowrap;font-size:7.6pt;font-weight:600;color:var(--accent)}
-.methode{margin-top:5mm;padding:3mm 3.6mm 3.2mm;border-radius:3mm;background:color-mix(in srgb,var(--hl) 55%,#fff)}
-.methode h2{margin:0 0 1.6mm}
-.methode p+p{margin-top:1.4mm}
-.methode p{color:var(--t2)}
-sup{font-size:.7em;line-height:0}
+.group+.group{margin-top:2mm}
+.glabel{font-weight:700;font-size:7.4pt;color:var(--t1);margin-bottom:1mm}
+.chips{display:flex;flex-wrap:wrap;gap:1mm}
+.chip{padding:.5mm 1.8mm;border-radius:1.6mm;background:#fff;border:.25mm solid var(--edge);font-size:7.3pt;color:var(--t2)}
+.lang{display:grid;grid-template-columns:15mm auto 1fr;align-items:center;gap:2mm}
+.lang+.lang{margin-top:1.3mm}
+.lname{font-weight:600;color:var(--t1)}
+.llevel{font-size:7.2pt;color:var(--t3)}
+.dots{display:flex;gap:.8mm}
+.dots i{width:1.8mm;height:1.8mm;border-radius:50%;background:rgba(22,17,15,.15)}
+.dots i.on{background:var(--accent)}
+.plain{list-style:none;display:grid;gap:.7mm;color:var(--t2)}
+
+/* Colonne principale */
+main{position:absolute;left:66mm;right:0;top:0;bottom:0;padding:9mm 9mm 8mm 8mm}
+h1{font:700 30pt/.92 "Bricolage";letter-spacing:-.045em;font-variation-settings:"wdth" 88;color:var(--t1)}
+.title{margin-top:2.6mm;font-weight:700;font-size:10.6pt;color:var(--t1);letter-spacing:-.01em}
+.school{margin-top:.6mm;font-size:8.4pt;color:var(--t3);font-weight:500}
+.search{display:inline-block;margin-top:2.4mm;padding:.9mm 2.8mm;border-radius:2.2mm;background:var(--hl);font-weight:600;font-size:8.2pt;color:var(--t1)}
+main .card{margin-top:2.6mm;padding:2.7mm 3.4mm 2.9mm;border-radius:3mm;background:var(--card);border:.25mm solid var(--edge)}
+.atouts{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1.4mm 4mm}
+.atouts li{position:relative;padding-left:3mm;color:var(--t3)}
+.atouts li::before{content:"";position:absolute;left:0;top:1.6mm;width:1.4mm;height:1.4mm;border-radius:50%;background:var(--accent)}
+.atouts b{display:block;color:var(--t1);font-weight:700}
+.form+.form{margin-top:2.2mm;padding-top:2.2mm;border-top:.25mm solid var(--edge)}
+.main-degree h3{font-size:9.6pt}
+.tags{display:flex;flex-wrap:wrap;gap:1mm;margin-top:1.4mm}
+.tag{padding:.4mm 1.6mm;border-radius:1.4mm;background:#fff;border:.25mm solid var(--edge);font-size:7.1pt;color:var(--t3)}
+.item+.item{margin-top:2.6mm;padding-top:2.6mm;border-top:.25mm solid var(--edge)}
+.context{margin-top:1mm;color:var(--t2)}
+.schema{display:flex;align-items:center;gap:1.2mm;margin-top:1.8mm}
+.node{flex:1;text-align:center;padding:1mm 1.2mm;border-radius:1.6mm;background:#fff;border:.3mm solid var(--t1);font-weight:600;font-size:7.3pt;color:var(--t1)}
+.arr{flex:none;width:6mm;color:var(--accent)}
+.arr svg{display:block;width:100%;height:auto}
+.bullets{list-style:none;margin-top:1.6mm;display:grid;gap:.6mm}
+.bullets li{position:relative;padding-left:3mm;color:var(--t2)}
+.bullets li::before{content:"";position:absolute;left:0;top:1.6mm;width:1.3mm;height:1.3mm;border-radius:50%;background:var(--accent)}
+.proj+.proj{margin-top:2mm;padding-top:2mm;border-top:.25mm solid var(--edge)}
+.proj-head{display:flex;justify-content:space-between;align-items:baseline;gap:2mm}
+.proj p{margin-top:.3mm;color:var(--t3)}
+.url{font-size:7.3pt;font-weight:600;color:var(--accent);white-space:nowrap}
+.bars{margin-top:1.3mm;display:grid;gap:.7mm}
+.bar{display:grid;grid-template-columns:22mm 1fr 7mm;align-items:center;gap:2mm;font-size:7.2pt;color:var(--t3)}
+.bar b{display:block;height:2.4mm;border-radius:1.2mm;background:rgba(22,17,15,.22)}
+.bar.after b{background:var(--accent)}
+.bar em{font-style:normal;font-weight:700;color:var(--t1);text-align:right}
+.bars small{font-size:6.9pt;color:var(--t4)}
 </style>
 </head>
 <body>
   <aside class="side">
     <img class="photo" src="../_assets/photo-cv.jpg" alt="Photo de Hani Wanice">
-    <h2>Contact</h2>
-    <ul class="contact">
-      <li><a href="mailto:haniwanice@gmail.com">haniwanice@gmail.com</a></li>
-      <li>07 83 63 60 58</li>
-      <li><a href="https://haniwanice.com">haniwanice.com</a></li>
-      <li><a href="https://github.com/HaniWanice">github.com/HaniWanice</a></li>
-      <li><a href="https://linkedin.com/in/hani-wanice-920a813b1">LinkedIn</a></li>
-      <li>Île-de-France, mobile dans toute la région</li>
-    </ul>
-    <h2>Formation</h2>
-    
-    <div class="side-item">
-      <h3>Licence 3 Informatique</h3>
-      <p class="meta">Université Paris-Est Créteil<br>En cours, 2026-2027. Poursuite en master envisagée.</p>
-    </div>
-    <div class="side-item">
-      <h3>Certification Responsive Web Design</h3>
-      <p class="meta">freeCodeCamp, 2025</p>
-    </div>
-    <h2>Compétences</h2>
-    <dl><div class="kv"><dt>Front</dt><dd>React, Next.js, TypeScript, HTML/CSS (responsive, accessibilité)</dd></div><div class="kv"><dt>Back et données</dt><dd>API REST, Node.js, SQL (MariaDB, MySQL, SQLite), PHP/Laravel, Firebase</dd></div><div class="kv"><dt>Outils</dt><dd>Git, GitHub, Docker Compose, Postman, Figma</dd></div><div class="kv"><dt>Aussi en licence</dt><dd>C, Java, Python</dd></div></dl>
-    <h2>Langues</h2>
-    <ul class="langues"><li>Français et anglais courants, espagnol intermédiaire</li></ul>
-    <h2>En dehors</h2>
-    <ul class="interets"><li>Piano depuis 8 ans, violon en débutant</li><li>Dessin</li><li>Natation, vélo</li><li>Bénévole dans un refuge pour chiens</li></ul>
+    <section class="card">
+      <h2>Contact</h2>
+      <ul class="contact">
+        <li><a href="mailto:haniwanice@gmail.com">haniwanice@gmail.com</a></li>
+        <li>07 83 63 60 58</li>
+        <li>Île-de-France</li>
+        <li><a href="https://haniwanice.com">haniwanice.com</a></li>
+        <li><a href="https://github.com/HaniWanice">github.com/HaniWanice</a></li>
+        <li><a href="https://linkedin.com/in/hani-wanice-920a813b1">LinkedIn</a></li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Compétences</h2>
+      <div class="group"><p class="glabel">Front-end</p><div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">HTML / CSS</span></div></div><div class="group"><p class="glabel">Back-end</p><div class="chips"><span class="chip">Node.js</span><span class="chip">API REST</span><span class="chip">PHP / Laravel</span></div></div><div class="group"><p class="glabel">Données</p><div class="chips"><span class="chip">SQL</span><span class="chip">MariaDB</span><span class="chip">MySQL</span><span class="chip">Firebase</span></div></div><div class="group"><p class="glabel">Outils</p><div class="chips"><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">Figma</span><span class="chip">Postman</span></div></div><div class="group"><p class="glabel">Vus en licence</p><div class="chips"><span class="chip">C</span><span class="chip">Java</span><span class="chip">Python</span></div></div>
+    </section>
+    <section class="card">
+      <h2>Langues</h2>
+      <div class="lang"><span class="lname">Français</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="llevel">Courant</span></div><div class="lang"><span class="lname">Anglais</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="llevel">Courant</span></div><div class="lang"><span class="lname">Espagnol</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="llevel">Intermédiaire</span></div>
+    </section>
+    <section class="card">
+      <h2>Savoir-être</h2>
+      <div class="chips"><span class="chip">Calme</span><span class="chip">À l'écoute</span><span class="chip">Communication claire</span><span class="chip">Autonomie</span></div>
+    </section>
+    <section class="card">
+      <h2>En dehors</h2>
+      <ul class="plain"><li>Piano (8 ans)</li><li>Dessin</li><li>Natation, vélo</li><li>Bénévolat en refuge animalier</li></ul>
+    </section>
   </aside>
   <main>
     <h1>Hani Wanice</h1>
-    <p class="title">Étudiant en L3 Informatique · développement web</p>
-    <p class="search">Stage développeur web · avril à août 2027 (2 à 5 mois)</p>
-    <p class="accroche">À la DSI de l'UPEC, j'ai relié l'outil de support des étudiants à celui du personnel, sans que l'un puisse lire l'autre. Je cherche un stage où l'on me confie un sujet de ce genre, avec quelqu'un qui relit mon code.</p>
-    <h2>Expérience</h2>
-    
-    <article class="item">
-      <header>
-        <h3>Stagiaire développeur</h3>
-        <p class="when">4 mai – 1<sup>er</sup> juil. 2026</p>
-      </header>
-      <p class="org">Direction des systèmes d'information, Université Paris-Est Créteil</p>
-      <p class="lead">Seul développeur sur le sujet, encadré par un ingénieur de la DSI. Objectif : permettre aux étudiants d'écrire au support sans leur donner accès au GLPI du personnel.</p>
-      <ul><li>Prototype fonctionnel : deux GLPI isolés (une base MariaDB chacun, sous Docker Compose) et une application Next.js / TypeScript qui écrit dans les deux via l'API REST, dans la même action.</li><li>Escalade d'un ticket en un clic, puis retour des statuts et des réponses de la DSI vers l'étudiant. Coupe-circuit contre les boucles, détection des faux « 200 OK » de GLPI, sessions API fermées même en cas d'erreur.</li><li>Webhooks et transfert natif testés puis écartés, raisons à l'appui. Prototype validé par le tuteur sur un scénario de bout en bout, et rapport de 37 pages qui détaille aussi ses limites.</li></ul>
-      <p class="stack">Next.js · TypeScript · API REST · Docker Compose · MariaDB · GLPI</p>
-    </article>
-    <article class="item">
-      <header>
-        <h3>Design UX/UI d'une application mobile</h3>
-        <p class="when">2025</p>
-      </header>
-      <p class="org">Mission pour un porteur de projet (Keewic)</p>
+    <p class="title">Étudiant en Licence 3 Informatique (Bac+3)</p>
+    <p class="school">Université Paris-Est Créteil (UPEC) · Développement web full-stack</p>
+    <p class="search">Recherche un stage de développeur web · avril à août 2027 · 2 à 5 mois</p>
+
+    <section class="card">
+      <h2>Points forts</h2>
+      <ul class="atouts"><li><b>Expérience en DSI</b>8 semaines sur un vrai projet, livré et validé</li><li><b>Full-stack</b>interface, API, base de données et Docker</li><li><b>Sens du design</b>maquettes Figma avant le code</li><li><b>Rigueur</b>tests, documentation, mesures de performance</li></ul>
+    </section>
+
+    <section class="card">
+      <h2>Formation</h2>
       
-      <ul><li>Parcours, wireframes et maquettes Figma de la première version, remis à un développeur pour le passage au code.</li><li>Aide au pitch, et beaucoup de questions au porteur de projet pour décider de ce qui entrait dans la V1.</li></ul>
-      <p class="stack">Figma · wireframes · prototypage</p>
-    </article>
-    <h2>Projets</h2>
-    
-    <article class="proj">
-      <header><h3>Labo perf : une page, deux versions</h3><p class="when">2026</p></header>
-      <p>Une boutique en ligne (16 produits, panier, vraies photos) codée deux fois en Next.js : d'abord avec les erreurs courantes, puis optimisée. Lighthouse mobile : score 65 → 97, poids 11,8 Mo → 437 ko. <span class="url"><a href="https://haniwanice.com/labo">haniwanice.com/labo</a></span></p>
-    </article>
-    <article class="proj">
-      <header><h3>Todo Smart</h3><p class="when">2026</p></header>
-      <p>Liste de tâches synchronisée en temps réel entre téléphone et ordinateur (React, Firestore). Je l'utilise tous les jours depuis sa mise en ligne. <span class="url"><a href="https://haniwanice.github.io/todo-smart">haniwanice.github.io/todo-smart</a></span></p>
-    </article>
-    <section class="methode"><h2>Comment je travaille</h2><p>Je développe avec Claude Code, configuré pour chaque projet (règles, skills, sous-agents de relecture). Petites étapes, relecture de chaque diff, tests de bout en bout avec Playwright. Le fichier de règles de mon site est public sur GitHub.</p><p>Données sensibles : modèles en local (Ollama, LM Studio). Pour le reste, je m'aligne sur les règles de l'équipe.</p></section>
+      <div class="form main-degree">
+        <header><h3>Licence Informatique (Bac+3)</h3><span class="when">L3 en cours · 2026-2027</span></header>
+        <p class="org">Université Paris-Est Créteil (UPEC)</p>
+        <div class="tags"><span class="tag">Algorithmique</span><span class="tag">Bases de données</span><span class="tag">Développement web</span><span class="tag">C</span><span class="tag">Java</span></div>
+      </div>
+      <div class="form">
+        <header><h3>Certification Responsive Web Design</h3><span class="when">2025</span></header>
+        <p class="org">freeCodeCamp</p>
+        
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Expérience</h2>
+      
+      <article class="item">
+        <header><h3>Stagiaire développeur web</h3><span class="when">Mai – juil. 2026 · 8 semaines</span></header>
+        <p class="org">DSI, Université Paris-Est Créteil</p>
+        <p class="context">Relier l'outil de support des étudiants à celui du personnel, sans mélanger leurs données.</p>
+        <div class="schema"><span class="node">GLPI étudiants</span><span class="arr"><svg viewBox="0 0 24 12" aria-hidden="true"><path d="M2 4h19m0 0-3-3m3 3-3 3M22 8H3m0 0 3-3M3 8l3 3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="node">Application Next.js</span><span class="arr"><svg viewBox="0 0 24 12" aria-hidden="true"><path d="M2 4h19m0 0-3-3m3 3-3 3M22 8H3m0 0 3-3M3 8l3 3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="node">GLPI DSI</span></div>
+        <ul class="bullets"><li>Conception et développement du prototype (Next.js, TypeScript, API REST)</li><li>Infrastructure Docker : deux GLPI isolés, deux bases MariaDB séparées</li><li>Transmission d'un ticket en un clic, réponses renvoyées à l'étudiant</li><li>Prototype validé par le tuteur, rapport technique de 37 pages</li></ul>
+        <div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Docker</span><span class="tag">MariaDB</span><span class="tag">GLPI</span></div>
+      </article>
+      <article class="item">
+        <header><h3>Designer UX/UI, mission</h3><span class="when">2025</span></header>
+        <p class="org">Application mobile Keewic</p>
+        
+        
+        <ul class="bullets"><li>Parcours et maquettes Figma de la première version</li><li>Maquettes livrées à un développeur pour le passage au code</li></ul>
+        <div class="tags"><span class="tag">Figma</span><span class="tag">Wireframes</span><span class="tag">Prototypage</span></div>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Projets</h2>
+      <div class="proj"><div class="proj-head"><h3>Labo perf</h3><span class="url"><a href="https://haniwanice.com/labo">haniwanice.com/labo</a></span></div><p>Une boutique en ligne codée en deux versions, puis mesurée</p><div class="bars" aria-label="Score Lighthouse mobile : 65 puis 97">
+            <div class="bar"><span>Version naïve</span><b style="width:65%"></b><em>65</em></div>
+            <div class="bar after"><span>Version optimisée</span><b style="width:97%"></b><em>97</em></div>
+            <small>Score Lighthouse mobile</small>
+          </div></div><div class="proj"><div class="proj-head"><h3>Todo Smart</h3><span class="url"><a href="https://haniwanice.github.io/todo-smart">haniwanice.github.io/todo-smart</a></span></div><p>Liste de tâches synchronisée entre appareils (React, Firebase)</p></div>
+    </section>
+    <section class="card">
+        <h2>Méthode de travail</h2>
+        <ul class="bullets"><li>Claude Code au quotidien : règles par projet, relecture de chaque modification, tests Playwright</li><li>Données sensibles : modèles locaux (Ollama, LM Studio), ou pas d'IA selon les règles de l'équipe</li></ul>
+      </section>
   </main>
 </body>
 </html>
