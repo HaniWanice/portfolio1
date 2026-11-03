@@ -6,12 +6,16 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { variants, contact } from "../01-cv/cv-data.mjs";
 import { renderCV } from "../01-cv/cv-template.mjs";
+import { readFileSync } from "node:fs";
 import { renderLetter, parseLetter } from "../02-lettres/letter-template.mjs";
 
 // Playwright est installé globalement dans l'environnement : on le charge via require.
 const { chromium } = createRequire(import.meta.url)("playwright");
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const only = process.argv[2];
+// Palette du CV : candidature/05-design/palettes.json (CV_PALETTE=<id> pour en essayer une autre).
+const palettes = JSON.parse(readFileSync(join(root, "05-design", "palettes.json"), "utf8"));
+const palette = palettes.find((x) => x.id === (process.env.CV_PALETTE || "lavande")) || palettes[0];
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 794, height: 1123 }, deviceScaleFactor: 2 });
@@ -31,7 +35,7 @@ async function toPdf(htmlPath, base) {
 if (!only || only === "cv") {
   for (const v of Object.values(variants)) {
     const html = join(root, "01-cv", v.file + ".html");
-    await writeFile(html, renderCV(v, contact));
+    await writeFile(html, renderCV(v, contact, palette));
     const overflow = await toPdf(html, join(root, "01-cv", v.file));
     console.log(`CV  ${v.file}.pdf${overflow > 0 ? `  ⚠ déborde de ${overflow}px` : "  ok (1 page)"}`);
   }

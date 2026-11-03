@@ -1,0 +1,180 @@
+/* Page Labo */
+.labo-page {
+  padding-top: calc(var(--nav-h) + clamp(40px, 8vw, 96px));
+  padding-bottom: 96px;
+}
+.labo-page h1 {
+  font: 400 clamp(2.6rem, 7vw, 5.4rem) / 1 var(--serif);
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.labo-page .lead {
+  margin-top: 22px;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  color: var(--ink-2);
+  max-width: 62ch;
+}
+.duel {
+  margin-top: clamp(40px, 6vw, 64px);
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow:
+    0 1px 0 var(--line),
+    0 30px 60px -40px rgba(23, 22, 26, 0.35);
+  overflow: hidden;
+}
+.duel-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.duel-bar p {
+  font-size: 0.9375rem;
+  color: var(--muted);
+}
+.duel-panes {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+}
+@media (min-width: 900px) {
+  .duel-panes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.pane {
+  background: var(--card);
+  display: grid;
+  grid-template-rows: auto 460px auto;
+}
+.pane-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font: 400 0.8125rem/1.4 var(--mono);
+}
+.pane-head b {
+  font-weight: 400;
+}
+.pane-head[data-kind="naive"] b {
+  color: #9b2c2c;
+}
+.pane-head[data-kind="optim"] b {
+  color: var(--ok);
+}
+.pane iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+.metrics {
+  list-style: none;
+  padding: 14px 16px 18px;
+  display: grid;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+}
+.metric {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: baseline;
+}
+.metric span {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.metric b {
+  font: 400 0.9375rem/1 var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+.metric .bar {
+  grid-column: 1 / -1;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+.metric .bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  transform-origin: 0 50%;
+  transition: transform 0.9s var(--ease);
+}
+.pane[data-kind="naive"] .bar i {
+  background: #c25a4a;
+}
+.pane[data-kind="optim"] .bar i {
+  background: var(--ok);
+}
+.duel-notes {
+  margin-top: clamp(48px, 7vw, 80px);
+  display: grid;
+  gap: clamp(32px, 5vw, 64px);
+}
+@media (min-width: 900px) {
+  .duel-notes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.duel-notes h2 {
+  font: 400 1.9rem/1.15 var(--serif);
+  margin-bottom: 16px;
+}
+.duel-notes ol {
+  padding-left: 1.2em;
+  display: grid;
+  gap: 12px;
+}
+.duel-notes li::marker {
+  font-family: var(--mono);
+  color: var(--accent);
+}
+.duel-notes code,
+.prose code {
+  font: 400 0.85em var(--mono);
+  background: var(--paper-2);
+  padding: 1px 6px;
+  border-radius: 5px;
+}
+.lab-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.lab-table th,
+.lab-table td {
+  text-align: left;
+  padding: 10px 8px 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.lab-table th {
+  font: 400 0.75rem/1.4 var(--mono);
+  color: var(--muted);
+}
+.lab-table td.num {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+.back {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 28px;
+  font: 400 0.875rem/1 var(--mono);
+  color: var(--muted);
+  text-decoration: none;
+}
+.back:hover {
+  color: var(--accent);
+}
+

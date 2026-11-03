@@ -50,17 +50,10 @@ const projetsCommuns = [
   },
   {
     name: "Todo Smart",
-    url: SITE + "/#projets",
+    url: "haniwanice.github.io/todo-smart",
     when: "2026",
     text:
       "Liste de tâches synchronisée en temps réel entre téléphone et ordinateur (React, Firestore). Je l'utilise tous les jours depuis sa mise en ligne.",
-  },
-  {
-    name: "Refonte du portail du personnel UPEC",
-    url: SITE + "/#projets",
-    when: "2026",
-    text:
-      "Proposition personnelle : services regroupés par usage, navigation simplifiée, version mobile. HTML et CSS, sans framework.",
   },
 ];
 

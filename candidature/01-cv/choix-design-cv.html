@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Six mises en page de CV</title>
+<style>
+:root{--ink:#0b0b12;--mute:#6a6a76;--line:#dcdce3;--bg:#f4f4f7;--card:#fff;--accent:#2438ff;--lime:#cbff3b;--soft:#e9ebff}
+@media (prefers-color-scheme:dark){:root{--ink:#f3f3f7;--mute:#a2a2ae;--line:#2a2a34;--bg:#101015;--card:#17171d;--soft:#1d2140}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:40px 16px 96px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+.lead{margin-top:12px;max-width:62ch;color:var(--mute);text-wrap:pretty}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin:24px 0 0;font-size:14px;color:var(--mute)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:18px;height:12px;border-radius:3px;display:inline-block}
+.grid{display:grid;gap:28px;margin-top:36px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.item{display:flex;flex-direction:column;gap:12px}
+.item h2{font-size:18px;display:flex;gap:10px;align-items:baseline}
+.item h2 b{font-weight:700;color:var(--accent)}
+.item p{font-size:14px;color:var(--mute);text-wrap:pretty}
+.item ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;font-size:12px}
+.item li{padding:2px 8px;border-radius:99px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
+.thumb{all:unset;cursor:zoom-in;display:block;border-radius:10px;box-shadow:0 1px 0 var(--line),0 14px 30px -20px rgba(0,0,0,.35);transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s}
+.thumb:hover{transform:translateY(-4px)}
+.thumb:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.page{container-type:inline-size;position:relative;width:100%;aspect-ratio:210/297;background:#fff;color:#111;overflow:hidden;border-radius:10px;font-size:2.2cqw;line-height:1.3}
+/* briques de maquette */
+.page *{box-sizing:border-box}
+.b{position:absolute}
+.line{height:1cqw;border-radius:.5cqw;background:#c9c9d2}
+.line.d{background:#8f8f9c}
+.t{font-weight:700;letter-spacing:.02em;font-size:2.1cqw;text-transform:uppercase;color:var(--accent)}
+.t.k{color:#111}
+.name{font-weight:800;letter-spacing:-.03em;line-height:.9;color:#0b0b12}
+.ph{background:#bfc3cf;display:grid;place-items:center;font-size:1.8cqw;font-weight:700;color:#4c5060;letter-spacing:.08em}
+.col{background:var(--accent);color:#fff}
+.soft{background:var(--soft)}
+.lime{background:var(--lime)}
+.rule{background:#111;height:.25cqw}
+.hair{background:#cfd0d8;height:.2cqw}
+.vr{background:#cfd0d8;width:.2cqw}
+.dot{width:1.6cqw;height:1.6cqw;border-radius:50%;background:var(--accent)}
+.box{border-radius:1.6cqw}
+.on-col .line{background:#8e9aff}
+.tag{height:2.6cqw;border-radius:1.4cqw;background:#dfe1ff}
+dialog{border:0;border-radius:16px;padding:0;max-width:min(94vw,720px);width:100%;background:var(--card);color:var(--ink);box-shadow:0 40px 100px -30px rgba(0,0,0,.6)}
+dialog::backdrop{background:rgba(8,8,14,.6);backdrop-filter:blur(4px)}
+.dlg{display:grid;gap:16px;padding:18px}
+.dlg .page{width:min(100%,640px);margin-inline:auto;font-size:2.2cqw}
+.dlg header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dlg button{font:inherit;border:0;background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:99px;cursor:pointer}
+table{width:100%;border-collapse:collapse;margin-top:48px;font-size:14px;background:var(--card);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--mute);font-weight:600}
+td:first-child{font-weight:700;color:var(--accent);white-space:nowrap}
+.scroll{overflow-x:auto;border-radius:12px}
+.note{margin-top:32px;padding:16px 18px;border-radius:12px;background:var(--card);box-shadow:inset 0 0 0 1px var(--line);max-width:70ch}
+.note b{color:var(--accent)}
+@media (prefers-reduced-motion:reduce){.thumb{transition:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<h1>Six mises en page de CV</h1>
+<p class="lead">Ce sont des maquettes en blocs : il n'y a ni couleurs finales, ni vrai texte, ni polices. On regarde seulement où va la photo, comment les parties se répartissent, s'il y a des lignes, et si c'est coloré. Clique sur une maquette pour l'agrandir. Dis-moi laquelle tu préfères, ou une combinaison (par exemple « l'en-tête du 3 avec le corps du 5 »).</p>
+<div class="legend" aria-hidden="true">
+<span><i style="background:#c9c9d2"></i>texte</span>
+<span><i style="background:#bfc3cf"></i>photo</span>
+<span><i style="background:var(--accent)"></i>couleur d'accent</span>
+<span><i style="background:var(--lime)"></i>second accent (optionnel)</span>
+<span><i style="background:#111;height:3px;margin-top:4px"></i>ligne</span>
+</div>
+<div class="grid" id="grid"></div>
+
+<div class="scroll"><table>
+<thead><tr><th>N°</th><th>Nom</th><th>Photo</th><th>Lignes</th><th>Couleur</th><th>Densité</th><th>Lecture en 30 secondes</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Colonne unique</td><td>Petite, en haut à droite</td><td>Aucune</td><td>Titres seulement</td><td>Aérée</td><td>Très simple : on lit de haut en bas.</td></tr>
+<tr><td>2</td><td>Barre latérale</td><td>En haut de la barre</td><td>Aucune</td><td>Barre pleine</td><td>Moyenne</td><td>Les repères (contact, outils) sont à gauche, l'histoire à droite.</td></tr>
+<tr><td>3</td><td>Bandeau</td><td>Dans le bandeau</td><td>Fines</td><td>Bandeau pleine largeur</td><td>Moyenne</td><td>Le nom et la photo frappent d'abord, le reste est classique.</td></tr>
+<tr><td>4</td><td>Modules</td><td>Dans un module</td><td>Aucune</td><td>Fonds teintés</td><td>Dense</td><td>Chaque partie est un bloc, mais on risque de se perdre.</td></tr>
+<tr><td>5</td><td>Chronologie</td><td>Petite, en haut</td><td>Une ligne verticale</td><td>Points d'accent</td><td>Aérée</td><td>Les dates guident l'œil ; très lisible.</td></tr>
+<tr><td>6</td><td>Éditorial</td><td>Bande verticale à droite</td><td>Fines</td><td>Un seul aplat</td><td>Très aérée</td><td>Le plus affirmé, avec peu de contenu par bloc.</td></tr>
+</tbody></table></div>
+
+<div class="note"><b>Pour décider :</b> un CV d'une page, lu en 30 secondes, doit montrer en premier ton nom, ce que tu cherches (stage dès avril 2027) et ton stage à la DSI. Les maquettes 1, 3 et 5 sont les plus sûres pour les recruteurs traditionnels. La 2 et la 6 sont les plus distinctives. La 4 est la plus dense.</div>
+</main>
+
+<dialog id="dlg"><div class="dlg"><header><strong id="dlgT"></strong><button type="button" id="dlgX">Fermer</button></header><div id="dlgB"></div></div></dialog>
+
+<script>
+function bars(n,w,mt){var o='';for(var i=0;i<n;i++){var ww=(w&&w[i%w.length])||100;o+='<div class="line" style="width:'+ww+'%;margin-top:'+(mt==null?1.2:mt)+'cqw"></div>'}return o}
+function block(t,n,w,cls){return '<div><div class="t '+(cls||'')+'">'+t+'</div>'+bars(n,w,1.3).replace('class="line"','class="line d"')+'</div>'}
+function exp(){return '<div style="margin-top:2.4cqw"><div style="display:flex;justify-content:space-between"><div class="line d" style="width:46%;height:1.3cqw"></div><div class="line" style="width:16%"></div></div><div class="line" style="width:34%;margin-top:1cqw"></div>'+bars(3,[96,88,70],1)+'</div>'}
+
+var L=[
+{n:'Colonne unique',d:'Tout se lit de haut en bas, sans barre ni bandeau. Beaucoup de blanc, un seul accent sur les titres.',tags:['sans lignes','photo à droite','aérée'],h:function(){return ''+
+'<div class="b" style="left:8%;top:6%;width:62%"><div class="name" style="font-size:7.4cqw">Hani<br>Wanice</div><div class="line d" style="width:60%;margin-top:2cqw;height:1.4cqw"></div><div class="line" style="width:44%;margin-top:1.2cqw"></div></div>'+
+'<div class="b ph" style="right:8%;top:6%;width:17%;aspect-ratio:4/5;border-radius:1.4cqw">PHOTO</div>'+
+'<div class="b" style="left:8%;right:8%;top:30%;display:grid;gap:3.4cqw">'+
+'<div>'+bars(2,[96,70],0)+'</div>'+block('Expérience',1,[40])+exp()+exp()+
+block('Projets',4,[86,92,70,80])+block('Formation',3,[60,70,50])+
+'<div style="display:grid;grid-template-columns:1fr 1fr;gap:4cqw">'+block('Compétences',3,[80,70,60])+block('Langues et loisirs',3,[70,60,76])+'</div></div>'}},
+
+{n:'Barre latérale',d:'Une barre colorée à gauche porte les repères (photo, contact, outils). Le récit est à droite.',tags:['sans lignes','photo en haut de la barre','barre colorée'],h:function(){return ''+
+'<div class="b col" style="left:0;top:0;bottom:0;width:31%"></div>'+
+'<div class="b ph" style="left:6%;top:5%;width:19%;aspect-ratio:1;border-radius:50%;background:#aeb6ff;color:#fff">PHOTO</div>'+
+'<div class="b on-col" style="left:6%;top:24%;width:20%;color:#fff">'+
+'<div class="t" style="color:#fff">Contact</div>'+bars(4,[100,84,92,70],1.2)+
+'<div class="t" style="color:#fff;margin-top:4cqw">Outils</div>'+bars(6,[70,86,60,90,64,78],1.2)+
+'<div class="t" style="color:#fff;margin-top:4cqw">Langues</div>'+bars(3,[60,70,50],1.2)+'</div>'+
+'<div class="b" style="left:37%;right:6%;top:6%"><div class="name" style="font-size:6.2cqw">Hani Wanice</div><div class="line d" style="width:55%;margin-top:2cqw;height:1.4cqw"></div>'+
+'<div style="margin-top:4cqw">'+bars(2,[96,66],0)+'</div>'+
+'<div style="margin-top:4cqw">'+block('Expérience',1,[40])+exp()+exp()+'</div>'+
+'<div style="margin-top:4cqw">'+block('Projets',4,[90,84,92,60])+'</div>'+
+'<div style="margin-top:4cqw">'+block('Formation',3,[60,70,50])+'</div></div>'}},
+
+{n:'Bandeau',d:'Un bandeau en pleine largeur avec le nom et la photo, puis deux colonnes classiques séparées par de fines lignes.',tags:['lignes fines','photo dans le bandeau','bandeau coloré'],h:function(){return ''+
+'<div class="b col" style="left:0;right:0;top:0;height:21%"></div>'+
+'<div class="b" style="left:7%;top:5%;color:#fff"><div class="name" style="font-size:7cqw;color:#fff">Hani Wanice</div><div class="line" style="width:200%;margin-top:2cqw;height:1.3cqw;background:#aab3ff;width:34cqw"></div><div class="line" style="margin-top:1.2cqw;height:1cqw;background:#8e9aff;width:50cqw"></div></div>'+
+'<div class="b ph" style="right:7%;top:3.5%;width:14%;aspect-ratio:4/5;border-radius:1.2cqw;background:#aeb6ff;color:#fff">PHOTO</div>'+
+'<div class="b" style="left:7%;top:26%;width:56%">'+bars(2,[96,70],0)+
+'<div style="margin-top:3.6cqw">'+block('Expérience',1,[40])+exp()+exp()+'</div>'+
+'<div class="hair" style="margin-top:3.6cqw"></div><div style="margin-top:3.6cqw">'+block('Projets',4,[90,84,92,60])+'</div></div>'+
+'<div class="b vr" style="left:67%;top:26%;bottom:6%"></div>'+
+'<div class="b" style="left:71%;right:6%;top:26%">'+block('Formation',4,[80,60,70,50])+'<div class="hair" style="margin-top:3.6cqw"></div><div style="margin-top:3.6cqw">'+block('Compétences',5,[70,84,60,90,64])+'</div><div class="hair" style="margin-top:3.6cqw"></div><div style="margin-top:3.6cqw">'+block('Langues',3,[60,70,50])+'</div></div>'}},
+
+{n:'Modules',d:'Chaque partie est un bloc teinté sur une grille. On voit tout d\'un coup, mais c\'est plus dense.',tags:['sans lignes','photo dans un bloc','fonds teintés'],h:function(){return ''+
+'<div class="b" style="left:6%;right:6%;top:5%;display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw">'+
+'<div class="box soft" style="grid-column:1/2;grid-row:1/3;padding:3cqw;min-height:24cqw"><div class="name" style="font-size:6cqw">Hani<br>Wanice</div><div class="line d" style="width:70%;margin-top:2cqw;height:1.4cqw"></div><div class="line" style="width:50%;margin-top:1cqw"></div></div>'+
+'<div class="box ph" style="aspect-ratio:1.5;border-radius:1.6cqw">PHOTO</div>'+
+'<div class="box col" style="padding:2.4cqw;height:100%"><div class="t" style="color:#fff">Contact</div>'+bars(3,[90,70,80],1).replace(/c9c9d2/g,'8e9aff')+'</div>'+
+'<div class="box soft" style="grid-column:1/3;padding:3cqw"><div class="t">Expérience</div>'+exp()+exp()+'</div>'+
+'<div class="box soft" style="padding:3cqw">'+block('Projets',6,[90,84,92,60,80,70])+'</div>'+
+'<div style="display:grid;gap:2.4cqw"><div class="box soft" style="padding:3cqw">'+block('Compétences',4,[70,84,60,90])+'</div><div class="box lime" style="padding:2.4cqw"><div class="t k">Langues</div>'+bars(2,[60,70],1)+'</div></div>'+
+'<div class="box soft" style="grid-column:1/3;padding:3cqw">'+block('Formation',2,[60,40])+'</div></div>'}},
+
+{n:'Chronologie',d:'Une ligne verticale et des dates à gauche. Le parcours se lit comme une histoire, de haut en bas.',tags:['ligne verticale','photo petite en haut','points d\'accent'],h:function(){return ''+
+'<div class="b" style="left:8%;top:6%;width:62%"><div class="name" style="font-size:7cqw">Hani Wanice</div><div class="line d" style="width:56%;margin-top:2cqw;height:1.4cqw"></div></div>'+
+'<div class="b ph" style="right:8%;top:5.5%;width:13%;aspect-ratio:1;border-radius:50%">PHOTO</div>'+
+'<div class="b" style="left:8%;right:8%;top:25%"><div>'+bars(2,[96,66],0)+'</div></div>'+
+'<div class="b vr" style="left:24%;top:36%;bottom:6%"></div>'+
+['Expérience','Expérience','Projets','Projets','Formation','Compétences'].map(function(t,i){return '<div class="b" style="left:8%;right:8%;top:'+(36+i*10.2)+'%;display:grid;grid-template-columns:16% 1fr;gap:5cqw"><div class="line d" style="width:80%;height:1.3cqw;margin-top:.4cqw"></div><div><div class="t k">'+(i%2?'':t)+'</div>'+bars(i<2?3:2,[96,70,84],1)+'</div></div><div class="b dot" style="left:23.2%;top:'+(36+i*10.2+.6)+'%"></div>'}).join('')}},
+
+{n:'Éditorial',d:'Un grand nom, une bande photo sur toute la hauteur à droite, des titres en grand et très peu de blocs.',tags:['lignes fines','photo bande verticale','un seul aplat'],h:function(){return ''+
+'<div class="b ph" style="right:0;top:0;bottom:0;width:22%">PHOTO</div>'+
+'<div class="b lime" style="left:0;top:0;width:8%;height:100%"></div>'+
+'<div class="b" style="left:13%;top:5%;width:60%"><div class="name" style="font-size:10cqw">Hani<br>Wanice</div><div class="line d" style="width:46%;margin-top:3cqw;height:1.4cqw"></div></div>'+
+'<div class="b hair" style="left:13%;width:57%;top:34%"></div>'+
+'<div class="b" style="left:13%;width:57%;top:37%">'+bars(2,[96,60],0)+'</div>'+
+'<div class="b" style="left:13%;width:57%;top:46%;display:grid;grid-template-columns:24% 1fr;gap:4cqw"><div class="t" style="font-size:3cqw">Expé<br>rience</div><div>'+exp().replace('margin-top:2.4cqw','margin-top:0')+exp()+'</div></div>'+
+'<div class="b hair" style="left:13%;width:57%;top:73%"></div>'+
+'<div class="b" style="left:13%;width:57%;top:76%;display:grid;grid-template-columns:24% 1fr;gap:4cqw"><div class="t" style="font-size:3cqw">Projets</div><div>'+bars(4,[92,80,96,60],1.4)+'</div></div>'+
+'<div class="b hair" style="left:13%;width:57%;top:89%"></div>'+
+'<div class="b" style="left:13%;width:57%;top:91%;display:grid;grid-template-columns:24% 1fr;gap:4cqw"><div class="t" style="font-size:3cqw">Études</div><div>'+bars(1,[60],0)+'</div></div>'}}
+];
+
+var g=document.getElementById('grid');
+L.forEach(function(x,i){
+  var it=document.createElement('div');it.className='item';
+  it.innerHTML='<button class="thumb" type="button" aria-label="Agrandir la maquette '+(i+1)+', '+x.n+'"><div class="page">'+x.h()+'</div></button><h2><b>'+(i+1)+'</b>'+x.n+'</h2><p>'+x.d+'</p><ul>'+x.tags.map(function(t){return '<li>'+t+'</li>'}).join('')+'</ul>';
+  it.querySelector('button').addEventListener('click',function(){
+    document.getElementById('dlgT').textContent=(i+1)+'. '+x.n;
+    document.getElementById('dlgB').innerHTML='<div class="page">'+x.h()+'</div>';
+    document.getElementById('dlg').showModal();
+  });
+  g.appendChild(it);
+});
+var dlg=document.getElementById('dlg');
+document.getElementById('dlgX').addEventListener('click',function(){dlg.close()});
+dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+</script>
+</body>
+</html>
