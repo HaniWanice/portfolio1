@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Refonte LinkedIn, Hani Wanice</title>
+<meta name="description" content="Audit du profil LinkedIn de Hani Wanice et instructions complètes pour le refaire, section par section.">
+<style>
+:root{--paper:#f3efe6;--card:#fbf9f4;--ink:#17161a;--ink2:#2e2c33;--muted:#5f5c66;--line:rgba(23,22,26,.12);--accent:#b83d0b;--soft:#f5dcc7;--ok:#2f7d4f;--bad:#9b2c2c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#141316;--card:#1d1c20;--ink:#f3efe6;--ink2:#ddd7cd;--muted:#a9a4ad;--line:rgba(243,239,230,.12);--accent:#e2672f;--soft:#3a2418;--ok:#7fcf9c;--bad:#f09a8a}}
+:root[data-theme="dark"]{--paper:#141316;--card:#1d1c20;--ink:#f3efe6;--ink2:#ddd7cd;--muted:#a9a4ad;--line:rgba(243,239,230,.12);--accent:#e2672f;--soft:#3a2418;--ok:#7fcf9c;--bad:#f09a8a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font:400 16.5px/1.62 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:56px 16px 120px}
+h1{font:400 clamp(2.2rem,6vw,3.4rem)/1.05 Georgia,"Times New Roman",serif;letter-spacing:-.01em}
+h2{font:400 1.9rem/1.15 Georgia,serif;margin:64px 0 14px;padding-top:24px;border-top:1px solid var(--ink)}
+h3{font-size:1.05rem;margin:28px 0 8px}
+p{margin:10px 0}
+.lead{font-size:1.15rem;color:var(--ink2)}
+.muted{color:var(--muted)}
+code,.mono{font:400 .86em ui-monospace,Menlo,monospace}
+ul,ol{padding-left:1.3em;margin:10px 0}
+li{margin:6px 0}
+table{width:100%;border-collapse:collapse;font-size:.95rem;margin:12px 0}
+th,td{text-align:left;padding:9px 8px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:400 .78rem ui-monospace,monospace;color:var(--muted)}
+td.n{font-family:ui-monospace,monospace;white-space:nowrap}
+.total{font:400 2.4rem Georgia,serif}
+.box{background:var(--card);border-radius:14px;padding:16px 18px;margin:14px 0;box-shadow:inset 0 0 0 1px var(--line)}
+.copy{position:relative}
+.copy pre{white-space:pre-wrap;font:400 .95rem/1.6 ui-sans-serif,system-ui,sans-serif;color:var(--ink)}
+.copy button{position:absolute;top:10px;right:10px;font:500 .8rem system-ui;padding:6px 10px;border-radius:999px;border:0;background:var(--ink);color:var(--paper);cursor:pointer}
+.copy button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tag{display:inline-block;font:400 .75rem ui-monospace,monospace;padding:2px 8px;border-radius:99px;background:var(--soft);color:var(--accent)}
+.do{color:var(--ok)}.dont{color:var(--bad)}
+.agent{border-left:3px solid var(--accent);padding:4px 0 4px 16px;margin:16px 0}
+img{max-width:100%;border-radius:10px;display:block;margin:12px 0}
+nav.toc{margin-top:28px;columns:2;column-gap:32px;font-size:.95rem}
+nav.toc a{color:var(--ink2)}
+@media (max-width:600px){nav.toc{columns:1}}
+.count{font:400 .8rem ui-monospace,monospace;color:var(--muted)}
+</style>
+</head>
+<body>
+<main class="wrap">
+<p class="tag">Document de travail · novembre 2026</p>
+<h1 style="margin-top:14px">Refonte du profil LinkedIn de Hani Wanice</h1>
+<p class="lead">Le diagnostic du profil actuel, puis tout ce qu'il faut changer, dans l'ordre, avec les textes prêts à coller.
+Ce document est écrit pour Hani et pour un agent (Claude Code ou autre) qui aurait accès au compte LinkedIn.</p>
+
+<nav class="toc" aria-label="Sommaire">
+<ol>
+<li><a href="#agent">Consignes pour l'agent</a></li>
+<li><a href="#audit">Diagnostic : 25/100</a></li>
+<li><a href="#identite">Photo, bannière, URL</a></li>
+<li><a href="#titre">Titre</a></li>
+<li><a href="#infos">Infos (à propos)</a></li>
+<li><a href="#experience">Expérience</a></li>
+<li><a href="#formation">Formation et certifications</a></li>
+<li><a href="#projets">Projets</a></li>
+<li><a href="#selection">Sélection (Featured)</a></li>
+<li><a href="#competences">Compétences et langues</a></li>
+<li><a href="#preferences">Préférences de recherche</a></li>
+<li><a href="#recos">Recommandations</a></li>
+<li><a href="#posts">Trois posts prêts à publier</a></li>
+<li><a href="#rythme">Rythme des 8 prochaines semaines</a></li>
+<li><a href="#verif">Vérification finale</a></li>
+</ol>
+</nav>
+
+<h2 id="agent">1. Consignes pour l'agent qui appliquera ce document</h2>
+<div class="agent">
+<p><strong>Ordre d'exécution</strong> : sections 3 à 11, dans l'ordre. Puis section 12 (messages de demande de recommandation, à faire valider par Hani avant envoi). Les posts (section 13) ne se publient <strong>jamais</strong> sans validation explicite de Hani, un par un, aux dates prévues.</p>
+<p><strong>Règles</strong> :</p>
+<ul>
+<li>Coller les textes <strong>tels quels</strong>. Ne pas les reformuler, ne pas ajouter d'emoji, de gras ou de hashtags qui ne sont pas dans le texte.</li>
+<li>Ne rien ajouter qui ne figure pas ici (aucun chiffre, aucune compétence, aucune date).</li>
+<li>Ne pas envoyer d'invitations en masse, ne pas aimer ou commenter à la place de Hani.</li>
+<li>Ne pas modifier le nom, l'adresse e-mail du compte ni les paramètres de sécurité.</li>
+<li>Avant de supprimer une section, en faire une capture (pour pouvoir revenir en arrière).</li>
+<li>Les fichiers à téléverser sont dans <code>candidature/03-linkedin/</code> du dépôt <code>haniwanice/portfolio1</code>.</li>
+<li>À la fin, remplir la liste de la section 15 et la renvoyer à Hani.</li>
+</ul>
+</div>
+
+<h2 id="audit">2. Diagnostic du profil actuel</h2>
+<p>Profil lu le 3 novembre 2026 (export HTML de la page). Notation sur la grille en 12 points du skill <span class="mono">li-profile</span>, adaptée à un étudiant.</p>
+<table>
+<thead><tr><th>Élément</th><th>Note</th><th>Ce qui ne va pas</th></tr></thead>
+<tbody>
+<tr><td>Titre</td><td class="n">3/12</td><td>« Développeur Full Stack &amp; Intégration API <em>chez</em> Université Paris-Est Créteil » : on croit que tu y travailles encore. Aucune mention de ce que tu cherches.</td></tr>
+<tr><td>Infos, 2 premières lignes</td><td class="n">2/10</td><td>Commence par « Étudiant en 3ème année… je suis passionné par ». Le mot le plus lu de LinkedIn.</td></tr>
+<tr><td>Infos, corps</td><td class="n">2/10</td><td>Périmé : cherche un stage « à partir de la mi-avril 2026 », déjà fait. Liste de langages sans preuve. « Capacité d'hyper-focalisation » : à retirer, ça renvoie à un sujet que tu ne veux pas mettre en avant.</td></tr>
+<tr><td>Sélection</td><td class="n">0/8</td><td>Vide. C'est le seul endroit du profil où tu montres une preuve cliquable.</td></tr>
+<tr><td>Bannière</td><td class="n">1/6</td><td>Non personnalisée (à confirmer).</td></tr>
+<tr><td>Photo</td><td class="n">3/6</td><td>À remplacer par la nouvelle photo (visage plus grand, fond clair).</td></tr>
+<tr><td>Poste principal</td><td class="n">4/10</td><td>Dates fausses (« avr. – juil. 2026, 4 mois » au lieu de 4 mai – 1er juillet, 2 mois). Format ChatGPT : emojis 🎯💡⚙️🛠, étiquettes en gras, « étanchéité totale », « temps réel » (inexact : la synchro se fait à chaque action).</td></tr>
+<tr><td>Profondeur des expériences</td><td class="n">2/8</td><td>« Étudiant Développeur (Projets Académiques) · <em>Stage</em> · sept. 2023 – févr. 2026 · 2 ans 6 mois » : ce n'est pas un stage. Un recruteur qui le remarque doute de tout le reste.</td></tr>
+<tr><td>Compétences</td><td class="n">3/6</td><td>22 compétences, les trois premières ne sont pas choisies. « Gestionnaire libre de parc informatique » en tête.</td></tr>
+<tr><td>Recommandations</td><td class="n">0/8</td><td>Aucune. Ton tuteur de stage est la personne idéale.</td></tr>
+<tr><td>Activité</td><td class="n">3/10</td><td>Un seul post en deux mois (#OpenToWork), qui demande de l'aide sans rien montrer.</td></tr>
+<tr><td>Contact</td><td class="n">2/6</td><td>URL avec un numéro (<span class="mono">hani-wanice-920a813b1</span>), pas de site renseigné.</td></tr>
+</tbody>
+</table>
+<p><span class="total">25/100</span> <span class="muted">· objectif après refonte : 80 à 85. Les 15 derniers points (recommandations, régularité des posts) prennent du temps et ne s'écrivent pas.</span></p>
+<p class="muted">Autres points : les « applications connectées » affichent Replit Agent, Gamma, HubSpot et IntelliJ. Garder IntelliJ, retirer le reste (Replit Agent renvoie l'image du « vibe coding » que tu veux éviter). Les zones de recherche listent Ivry, Alfortville, Charenton et Maisons-Alfort, ce qui situe ton domicile : les remplacer par « Paris et périphérie ».</p>
+
+<h2 id="identite">3. Photo, bannière, URL</h2>
+<h3>Photo de profil</h3>
+<p>Téléverser <code>photo-profil-linkedin.jpg</code> (800 × 800, visage centré). Visibilité : « Tout le monde ».</p>
+<img src="photo-profil-linkedin.jpg" alt="Nouvelle photo de profil" width="200" height="200" style="width:200px;border-radius:50%">
+<h3>Bannière</h3>
+<p>Téléverser <code>banniere-linkedin.png</code> (1584 × 396). Le texte est décalé à droite pour ne pas passer sous la photo.</p>
+<img src="banniere-linkedin.png" alt="Bannière : Développement web, de l'interface à la base de données.">
+<h3>URL personnalisée</h3>
+<p>Profil public → Modifier l'URL → <code>linkedin.com/in/haniwanice</code> (si pris : <code>hani-wanice</code>). Mettre ensuite à jour le lien dans les CV (<code>candidature/01-cv/cv-data.mjs</code>) et sur le site (<code>src/lib/content.ts</code>).</p>
+<h3>Coordonnées</h3>
+<ul>
+<li>Site web : <code>https://www.haniwanice.com</code>, type « Portfolio ».</li>
+<li>E-mail : haniwanice@gmail.com.</li>
+<li>Téléphone : <strong>ne pas l'afficher</strong> publiquement.</li>
+</ul>
+
+<h2 id="titre">4. Titre</h2>
+<p>Choisir <strong>A</strong>. B est l'alternative si tu vises surtout les startups.</p>
+<div class="box copy"><button type="button">Copier</button><pre>Étudiant en L3 Informatique · Développement web Next.js / TypeScript · Stage DSI : deux GLPI reliés sans exposer les données · Je cherche un stage d'avril à août 2027</pre></div>
+<p class="count">A · 172 caractères</p>
+<div class="box copy"><button type="button">Copier</button><pre>Développeur web en formation (L3 Info, UPEC) · Next.js, TypeScript, API, Docker · Labo perf : score Lighthouse 57 → 97 · Stage dès avril 2027</pre></div>
+<p class="count">B · 145 caractères</p>
+
+<h2 id="infos">5. Infos (à propos)</h2>
+<p>Les deux premières lignes sont les seules visibles sans cliquer sur « voir plus ». Elles racontent le stage, pas une passion.</p>
+<div class="box copy"><button type="button">Copier</button><pre>Au printemps 2026, à la DSI de l'Université Paris-Est Créteil, j'ai relié l'outil de support des étudiants à celui du personnel, sans que l'un puisse lire l'autre. Je cherche maintenant un stage de développeur web de 2 à 5 mois, à partir d'avril 2027.
+
+Ce stage m'a appris que le code n'est souvent pas la partie difficile. Il a fallu comprendre ce que la DSI avait le droit de faire, écarter deux solutions qui semblaient évidentes (le transfert natif de GLPI, les webhooks), puis livrer un prototype que mon tuteur pouvait tester de bout en bout : deux GLPI isolés sous Docker, une application Next.js / TypeScript entre les deux, et un rapport de 37 pages qui dit aussi ce que le prototype ne sait pas faire.
+
+En dehors des cours, je construis des choses que j'utilise ou que je peux mesurer. Sur haniwanice.com, il y a une page codée deux fois avec le même framework, une version naïve et une version optimisée : 57 contre 97 sur Lighthouse mobile, 4,2 Mo contre 219 ko.
+
+Ce que je sais faire aujourd'hui : React, Next.js, TypeScript, API REST, SQL, Docker Compose, Git, Figma. Vu en licence : C, Java, Python.
+
+Je cherche une équipe qui me confie un vrai sujet, même petit, pour avril 2027. Le plus simple pour me joindre : haniwanice@gmail.com.</pre></div>
+<p class="count">≈ 1 270 caractères (limite : 2 600)</p>
+<p class="muted">Variante pour un public favorable à l'IA : ajouter avant le dernier paragraphe « Je développe avec Claude Code, avec des règles écrites pour chaque projet et une relecture de chaque modification. Les règles de mon site sont publiques sur GitHub. » Par défaut, on ne l'ajoute pas : le profil est lu par tout le monde.</p>
+
+<h2 id="experience">6. Expérience</h2>
+<h3>À supprimer</h3>
+<p class="dont">« Étudiant Développeur (Projets Académiques) · Stage · sept. 2023 – févr. 2026 ». Les projets universitaires vont dans la section Projets ou dans la description de la formation.</p>
+<h3>À remplacer : le stage DSI</h3>
+<table>
+<tr><th>Champ</th><th>Valeur</th></tr>
+<tr><td>Intitulé</td><td>Stagiaire développeur</td></tr>
+<tr><td>Type d'emploi</td><td>Stage</td></tr>
+<tr><td>Entreprise</td><td>Université Paris-Est Créteil (UPEC)</td></tr>
+<tr><td>Dates</td><td>mai 2026 – juil. 2026 (cocher « J'occupe actuellement ce poste » : <strong>non</strong>)</td></tr>
+<tr><td>Lieu</td><td>Créteil, Île-de-France · Sur site</td></tr>
+<tr><td>Compétences liées</td><td>Next.js, TypeScript, API REST, Docker, MariaDB</td></tr>
+</table>
+<div class="box copy"><button type="button">Copier</button><pre>Direction des systèmes d'information. Seul développeur sur le sujet, encadré par un ingénieur de la DSI, du 4 mai au 1er juillet 2026.
+
+Le besoin : permettre aux étudiants (jusqu'à 40 000 utilisateurs potentiels) d'écrire au support sans leur ouvrir le GLPI du personnel.
+
+- Prototype : deux instances GLPI isolées, chacune avec sa base MariaDB, sous Docker Compose, et une application Next.js / TypeScript qui écrit dans les deux via l'API REST.
+- Escalade d'un ticket en un clic, retour des statuts et des réponses vers l'étudiant. Anti-doublon, coupe-circuit contre les boucles de synchronisation, détection des faux « 200 OK » de GLPI, sessions API toujours fermées.
+- Transfert natif et webhooks testés puis écartés. Prototype validé par mon tuteur sur un scénario de bout en bout, rapport de 37 pages avec les limites et les étapes avant une mise en production.</pre></div>
+
+<h2 id="formation">7. Formation et certifications</h2>
+<h3>Formation : Université Paris-Est Créteil</h3>
+<ul>
+<li>Diplôme : Licence · Domaine : Informatique.</li>
+<li>Dates : <strong>retirer les dates</strong> (les deux champs sont facultatifs). « 2023 » est inexact, et on n'affiche pas la date d'entrée réelle.</li>
+<li>Activités et associations : laisser vide.</li>
+</ul>
+<div class="box copy"><button type="button">Copier</button><pre>L3 en cours. Algorithmique, bases de données, développement web. Projets en C et en Java, application Laravel de gestion d'une compagnie aérienne.</pre></div>
+<h3>freeCodeCamp : déplacer vers « Licences et certifications »</h3>
+<p>Supprimer l'entrée de la section Formation (ce n'est pas un diplôme), puis l'ajouter en certification : nom « Responsive Web Design », organisme « freeCodeCamp », date mars 2025, URL du certificat. Le texte en anglais actuel (« Build mobile-friendly websites… ») disparaît.</p>
+
+<h2 id="projets">8. Projets</h2>
+<p>Section « Projets » (Ajouter une section → Recommandé → Projets). Quatre entrées.</p>
+<div class="box copy"><button type="button">Copier</button><pre>Labo perf : une page, deux versions (2026)
+La même page produit codée deux fois en Next.js : une version naïve, une version optimisée. Lighthouse mobile : score 57 → 97, poids 4,2 Mo → 219 ko. Les deux versions se mesurent aussi en direct sur le site.
+Lien : https://www.haniwanice.com/labo</pre></div>
+<div class="box copy"><button type="button">Copier</button><pre>Todo Smart (2026)
+Ma liste de tâches, synchronisée en temps réel entre téléphone et ordinateur avec React et Firestore. Je l'utilise tous les jours.
+Lien : https://haniwanice.github.io/todo-smart/</pre></div>
+<div class="box copy"><button type="button">Copier</button><pre>Refonte du portail du personnel UPEC (2026)
+Proposition personnelle de refonte : services regroupés par usage, navigation simplifiée, version mobile. HTML et CSS.
+Lien : https://www.haniwanice.com/#projets</pre></div>
+<div class="box copy"><button type="button">Copier</button><pre>Design de l'application mobile Keewic (2025)
+Mission pour un porteur de projet : parcours, wireframes et maquettes Figma de la première version, transmis à un développeur. La version publiée a évolué depuis.</pre></div>
+
+<h2 id="selection">9. Sélection (Featured)</h2>
+<ol>
+<li><strong>Lien</strong> : https://www.haniwanice.com/labo · titre « Une page, deux versions : 57 → 97 sur Lighthouse ».</li>
+<li><strong>Lien</strong> : https://www.haniwanice.com/#stage · titre « Deux GLPI qui ne devaient pas se parler (simulation interactive) ».</li>
+<li><strong>Post</strong> : le post n°1 de la section 13, une fois publié.</li>
+</ol>
+<p class="muted">Pas de CV en PDF dans la Sélection : il contient ton numéro de téléphone, et il serait public.</p>
+
+<h2 id="competences">10. Compétences et langues</h2>
+<p>Garder 15 compétences au maximum. Les trois épinglées en tête :</p>
+<p><span class="tag">Next.js</span> <span class="tag">TypeScript</span> <span class="tag">API REST</span></p>
+<p>Puis : React, JavaScript, HTML5, CSS, SQL, MariaDB, Docker, Git, Figma, PHP, Java, GLPI. Supprimer les doublons et ce qui n'a aucune preuve sur le profil.</p>
+<h3>Langues</h3>
+<ul>
+<li>Français : bilingue ou langue maternelle.</li>
+<li>Anglais : capacité professionnelle complète (déjà en place).</li>
+<li>Espagnol : compétence professionnelle limitée.</li>
+</ul>
+
+<h2 id="preferences">11. Préférences de recherche</h2>
+<ul>
+<li>Intitulés : Stagiaire développeur web, Développeur full-stack (stage), Développeur front-end (stage).</li>
+<li>Lieux : Paris et périphérie. <strong>Retirer</strong> Ivry-sur-Seine, Alfortville, Charenton-le-Pont et Maisons-Alfort.</li>
+<li>Type : Stage. Date de début : avril 2027.</li>
+<li>Visibilité « Open to Work » : <strong>recruteurs uniquement</strong>. Le cadre vert visible de tous est perçu de façon mitigée en France, et ton titre dit déjà ce que tu cherches.</li>
+</ul>
+
+<h2 id="recos">12. Recommandations</h2>
+<p>Trois demandes, chacune avec un message personnel. Demander à la personne de citer un fait précis, pas un trait de caractère.</p>
+<div class="box copy"><button type="button">Copier</button><pre>Bonjour Miguel,
+
+J'espère que tout va bien à la DSI. Je cherche un stage pour avril 2027 et je refais mon profil LinkedIn. Est-ce que vous accepteriez d'écrire quelques lignes de recommandation sur mon stage ?
+
+Si ça peut vous aider : le passage aux deux instances GLPI, le flux retour ajouté après la démo du 22 mai, ou la façon dont je documentais les choix. Deux ou trois phrases suffisent largement.
+
+Merci d'avance, et merci encore pour ces deux mois.
+Hani</pre></div>
+<p class="muted">Même principe pour Alexis Bes (tuteur pédagogique : le rapport, la soutenance) et pour le porteur du projet Keewic (le travail de maquettage et les questions posées sur le produit).</p>
+
+<h2 id="posts">13. Trois posts prêts à publier</h2>
+<p>Un post toutes les deux semaines, le mardi ou le jeudi entre 8 h et 9 h. Pas de hashtag en rafale : deux au maximum, en fin de post. Répondre à chaque commentaire dans la journée.</p>
+
+<h3>Post 1 · semaine 1 · le bug des clones</h3>
+<div class="box copy"><button type="button">Copier</button><pre>Pendant mon stage à la DSI de l'UPEC, j'ai créé des dizaines de tickets en double. Sans le vouloir, et en pleine démo devant mon tuteur.
+
+Le sujet : relier le GLPI des étudiants à celui de la DSI, sans que les deux bases se voient. Mon application Next.js créait un ticket miroir côté DSI quand on escaladait une demande. Sauf qu'elle en recréait un à chaque modification du ticket étudiant. Le 22 mai, la liste côté DSI s'est remplie de clones.
+
+Le correctif tient en une idée : lire avant d'écrire. Avant de créer quoi que ce soit, l'appli cherche si un ticket porte déjà la balise [ESCALADE ETU - ID:42] dans son titre. J'aurais préféré utiliser le champ external_id, prévu pour ça, mais l'API de recherche de GLPI ne sait pas filtrer dessus.
+
+Trois jours plus tard, rebelote avec le chemin retour, dans sa première version branchée sur les webhooks de GLPI : une boucle infinie. La DSI ferme un ticket, l'appli ferme celui de l'étudiant, la notification de cette fermeture relance la fermeture côté DSI, et ainsi de suite. Le coupe-circuit : une modification faite par le compte API est ignorée.
+
+Les bugs qui m'ont le plus appris pendant ce stage venaient tous du même endroit, la frontière entre deux systèmes qui se répondent.
+
+Il y a une simulation du pont sur haniwanice.com, si vous voulez essayer de créer un doublon. Et je cherche un stage de développeur web d'avril à août 2027.
+
+#développementweb #stage</pre></div>
+
+<h3>Post 2 · semaine 3 · le labo perf</h3>
+<div class="box copy"><button type="button">Copier</button><pre>J'ai codé la même page deux fois. Même Next.js, mêmes images, même CSS.
+
+Lighthouse mobile : 57 pour la première, 97 pour la seconde. 4,2 Mo téléchargés d'un côté, 219 ko de l'autre.
+
+Les différences :
+1. La première version est entièrement rendue dans le navigateur. La seconde arrive en HTML complet depuis le serveur.
+2. La première va chercher ses données après le chargement, l'une après l'autre. La seconde les a déjà.
+3. La première charge des images de 1 800 px pour des cases de 250. La seconde laisse next/image choisir la bonne taille et le bon format.
+4. La première refait un calcul lourd à chaque visite. La seconde le fait une fois, au build.
+
+Aucune de ces corrections n'est compliquée. Il faut surtout savoir où le navigateur passe son temps.
+
+Les deux versions tournent côte à côte sur haniwanice.com/labo, mesurées en direct dans votre navigateur. Si vous voyez une optimisation que j'ai ratée, je suis preneur.
+
+#nextjs #performance</pre></div>
+
+<h3>Post 3 · semaine 5 · une erreur de mesure</h3>
+<p class="muted">Ne publie celui-ci que si tu as refait toi-même la vérification (ouvre /labo, regarde le code de <code>PerfDuel.tsx</code>) et que tu peux l'expliquer en entretien. Un post sur une erreur doit être une erreur que tu as comprise.</p>
+<div class="box copy"><button type="button">Copier</button><pre>La première version de mon labo de performance donnait des chiffres faux.
+
+Le principe : deux versions d'une même page, chargées côte à côte dans deux iframes, avec une petite sonde qui mesure leurs Web Vitals. Problème : les deux pages affichaient exactement le même temps de blocage du fil principal, à la milliseconde près.
+
+La raison : deux iframes de la même origine partagent le fil principal de la page qui les contient. Quand la version lente faisait son calcul lourd, la version rapide était bloquée avec elle, et la mesure comptait le blocage des deux côtés.
+
+Maintenant, les pages se chargent l'une après l'autre. Et j'ai ajouté une mesure Lighthouse faite dans des conditions stables, parce qu'une mesure en direct dépend toujours de la machine de la personne qui regarde.
+
+Je ne l'aurais pas vu sans regarder les chiffres de près. Un graphique qui a l'air juste ne veut pas dire qu'il l'est.
+
+#webperf</pre></div>
+
+<h2 id="rythme">14. Les 8 prochaines semaines</h2>
+<table>
+<tr><th>Semaine</th><th>Action</th></tr>
+<tr><td class="n">S0</td><td>Sections 3 à 11 appliquées. Demandes de recommandation envoyées.</td></tr>
+<tr><td class="n">S1</td><td>Post 1. Cinq commentaires utiles par semaine sous des posts de développeurs ou d'équipes tech franciliennes (une vraie question ou un retour d'expérience, jamais « Super post ! »).</td></tr>
+<tr><td class="n">S2</td><td>10 invitations ciblées par semaine : développeurs et managers techniques des entreprises visées, avec le message court de <code>02-lettres/06-messages-courts.md</code>.</td></tr>
+<tr><td class="n">S3</td><td>Post 2. Épingler en Sélection le post le plus lu.</td></tr>
+<tr><td class="n">S5</td><td>Post 3.</td></tr>
+<tr><td class="n">S6 à S8</td><td>Un post sur ce que tu construis à ce moment-là (un nouveau projet, une démo ajoutée). Relances des candidatures.</td></tr>
+</table>
+
+<h2 id="verif">15. Vérification finale (à renvoyer à Hani)</h2>
+<ul>
+<li>☐ Photo et bannière en place, visibles sur mobile.</li>
+<li>☐ URL <code>linkedin.com/in/haniwanice</code> active.</li>
+<li>☐ Titre A collé, sans modification.</li>
+<li>☐ Infos collées ; aucune mention « passionné » ni « hyper-focalisation ».</li>
+<li>☐ Stage DSI : dates mai – juil. 2026, description collée, plus aucun emoji.</li>
+<li>☐ Expérience « Projets Académiques » supprimée.</li>
+<li>☐ Formation sans dates ; freeCodeCamp déplacé en certification.</li>
+<li>☐ Quatre projets ajoutés avec leurs liens.</li>
+<li>☐ Sélection : deux liens (puis le post 1).</li>
+<li>☐ Trois compétences épinglées : Next.js, TypeScript, API REST.</li>
+<li>☐ Zones de recherche : « Paris et périphérie » seulement ; Open to Work en « recruteurs uniquement ».</li>
+<li>☐ Applications connectées : Replit Agent, Gamma, HubSpot retirées.</li>
+<li>☐ Lien LinkedIn mis à jour dans les CV et sur le site si l'URL a changé.</li>
+</ul>
+</main>
+<script>
+document.querySelectorAll('.copy button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = b.parentElement.querySelector('pre').innerText;
+    var done = function () { b.textContent = 'Copié'; setTimeout(function () { b.textContent = 'Copier'; }, 1500); };
+    try { navigator.clipboard.writeText(t).then(done, function () { b.textContent = 'Sélectionnez le texte'; }); }
+    catch (e) { b.textContent = 'Sélectionnez le texte'; }
+  });
+});
+</script>
+</body>
+</html>

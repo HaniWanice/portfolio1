@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Lettre, Hani Wanice</title>
+<style>
+@font-face{font-family:"Gambarino";src:url(../../_assets/fonts/gambarino.woff2) format("woff2")}
+@font-face{font-family:"General";src:url(../../_assets/fonts/general-400.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"General";src:url(../../_assets/fonts/general-600.woff2) format("woff2");font-weight:600}
+@font-face{font-family:"Mono";src:url(../../_assets/fonts/jetbrains-400.woff2) format("woff2")}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:210mm;height:297mm;padding:20mm 22mm 16mm;color:#19181d;font:400 10.2pt/1.6 "General",system-ui,sans-serif;overflow:hidden}
+.head{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:5mm;border-bottom:.3mm solid #19181d}
+.name{font:400 22pt/1 "Gambarino",Georgia,serif}
+.coords{text-align:right;font:400 7.8pt/1.6 "Mono",monospace;color:#5c5a63}
+.dest{margin-top:9mm;display:flex;justify-content:space-between;font-size:9.4pt;color:#5c5a63}
+.objet{margin-top:8mm;font-weight:600}
+.salut{margin-top:6mm}
+.body p{margin-top:3.4mm;text-align:left;hyphens:manual}
+.sign{margin-top:7mm}
+.sign strong{display:block;margin-top:1mm;font:400 15pt "Gambarino",Georgia,serif;font-weight:400}
+mark{background:#fbe7c9;color:inherit;padding:0 .6mm;border-radius:.6mm}
+</style></head>
+<body>
+<div class="head">
+  <div class="name">Hani Wanice</div>
+  <div class="coords">07 83 63 60 58<br>haniwanice@gmail.com<br>haniwanice.com</div>
+</div>
+<div class="dest"><span><mark>[Entreprise]</mark></span><span>Le <mark>[date]</mark></span></div>
+<p class="objet">Objet : Stage développeur web, d'avril à fin août 2027</p>
+<p class="salut">Bonjour <mark>[Prénom Nom]</mark>,</p>
+<div class="body">
+<p><mark>[Deux phrases sur leur produit, que tu as testé : ce qui t'a surpris, ou la question qu'il t'a posée.]</mark> Je suis en L3 informatique à l'Université Paris-Est Créteil, et je cherche un stage de développeur web d'avril à fin août 2027.</p>
+<p>Au printemps 2026, j'ai passé huit semaines à la DSI de l'UPEC. Le sujet : laisser les étudiants écrire au support sans leur ouvrir le GLPI du personnel. J'ai monté deux instances isolées sous Docker et une application Next.js qui écrit dans les deux. À la première démo, chaque modification d'un ticket étudiant en recréait un côté DSI : des dizaines de clones, devant mon tuteur. Trois jours plus tard, c'est le chemin retour qui tournait en boucle. J'ai corrigé le premier problème en lisant avant d'écrire, le second en ignorant les modifications faites par le compte API.</p>
+<p>Je développe avec Claude Code au quotidien : un fichier de règles par projet, des étapes courtes, chaque diff relu avant le commit, et des tests Playwright qui rejouent les parcours importants. Les règles de mon portfolio sont publiques sur GitHub. Sur le site, la page Labo compare deux versions de la même page Next.js, l'une écrite avec les erreurs qu'on croise souvent : 57 contre 97 sur Lighthouse mobile, 4,2 Mo contre 219 ko.</p>
+<p>Je peux passer vous voir, ou en parler en visio, quand vous voulez. <mark>[Facultatif : une vraie question sur leur stack ou leur produit.]</mark></p>
+</div>
+<div class="sign">Bien à vous,<strong>Hani Wanice</strong></div>
+</body></html>

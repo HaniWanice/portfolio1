@@ -1,0 +1,26 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: #1d1c20; background: #faf8f4; }
+.d-wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+.d-top { display: flex; justify-content: space-between; align-items: center; height: 56px; font-weight: 700; letter-spacing: -.01em; }
+.d-top span { font-weight: 400; color: #6b6870; font-size: 13px; }
+.d-hero { display: grid; gap: 18px; padding: 8px 0 28px; }
+.d-hero h1 { font-size: clamp(26px, 5vw, 40px); line-height: 1.05; letter-spacing: -.02em; }
+.d-hero p { color: #4b4950; max-width: 52ch; }
+.d-hero-img { width: 100%; border-radius: 14px; background: #ece6dc; }
+.d-hero-img img, .d-hero-img > img { width: 100%; height: auto; border-radius: 14px; display: block; }
+.d-stats { font-size: 13px; color: #6b6870; padding-bottom: 18px; }
+.d-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; padding-bottom: 28px; }
+.d-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+.d-card img { width: 100%; height: auto; display: block; background: #ece6dc; }
+.d-card div { padding: 12px 14px 16px; }
+.d-card h2 { font-size: 16px; }
+.d-card .tag { font-size: 12px; color: #b83d0b; }
+.d-card p { font-size: 13px; color: #55525a; margin-top: 4px; }
+.d-card b { display: block; margin-top: 8px; }
+.d-reviews { display: grid; gap: 10px; padding-bottom: 40px; }
+.d-reviews blockquote { background: #fff; border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+.d-reviews cite { display: block; font-style: normal; color: #6b6870; font-size: 12px; margin-top: 4px; }
+.d-spinner { display: grid; place-items: center; height: 240px; color: #6b6870; font-size: 14px; }
+.d-spinner::before { content: ""; width: 28px; height: 28px; border-radius: 50%; border: 3px solid #e2ddd3; border-top-color: #b83d0b; animation: d-spin .8s linear infinite; margin-bottom: 10px; }
+@keyframes d-spin { to { transform: rotate(360deg); } }
+.d-btn { margin-top: 10px; padding: 8px 12px; border-radius: 8px; border: 0; background: #1d1c20; color: #fff; font: inherit; font-size: 13px; cursor: pointer; }
