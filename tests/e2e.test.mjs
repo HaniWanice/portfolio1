@@ -41,27 +41,43 @@ async function open(path, viewport = { width: 1280, height: 900 }) {
   return { page, errors };
 }
 
-test("l'accueil se charge sans erreur et montre les chapitres", async () => {
+test("l'accueil se charge sans erreur, avec le nom, les contacts et les trois projets", async () => {
   const { page, errors } = await open("/");
-  assert.equal(await page.locator("h1").innerText().then((t) => t.replace(/\s+/g, " ").trim()), "Hani Wanice");
-  for (const id of ["parcours", "stage", "projets", "labo", "methode", "contact"]) {
+  assert.equal(await page.locator("h1").first().getAttribute("aria-label"), "Hani Wanice");
+  // Les contacts sont dans le premier écran, pas seulement en bas de page.
+  const first = page.locator(".hero");
+  for (const t of ["haniwanice@gmail.com", "07 83 63 60 58", "LinkedIn", "GitHub"]) {
+    assert.ok(await first.getByText(t).first().isVisible(), `contact « ${t} » absent du premier écran`);
+  }
+  for (const id of ["t-glpi", "t-todo", "t-labo", "t-contact"]) {
     assert.equal(await page.locator(`#${id}`).count(), 1, `section #${id} manquante`);
   }
   assert.deepEqual(errors, []);
   await page.close();
 });
 
+test("les pages détaillées existent et se chargent", async () => {
+  for (const path of ["/projets", "/projets/pont-glpi", "/a-propos", "/labo"]) {
+    const { page, errors } = await open(path);
+    assert.ok((await page.locator("h1").count()) >= 1, `${path} sans titre`);
+    assert.deepEqual(errors, [], path);
+    await page.close();
+  }
+});
+
 test("le contenu reste lisible sans JavaScript", async () => {
   const ctx = await browser.newContext({ javaScriptEnabled: false });
   const page = await ctx.newPage();
   await page.goto(BASE + "/");
-  const visible = await page.locator("#t-stage").isVisible();
-  assert.ok(visible, "le titre du stage doit être visible sans JS");
+  assert.ok(await page.locator("#t-glpi").isVisible(), "le titre du projet doit être visible sans JS");
+  assert.ok(await page.locator(".statement-text").isVisible(), "la phrase de présentation doit être visible sans JS");
+  const o = await page.locator(".statement-text .w").first().evaluate((e) => getComputedStyle(e).opacity);
+  assert.equal(o, "1", "les mots ne doivent pas rester grisés sans JS");
   await ctx.close();
 });
 
 test("simulateur GLPI : escalade, anti-doublon, retour, panne", async () => {
-  const { page, errors } = await open("/#stage");
+  const { page, errors } = await open("/projets/pont-glpi");
   const sim = page.getByRole("group", { name: "Simulation du pont entre les deux GLPI" });
   const log = sim.getByLabel("Journal des appels API");
 
@@ -85,11 +101,51 @@ test("simulateur GLPI : escalade, anti-doublon, retour, panne", async () => {
   await page.close();
 });
 
-test("les deux versions du labo affichent les six vélos", async () => {
+test("les deux versions du labo affichent la boutique : 16 produits, onglets et tiroir panier", async () => {
   for (const v of ["naive", "optim"]) {
     const { page, errors } = await open(`/demo/${v}`);
-    await page.locator(".d-card").nth(5).waitFor();
-    assert.equal(await page.locator(".d-card").count(), 6, v);
+    await page.locator(".card").nth(15).waitFor();
+    assert.equal(await page.locator(".card").count(), 16, `${v} : 16 produits`);
+    assert.match(await page.locator("#produits [role=status]").innerText(), /références en stock, prix médian/, `${v} : ligne du catalogue`);
+
+    // Onglets : chaque catégorie ne montre que ses 4 produits, « Tout » les remet.
+    await page.getByRole("tab", { name: "Thé" }).click();
+    assert.equal(await page.locator(".card:visible").count(), 4, `${v} : onglet Thé`);
+    await page.getByRole("tab", { name: "Tout" }).click();
+    assert.equal(await page.locator(".card:visible").count(), 16, `${v} : onglet Tout`);
+
+    // Tiroir : ajouter un produit l'ouvre, la quantité se modifie, le total suit.
+    await page.locator(".card .btn").first().click();
+    assert.equal(await page.locator(".drawer-root").getAttribute("data-open"), "true", `${v} : tiroir ouvert`);
+    assert.equal(await page.locator(".cart-btn .count").innerText(), "1");
+    await page.getByRole("button", { name: "Ajouter un" }).click();
+    assert.match((await page.locator(".sum").innerText()).replace(/\s+/g, " "), /25,80/, `${v} : total pour 2 articles`);
+    await page.getByRole("button", { name: "Fermer le panier" }).click();
+    assert.equal(await page.locator(".drawer-root").getAttribute("data-open"), "false");
+    assert.deepEqual(errors, [], v);
+    await page.close();
+  }
+});
+
+test("les deux fiches produit : galerie, variante et onglets Description, Détails, Avis", async () => {
+  for (const v of ["naive", "optim"]) {
+    const { page, errors } = await open(`/demo/${v}/produit/tasses-gres-modelees`);
+    await page.locator(".card").nth(3).waitFor(); // produits associés
+    assert.equal(await page.locator("h1").innerText(), "Lot de 4 tasses en grès modelées à la main");
+    assert.equal(await page.locator(".thumb").count(), 3, `${v} : trois photos`);
+    await page.locator(".thumb").nth(1).click();
+    assert.equal(await page.locator(".gm[data-on=true]").count(), 1);
+
+    assert.equal(await page.locator("#panel-description").isVisible(), true);
+    await page.getByRole("tab", { name: "Détails" }).click();
+    assert.equal(await page.locator("#panel-details").isVisible(), true, `${v} : onglet Détails`);
+    assert.equal(await page.locator("#panel-description").isVisible(), false);
+    await page.getByRole("tab", { name: /^Avis/ }).click();
+    assert.ok((await page.locator("#panel-reviews .avis").count()) >= 2, `${v} : avis`);
+
+    await page.getByRole("button", { name: "Argile rose" }).click();
+    await page.getByRole("button", { name: "Ajouter au panier" }).first().click();
+    assert.match(await page.locator(".line small").innerText(), /Argile rose/, `${v} : la variante est dans le panier`);
     assert.deepEqual(errors, [], v);
     await page.close();
   }

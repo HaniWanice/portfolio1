@@ -43,3 +43,9 @@ next-env.d.ts
 /.shots/
 
 /.agents/
+
+/.next-*/
+
+# Skills installés localement pour travailler (pas dans le dépôt)
+/.claude/
+/skills-lock.json

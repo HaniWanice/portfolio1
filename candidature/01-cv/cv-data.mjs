@@ -1,6 +1,7 @@
-// Contenu des deux CV. Une seule source : on change le texte ici, puis
+// Contenu des CV. Une seule source : on change le texte ici, puis
 // `node candidature/scripts/build.mjs` régénère HTML, PDF et aperçus PNG.
 // Toute affirmation doit exister dans 00-base/FAITS.md.
+// Règle de rédaction : un recruteur RH lit ce CV en 30 secondes. Phrases courtes, listes, mots-clés.
 
 export const contact = {
   name: "Hani Wanice",
@@ -9,120 +10,101 @@ export const contact = {
   site: "haniwanice.com",
   github: "github.com/HaniWanice",
   linkedin: "linkedin.com/in/hani-wanice-920a813b1",
-  location: "Île-de-France, mobile dans toute la région",
+  location: "Île-de-France",
 };
 
 const stage = {
-  role: "Stagiaire développeur",
-  org: "Direction des systèmes d'information, Université Paris-Est Créteil",
-  when: "4 mai – 1er juil. 2026",
-  length: "8 semaines",
-  lead:
-    "Seul développeur sur le sujet, encadré par un ingénieur de la DSI. Objectif : permettre aux étudiants d'écrire au support sans leur donner accès au GLPI du personnel.",
+  role: "Stagiaire développeur web",
+  org: "DSI, Université Paris-Est Créteil",
+  when: "Mai – juil. 2026 · 8 semaines",
+  context: "Relier l'outil de support des étudiants à celui du personnel, sans mélanger leurs données.",
+  schema: ["GLPI étudiants", "Application Next.js", "GLPI DSI"],
   points: [
-    "Prototype fonctionnel : deux GLPI isolés (une base MariaDB chacun, sous Docker Compose) et une application Next.js / TypeScript qui écrit dans les deux via l'API REST, dans la même action.",
-    "Escalade d'un ticket en un clic, puis retour des statuts et des réponses de la DSI vers l'étudiant. Coupe-circuit contre les boucles, détection des faux « 200 OK » de GLPI, sessions API fermées même en cas d'erreur.",
-    "Webhooks et transfert natif testés puis écartés, raisons à l'appui. Prototype validé par le tuteur sur un scénario de bout en bout, et rapport de 37 pages qui détaille aussi ses limites.",
+    "Conception et développement du prototype (Next.js, TypeScript, API REST)",
+    "Infrastructure Docker : deux GLPI isolés, deux bases MariaDB séparées",
+    "Transmission d'un ticket en un clic, réponses renvoyées à l'étudiant",
+    "Prototype validé par le tuteur, rapport technique de 37 pages",
   ],
-  stack: "Next.js · TypeScript · API REST · Docker Compose · MariaDB · GLPI",
+  tags: ["Next.js", "TypeScript", "Docker", "MariaDB", "GLPI"],
 };
 
 const keewic = {
-  role: "Design UX/UI d'une application mobile",
-  org: "Mission pour un porteur de projet (Keewic)",
+  role: "Designer UX/UI, mission",
+  org: "Application mobile Keewic",
   when: "2025",
-  points: [
-    "Parcours, wireframes et maquettes Figma de la première version, remis à un développeur pour le passage au code.",
-    "Aide au pitch, et beaucoup de questions au porteur de projet pour décider de ce qui entrait dans la V1.",
-  ],
-  stack: "Figma · wireframes · prototypage",
+  points: ["Parcours et maquettes Figma de la première version", "Maquettes livrées à un développeur pour le passage au code"],
+  tags: ["Figma", "Wireframes", "Prototypage"],
 };
 
-const SITE = "haniwanice.com";
-
-const projetsCommuns = [
-  {
-    name: "Labo perf : une page, deux versions",
-    url: SITE + "/labo",
-    when: "2026",
-    text:
-      "Une page produit codée deux fois en Next.js : d'abord avec les erreurs courantes (tout côté client, images brutes, requêtes en cascade), puis optimisée. Lighthouse mobile : score 57 → 97, poids 4,2 Mo → 219 ko.",
-  },
-  {
-    name: "Todo Smart",
-    url: SITE + "/#projets",
-    when: "2026",
-    text:
-      "Liste de tâches synchronisée en temps réel entre téléphone et ordinateur (React, Firestore). Je l'utilise tous les jours depuis sa mise en ligne.",
-  },
-  {
-    name: "Refonte du portail du personnel UPEC",
-    url: SITE + "/#projets",
-    when: "2026",
-    text:
-      "Proposition personnelle : services regroupés par usage, navigation simplifiée, version mobile. HTML et CSS, sans framework.",
-  },
-];
-
-const projetUniv = {
-  name: "Gestion d'une compagnie aérienne",
+const labo = {
+  name: "Labo perf",
+  url: "haniwanice.com/labo",
+  text: "Une boutique en ligne codée en deux versions, puis mesurée",
+  scores: { label: "Score Lighthouse mobile", before: 65, after: 97 },
+};
+const todo = {
+  name: "Todo Smart",
+  url: "haniwanice.github.io/todo-smart",
+  text: "Liste de tâches synchronisée entre appareils (React, Firebase)",
+};
+const airline = {
+  name: "Compagnie aérienne",
   url: null,
-  when: "2025 · projet de licence",
-  text: "Application Laravel + SQLite : comptes utilisateurs, CRUD complet, de la base de données à l'interface.",
+  text: "Application de gestion en Laravel et SQLite (projet de licence)",
 };
 
 const formation = [
   {
-    title: "Licence 3 Informatique",
-    org: "Université Paris-Est Créteil",
-    when: "En cours, 2026-2027. Poursuite en master envisagée.",
-    detail: "Algorithmique, bases de données, développement web. Projets en C et en Java.",
+    title: "Licence Informatique (Bac+3)",
+    org: "Université Paris-Est Créteil (UPEC)",
+    when: "L3 en cours · 2026-2027",
+    tags: ["Algorithmique", "Bases de données", "Développement web", "C", "Java"],
   },
   {
     title: "Certification Responsive Web Design",
-    org: "freeCodeCamp, 2025",
-    when: null,
-    detail: "Suivie en autonomie, en plus des cours.",
+    org: "freeCodeCamp",
+    when: "2025",
+    tags: [],
   },
 ];
 
 const competences = [
-  { label: "Front", items: "React, Next.js, TypeScript, HTML/CSS (responsive, accessibilité)" },
-  { label: "Back et données", items: "API REST, Node.js, SQL (MariaDB, MySQL, SQLite), PHP/Laravel, Firebase" },
-  { label: "Outils", items: "Git, GitHub, Docker Compose, Postman, Figma" },
-  { label: "Aussi en licence", items: "C, Java, Python" },
+  { label: "Front-end", items: ["React", "Next.js", "TypeScript", "HTML / CSS"] },
+  { label: "Back-end", items: ["Node.js", "API REST", "PHP / Laravel"] },
+  { label: "Données", items: ["SQL", "MariaDB", "MySQL", "Firebase"] },
+  { label: "Outils", items: ["Git", "Docker", "Figma", "Postman"] },
+  { label: "Vus en licence", items: ["C", "Java", "Python"] },
 ];
 
-const langues = "Français et anglais courants, espagnol intermédiaire";
+const langues = [
+  { name: "Français", level: "Courant", dots: 5 },
+  { name: "Anglais", level: "Courant", dots: 4 },
+  { name: "Espagnol", level: "Intermédiaire", dots: 3 },
+];
 
-const interets = [
-  "Piano depuis 8 ans, violon en débutant",
-  "Dessin",
-  "Natation, vélo",
-  "Bénévole dans un refuge pour chiens",
+const savoirEtre = ["Calme", "À l'écoute", "Communication claire", "Autonomie"];
+
+const interets = ["Piano (8 ans)", "Dessin", "Natation, vélo", "Bénévolat en refuge animalier"];
+
+const atouts = [
+  { b: "Expérience en DSI", t: "8 semaines sur un vrai projet, livré et validé" },
+  { b: "Full-stack", t: "interface, API, base de données et Docker" },
+  { b: "Sens du design", t: "maquettes Figma avant le code" },
+  { b: "Rigueur", t: "tests, documentation, mesures de performance" },
 ];
 
 const base = {
-  title: "Étudiant en L3 Informatique · développement web",
-  search: "Stage développeur web · avril à août 2027 (2 à 5 mois)",
-  accroche:
-    "À la DSI de l'UPEC, j'ai relié l'outil de support des étudiants à celui du personnel, sans que l'un puisse lire l'autre. Je cherche un stage où l'on me confie un sujet de ce genre, avec quelqu'un qui relit mon code.",
+  title: "Étudiant en Licence 3 Informatique (Bac+3)",
+  school: "Université Paris-Est Créteil (UPEC) · Développement web full-stack",
+  search: "Recherche un stage de développeur web · avril à août 2027 · 2 à 5 mois",
+  atouts,
   experiences: [stage, keewic],
   formation,
   competences,
   langues,
+  savoirEtre,
   interets,
   photo: true,
-};
-
-// Variante grand public de la puce technique du stage (CV classique) : même fait, moins de jargon.
-const stageClassique = {
-  ...stage,
-  points: [
-    stage.points[0],
-    "Envoi d'un ticket à la DSI en un clic, et retour des statuts et des réponses vers l'étudiant. Gestion des doublons, des boucles de synchronisation et des pannes de l'API.",
-    "Webhooks et transfert natif testés puis écartés. Essais uniquement sur des données fictives, jetons d'accès hors du code. Prototype validé par le tuteur, rapport de 37 pages qui détaille aussi ses limites.",
-  ],
 };
 
 export const variants = {
@@ -130,12 +112,12 @@ export const variants = {
     ...base,
     file: "cv-hani-wanice-methode",
     label: "CV « Méthode » (mentionne l'IA)",
-    projets: projetsCommuns,
+    projets: [labo, todo],
     methode: {
-      title: "Comment je travaille",
-      text: [
-        "Je développe avec Claude Code, configuré pour chaque projet (règles, skills, sous-agents de relecture). Petites étapes, relecture de chaque diff, tests de bout en bout avec Playwright. Le fichier de règles de mon site est public sur GitHub.",
-        "Données sensibles : modèles en local (Ollama, LM Studio). Pour le reste, je m'aligne sur les règles de l'équipe.",
+      title: "Méthode de travail",
+      points: [
+        "Claude Code au quotidien : règles par projet, relecture de chaque modification, tests Playwright",
+        "Données sensibles : modèles locaux (Ollama, LM Studio), ou pas d'IA selon les règles de l'équipe",
       ],
     },
   },
@@ -143,16 +125,14 @@ export const variants = {
     ...base,
     file: "cv-hani-wanice-classique",
     label: "CV « Classique » (sans mention de l'IA)",
-    experiences: [stageClassique, keewic],
-    projets: [...projetsCommuns, projetUniv],
+    projets: [labo, todo, airline],
     methode: null,
   },
   classiqueSansPhoto: {
     ...base,
     file: "cv-hani-wanice-classique-sans-photo",
     label: "CV « Classique », sans photo (recruteurs traditionnels)",
-    experiences: [stageClassique, keewic],
-    projets: [...projetsCommuns, projetUniv],
+    projets: [labo, todo, airline],
     methode: null,
     photo: false,
   },

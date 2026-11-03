@@ -1,0 +1,12 @@
+@import url("/demo/fonts/naive-3.css");
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/demo/fonts/general-400.woff2") format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "General Sans";
+  src: url("/demo/fonts/general-600.woff2") format("woff2");
+  font-weight: 600;
+}

@@ -1,63 +1,45 @@
-import Image from "next/image";
-import { hero, heavyStats, reviews, velos } from "@/lib/demo/data";
+// VERSION OPTIMISÉE. Même boutique, même texte, mêmes photos sources, même CSS.
+//  1. Composant serveur, page statique : le HTML complet est fabriqué au build.
+//  2. Les données sont lues côté serveur : aucune requête après le chargement, aucune cascade.
+//  3. Le calcul lourd (8 000 lignes) est fait une seule fois, au build. Le visiteur reçoit
+//     le résultat, pas le catalogue.
+//  4. Photos : next/image (bonne taille, AVIF/WebP, dimensions connues, flou de remplacement
+//     sur les cartes, chargement différé sous le pli, priorité à l'image du haut de page seulement).
+//  5. Polices : next/font/local, préchargées (voir optim/layout.tsx). Pas de script tiers.
+//  6. JavaScript réduit à des îlots : onglets, panier, infolettre (interactive.tsx).
+import { catalog } from "@/lib/demo/catalog";
+import { cards, homeReviews, tips } from "@/lib/demo/products";
+import { catalogStats } from "@/lib/demo/stats";
+import { photoKeys } from "@/lib/demo/site";
+import { CartDrawer, ShopProvider } from "@/components/demo/shop/interactive";
+import { optimPh } from "@/components/demo/shop/optim-photo";
+import { Catalog, Footer, Hero, Newsletter, PromoBar, Reassure, ReviewsSection, SiteHeader, Story, Tiles, TipsSection } from "@/components/demo/shop/ui";
 import { ReadyMark } from "@/components/demo/ReadyMark";
-import heroImg from "../../../../../public/demo/velos/hero.jpg";
-import ville from "../../../../../public/demo/velos/ville.jpg";
-import route from "../../../../../public/demo/velos/route.jpg";
-import gravel from "../../../../../public/demo/velos/gravel.jpg";
-import cargo from "../../../../../public/demo/velos/cargo.jpg";
-import pliant from "../../../../../public/demo/velos/pliant.jpg";
-import enfant from "../../../../../public/demo/velos/enfant.jpg";
 
-// VERSION OPTIMISÉE. Même données, mêmes images sources, même CSS.
-// (1) Composant serveur : le HTML arrive complet, rendu une fois au build ;
-// (2) les données sont lues côté serveur, pas de cascade de requêtes ;
-// (3) next/image : la bonne taille pour chaque écran, en AVIF/WebP, dimensions
-//     connues (aucun décalage), chargement différé sous la ligne de flottaison ;
-// (4) le calcul lourd est fait une seule fois, au build.
 export const dynamic = "force-static";
 
-const imgs = { ville, route, gravel, cargo, pliant, enfant };
-const stats = heavyStats();
+const BASE = "/demo/optim";
+const stats = catalogStats(catalog()); // une fois, au build
+const thumbs = Object.fromEntries(photoKeys.map((k) => [k, optimPh(k, "line")]));
 
 export default function Optim() {
   return (
-    <div className="d-wrap">
-      <div className="d-top">
-        Atelier Roue Libre <span>version optimisée</span>
-      </div>
-      <section className="d-hero">
-        <h1>{hero.title}</h1>
-        <p>{hero.text}</p>
-        <div className="d-hero-img">
-          <Image src={heroImg} alt="" priority sizes="(min-width: 1040px) 1000px, 100vw" placeholder="blur" quality={85} />
-        </div>
-      </section>
-      <p className="d-stats">
-        {stats.count.toLocaleString("fr-FR")} vélos analysés · prix médian {stats.median} €
-      </p>
-      <div className="d-grid">
-        {velos.map((v) => (
-          <article className="d-card" key={v.id}>
-            <Image src={imgs[v.id as keyof typeof imgs]} alt={v.name} sizes="(min-width: 1040px) 250px, (min-width: 500px) 45vw, 100vw" placeholder="blur" quality={85} />
-            <div>
-              <span className="tag">{v.tag}</span>
-              <h2>{v.name}</h2>
-              <p>{v.text}</p>
-              <b>{v.price} €</b>
-            </div>
-          </article>
-        ))}
-      </div>
-      <div className="d-reviews">
-        {reviews.map((r) => (
-          <blockquote key={r.who}>
-            {r.text}
-            <cite>{r.who}</cite>
-          </blockquote>
-        ))}
-      </div>
-      <ReadyMark />
-    </div>
+    <ShopProvider base={BASE} home>
+      <PromoBar />
+      <SiteHeader base={BASE} />
+      <main>
+        <Hero ph={optimPh} />
+        <Reassure />
+        <Tiles ph={optimPh} />
+        <Catalog cards={cards} stats={stats} ph={optimPh} base={BASE} />
+        <Story ph={optimPh} />
+        <ReviewsSection reviews={homeReviews()} />
+        <TipsSection tips={tips} ph={optimPh} />
+        <Newsletter />
+        <ReadyMark />
+      </main>
+      <Footer base={BASE} />
+      <CartDrawer thumbs={thumbs} />
+    </ShopProvider>
   );
 }

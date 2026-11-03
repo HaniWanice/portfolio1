@@ -120,7 +120,7 @@ Sources : CV 2026 V2, rapport de stage DSI (PDF + HTML), profil LinkedIn export�
 | Mini-jeu JavaScript (universitaire) | Événements, timers, conditions de victoire. | — |
 | Profil card (2025) | Composant HTML/CSS sans dépendance. | haniwanice.github.io/profil-card |
 | Portfolio haniwanice.com (2026) | Refait de zéro en novembre 2026, Next.js + démos interactives. | haniwanice.com |
-| Labo perf (mesures) | Lighthouse 12.8 mobile, médiane de 3, serveur local, 3/11/2026 : naïf 57 (LCP 16,5 s, 4,2 Mo), optimisé 97 (LCP 2,4 s, 219 ko). Aucune latence artificielle dans la version naïve ; seul le calcul lourd est un exemple volontaire. | haniwanice.com/labo |
+| Labo perf (mesures) | Boutique fictive « Maison Brume » (16 produits, 18 photos Unsplash, panier, fiches). Lighthouse 12.8 mobile, médiane de 3, serveur local, 3/11/2026 : naïf 65 (LCP 17,1 s, 11,8 Mo), optimisé 97 (LCP 2,4 s, 437 ko). Aucune latence artificielle dans la version naïve. | haniwanice.com/labo |
 | Tests du portfolio | 6 tests de bout en bout Playwright (`npm test`) : accueil, sans JS, simulateur, labo, mobile. | dépôt |
 | Démos du portfolio (2026) | Labo perf « même stack, deux résultats », simulateur du pont GLPI, etc. Construites avec Claude Code, à comprendre et à savoir expliquer **avant** de les citer en entretien. | haniwanice.com/labo |
 
