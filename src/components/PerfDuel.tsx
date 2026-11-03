@@ -9,10 +9,8 @@ type State = Record<Kind, Metrics | null>;
 
 const rows: { key: keyof Metrics; label: string; fmt: (v: number) => string; hint: string }[] = [
   { key: "ready", label: "Tout le contenu visible", fmt: (v) => `${(v / 1000).toFixed(2).replace(".", ",")} s`, hint: "" },
-  { key: "cls", label: "Décalages de mise en page (CLS)", fmt: (v) => v.toFixed(3).replace(".", ","), hint: "Bon sous 0,1" },
   { key: "tbt", label: "Fil principal bloqué (TBT)", fmt: (v) => `${Math.round(v)} ms`, hint: "Bon sous 200 ms" },
   { key: "bytes", label: "Poids téléchargé", fmt: (v) => (v > 1e6 ? `${(v / 1e6).toFixed(2).replace(".", ",")} Mo` : `${Math.round(v / 1000)} ko`), hint: "Varie selon votre écran" },
-  { key: "requests", label: "Requêtes", fmt: (v) => String(v), hint: "" },
 ];
 
 export function PerfDuel() {

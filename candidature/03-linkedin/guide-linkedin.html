@@ -138,7 +138,7 @@ En dehors des cours, je construis des choses que j'utilise ou que je peux mesure
 
 Ce que je sais faire aujourd'hui : React, Next.js, TypeScript, API REST, SQL, Docker Compose, Git, Figma. Vu en licence : C, Java, Python.
 
-Je cherche une équipe où l'on me confie un vrai sujet, et où quelqu'un relit mon code. Le plus simple pour me joindre : haniwanice@gmail.com.</pre></div>
+Je cherche une équipe qui me confie un vrai sujet, même petit, pour avril 2027. Le plus simple pour me joindre : haniwanice@gmail.com.</pre></div>
 <p class="count">≈ 1 270 caractères (limite : 2 600)</p>
 <p class="muted">Variante pour un public favorable à l'IA : ajouter avant le dernier paragraphe « Je développe avec Claude Code, avec des règles écrites pour chaque projet et une relecture de chaque modification. Les règles de mon site sont publiques sur GitHub. » Par défaut, on ne l'ajoute pas : le profil est lu par tout le monde.</p>
 
@@ -237,7 +237,7 @@ Le sujet : relier le GLPI des étudiants à celui de la DSI, sans que les deux b
 
 Le correctif tient en une idée : lire avant d'écrire. Avant de créer quoi que ce soit, l'appli cherche si un ticket porte déjà la balise [ESCALADE ETU - ID:42] dans son titre. J'aurais préféré utiliser le champ external_id, prévu pour ça, mais l'API de recherche de GLPI ne sait pas filtrer dessus.
 
-Trois jours plus tard, rebelote avec le chemin retour : une boucle infinie. La DSI ferme un ticket, l'appli ferme celui de l'étudiant, ce qui redéclenche la fermeture côté DSI, et ainsi de suite. Le coupe-circuit : une modification faite par le compte API est ignorée.
+Trois jours plus tard, rebelote avec le chemin retour, dans sa première version branchée sur les webhooks de GLPI : une boucle infinie. La DSI ferme un ticket, l'appli ferme celui de l'étudiant, la notification de cette fermeture relance la fermeture côté DSI, et ainsi de suite. Le coupe-circuit : une modification faite par le compte API est ignorée.
 
 Les bugs qui m'ont le plus appris pendant ce stage venaient tous du même endroit, la frontière entre deux systèmes qui se répondent.
 

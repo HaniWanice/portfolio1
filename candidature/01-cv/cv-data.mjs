@@ -121,7 +121,7 @@ const stageClassique = {
   points: [
     stage.points[0],
     "Envoi d'un ticket à la DSI en un clic, et retour des statuts et des réponses vers l'étudiant. Gestion des doublons, des boucles de synchronisation et des pannes de l'API.",
-    stage.points[2],
+    "Webhooks et transfert natif testés puis écartés. Essais uniquement sur des données fictives, jetons d'accès hors du code. Prototype validé par le tuteur, rapport de 37 pages qui détaille aussi ses limites.",
   ],
 };
 

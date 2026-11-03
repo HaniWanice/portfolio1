@@ -92,4 +92,7 @@ Les lettres ne se remplissent pas automatiquement : copie le `.md`, remplis les 
   manque pour les agences et les studios.
 - **Construire un petit projet avec un LLM local** (par exemple trier des tickets de support par catégorie
   avec Ollama). Proposé par le profil « startup IA » du panel, cohérent avec ton stage.
+- **Trancher une question que le panel a posée** : as-tu utilisé un assistant IA pendant le stage à la DSI,
+  et la DSI l'autorisait-elle ? Je ne le sais pas, donc rien ne l'affirme ni ne le nie. Prépare une réponse
+  vraie et courte : un recruteur du public ou de la défense la posera.
 - **Fusionner la branche** pour que haniwanice.com soit mis à jour par Vercel.

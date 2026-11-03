@@ -85,6 +85,7 @@ img,
 svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 button {
   font: inherit;
@@ -1386,4 +1387,14 @@ html {
 }
 .notyet li::marker {
   color: var(--accent);
+}
+
+.hero-sub {
+  text-wrap: pretty;
+}
+@media (max-width: 899px) {
+  .portrait {
+    width: 200px;
+    border-radius: 16px;
+  }
 }

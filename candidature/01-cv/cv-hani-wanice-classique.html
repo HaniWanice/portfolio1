@@ -96,7 +96,7 @@ dd{color:#2c2b31}
       </header>
       <p class="org">Direction des systèmes d'information, Université Paris-Est Créteil</p>
       <p class="lead">Seul développeur sur le sujet, encadré par un ingénieur de la DSI. Objectif : permettre aux étudiants d'écrire au support sans leur donner accès au GLPI du personnel.</p>
-      <ul><li>Prototype fonctionnel : deux GLPI isolés (une base MariaDB chacun, sous Docker Compose) et une application Next.js / TypeScript qui écrit dans les deux via l'API REST, dans la même action.</li><li>Envoi d'un ticket à la DSI en un clic, et retour des statuts et des réponses vers l'étudiant. Gestion des doublons, des boucles de synchronisation et des pannes de l'API.</li><li>Webhooks et transfert natif testés puis écartés, raisons à l'appui. Prototype validé par le tuteur sur un scénario de bout en bout, et rapport de 37 pages qui détaille aussi ses limites.</li></ul>
+      <ul><li>Prototype fonctionnel : deux GLPI isolés (une base MariaDB chacun, sous Docker Compose) et une application Next.js / TypeScript qui écrit dans les deux via l'API REST, dans la même action.</li><li>Envoi d'un ticket à la DSI en un clic, et retour des statuts et des réponses vers l'étudiant. Gestion des doublons, des boucles de synchronisation et des pannes de l'API.</li><li>Webhooks et transfert natif testés puis écartés. Essais uniquement sur des données fictives, jetons d'accès hors du code. Prototype validé par le tuteur, rapport de 37 pages qui détaille aussi ses limites.</li></ul>
       <p class="stack">Next.js · TypeScript · API REST · Docker Compose · MariaDB · GLPI</p>
     </article>
     <article class="item">
