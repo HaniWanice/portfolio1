@@ -7,47 +7,54 @@
 <style>
 @font-face{font-family:"Bricolage";src:url(../_assets/fonts/bricolage.woff2) format("woff2");font-weight:200 800;font-stretch:75% 100%;font-display:block}
 @page{size:A4;margin:0}
-:root{--ink:#1d1b2e;--muted:#5f5b78;--accent:#6a4de0;--hl:#ffcfb5;--side:#d0c6fa;--block:#bfb0f8}
+:root{--ink:#2a1d1b;--accent:#c9463a;--hl:#ffe48c;--side:#ffd6c2;
+/* Hiérarchie par nuances d'encre : titres très noirs, puis de plus en plus gris. */
+--t1:var(--ink);
+--t2:color-mix(in srgb,var(--ink) 84%,transparent);
+--t3:color-mix(in srgb,var(--ink) 68%,transparent);
+--t4:color-mix(in srgb,var(--ink) 58%,transparent)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#fff}
-body{position:relative;width:210mm;height:297mm;overflow:hidden;color:var(--ink);font:400 8.5pt/1.45 "Bricolage",system-ui,sans-serif;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased}
+body{position:relative;width:210mm;height:297mm;overflow:hidden;color:var(--t2);font:400 8.5pt/1.45 "Bricolage",system-ui,sans-serif;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .side{position:absolute;left:0;top:0;bottom:0;width:68mm;background:var(--side);padding:12mm 8mm 10mm}
-.photo{width:44mm;height:44mm;border-radius:11mm;object-fit:cover;display:block}
-.side h2{margin:6.5mm 0 2mm;font:700 7.2pt/1 "Bricolage";letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.photo{width:46mm;height:57.5mm;border-radius:4.5mm;object-fit:cover;display:block}
+.side h2{margin:6mm 0 2mm;font:700 7.2pt/1 "Bricolage";letter-spacing:.1em;text-transform:uppercase;color:var(--t1)}
 .side h2:first-of-type{margin-top:7mm}
-.side p,.side dd{font-size:8.2pt;line-height:1.42}
-.contact{display:grid;gap:1.2mm;list-style:none}
+.side p,.side dd{font-size:8.2pt;line-height:1.42;color:var(--t2)}
+.contact{display:grid;gap:1.2mm;list-style:none;color:var(--t2)}
 .contact li{overflow-wrap:anywhere}
 .side-item+.side-item{margin-top:2.4mm}
-.side-item h3{font-size:8.6pt;font-weight:700;line-height:1.25}
-.meta{margin-top:.4mm;color:color-mix(in srgb,var(--ink) 78%,transparent);font-size:7.8pt}
+.side-item h3{font-size:8.6pt;font-weight:700;line-height:1.25;color:var(--t1)}
+.meta{margin-top:.4mm;color:var(--t3);font-size:7.8pt}
 .kv+.kv{margin-top:2mm}
-dt{font-weight:700;font-size:8pt}
-.langues,.interets{list-style:none}
+dt{font-weight:700;font-size:8pt;color:var(--t1)}
+dd{color:var(--t3)}
+.langues,.interets{list-style:none;color:var(--t3)}
 .interets li+li{margin-top:.8mm}
 main{position:absolute;left:68mm;right:0;top:0;bottom:0;padding:12mm 13mm 9mm 12mm}
-h1{font:700 33pt/.92 "Bricolage";letter-spacing:-.045em;font-variation-settings:"wdth" 88}
-.title{margin-top:3mm;font-weight:600;font-size:10pt;letter-spacing:-.01em}
-.search{display:inline-block;margin-top:2.4mm;padding:1mm 3mm;border-radius:2.4mm;background:var(--hl);font-weight:600;font-size:8.6pt}
-.accroche{margin-top:5mm;font-size:9.4pt;line-height:1.45;font-weight:500;letter-spacing:-.005em}
-main h2{margin:6mm 0 2.4mm;font:700 7.2pt/1 "Bricolage";letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+h1{font:700 33pt/.92 "Bricolage";letter-spacing:-.045em;font-variation-settings:"wdth" 88;color:var(--t1)}
+.title{margin-top:3mm;font-weight:600;font-size:10pt;letter-spacing:-.01em;color:var(--t2)}
+.search{display:inline-block;margin-top:2.4mm;padding:1mm 3mm;border-radius:2.4mm;background:var(--hl);font-weight:600;font-size:8.6pt;color:var(--t1)}
+.accroche{margin-top:5mm;font-size:9.4pt;line-height:1.45;font-weight:500;letter-spacing:-.005em;color:var(--t2)}
+main h2{margin:6mm 0 2.4mm;font:700 7.2pt/1 "Bricolage";letter-spacing:.1em;text-transform:uppercase;color:var(--t1)}
 .item+.item{margin-top:3.6mm}
 header{display:flex;justify-content:space-between;align-items:baseline;gap:3mm}
-h3{font-weight:700;font-size:9.2pt;line-height:1.25;letter-spacing:-.01em}
-.when{flex:none;font-size:7.6pt;color:var(--muted);white-space:nowrap}
-.org{margin-top:.3mm;color:var(--muted);font-weight:500}
-.lead{margin-top:1.2mm}
+h3{font-weight:700;font-size:9.2pt;line-height:1.25;letter-spacing:-.01em;color:var(--t1)}
+.when{flex:none;font-size:7.6pt;color:var(--t4);white-space:nowrap}
+.org{margin-top:.3mm;color:var(--t3);font-weight:600}
+.lead{margin-top:1.2mm;color:var(--t2)}
 ul{list-style:none;margin-top:1.2mm}
-main li{position:relative;padding-left:3.4mm;margin-top:.9mm}
+main li{position:relative;padding-left:3.4mm;margin-top:.9mm;color:var(--t2)}
 main li::before{content:"";position:absolute;left:0;top:2mm;width:1.6mm;height:1.6mm;border-radius:50%;background:var(--accent)}
-.stack{margin-top:1.4mm;font-size:7.5pt;color:var(--muted)}
+.stack{margin-top:1.4mm;font-size:7.5pt;color:var(--t4)}
 .proj+.proj{margin-top:2.6mm}
-.proj p{margin-top:.4mm}
+.proj p{margin-top:.4mm;color:var(--t3)}
 .url{white-space:nowrap;font-size:7.6pt;font-weight:600;color:var(--accent)}
 .methode{margin-top:5mm;padding:3mm 3.6mm 3.2mm;border-radius:3mm;background:color-mix(in srgb,var(--hl) 55%,#fff)}
 .methode h2{margin:0 0 1.6mm}
 .methode p+p{margin-top:1.4mm}
+.methode p{color:var(--t2)}
 sup{font-size:.7em;line-height:0}
 </style>
 </head>
@@ -111,15 +118,11 @@ sup{font-size:.7em;line-height:0}
     
     <article class="proj">
       <header><h3>Labo perf : une page, deux versions</h3><p class="when">2026</p></header>
-      <p>Une page produit codée deux fois en Next.js : d'abord avec les erreurs courantes (tout côté client, images brutes, requêtes en cascade), puis optimisée. Lighthouse mobile : score 57 → 97, poids 4,2 Mo → 219 ko. <span class="url"><a href="https://haniwanice.com/labo">haniwanice.com/labo</a></span></p>
+      <p>Une boutique en ligne (16 produits, panier, vraies photos) codée deux fois en Next.js : d'abord avec les erreurs courantes, puis optimisée. Lighthouse mobile : score 65 → 97, poids 11,8 Mo → 437 ko. <span class="url"><a href="https://haniwanice.com/labo">haniwanice.com/labo</a></span></p>
     </article>
     <article class="proj">
       <header><h3>Todo Smart</h3><p class="when">2026</p></header>
-      <p>Liste de tâches synchronisée en temps réel entre téléphone et ordinateur (React, Firestore). Je l'utilise tous les jours depuis sa mise en ligne. <span class="url"><a href="https://haniwanice.com/#projets">haniwanice.com/#projets</a></span></p>
-    </article>
-    <article class="proj">
-      <header><h3>Refonte du portail du personnel UPEC</h3><p class="when">2026</p></header>
-      <p>Proposition personnelle : services regroupés par usage, navigation simplifiée, version mobile. HTML et CSS, sans framework. <span class="url"><a href="https://haniwanice.com/#projets">haniwanice.com/#projets</a></span></p>
+      <p>Liste de tâches synchronisée en temps réel entre téléphone et ordinateur (React, Firestore). Je l'utilise tous les jours depuis sa mise en ligne. <span class="url"><a href="https://haniwanice.github.io/todo-smart">haniwanice.github.io/todo-smart</a></span></p>
     </article>
     <article class="proj">
       <header><h3>Gestion d'une compagnie aérienne</h3><p class="when">2025 · projet de licence</p></header>

@@ -1,25 +1,25 @@
-/* Hani Wanice : fond clair froid, encre presque noire, bleu électrique, vert acide.
+/* Hani Wanice : fond clair, encre presque noire, couleurs pastel (voir candidature/05-design).
    Une seule famille (Bricolage Grotesque, graisse et largeur variables). */
 
 :root {
   /* palette:start (généré par candidature/05-design/apply-palette.mjs) */
-  --bg: #f7f5fb;
-  --bg-2: #ece8f5;
+  --bg: #fffaf6;
+  --bg-2: #f7ece4;
   --card: #fbfbfc;
-  --ink: #1d1b2e;
-  --ink-2: #1d1b2e;
-  --muted: #5f5b78;
-  --line: color-mix(in srgb, #1d1b2e 12%, transparent);
-  --line-2: color-mix(in srgb, #1d1b2e 28%, transparent);
-  --accent: #6a4de0;
+  --ink: #2a1d1b;
+  --ink-2: #2a1d1b;
+  --muted: #6e5a55;
+  --line: color-mix(in srgb, #2a1d1b 12%, transparent);
+  --line-2: color-mix(in srgb, #2a1d1b 28%, transparent);
+  --accent: #c9463a;
   --accent-ink: #ffffff;
-  --hl: #ffcfb5;
-  --block: #bfb0f8;
-  --f1: #d0c6fa;
-  --f2: #c2f0d6;
-  --f3: #ffd2bc;
-  --f4: #bfb2f5;
-  --dot: #6a4de0;
+  --hl: #ffe48c;
+  --block: #ffb7a8;
+  --f1: #ffb7a8;
+  --f2: #c9dcc1;
+  --f3: #ffe48c;
+  --f4: #ffc2b5;
+  --dot: #c9463a;
   /* palette:end */
 
   --font: var(--font-main), "Helvetica Neue", Arial, sans-serif;

@@ -1,8 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useSyncExternalStore } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { facts, statement } from "@/lib/content";
+
+const QUERY = "(prefers-reduced-motion: reduce)";
+function subscribeReduced(cb: () => void) {
+  const mq = matchMedia(QUERY);
+  mq.addEventListener("change", cb);
+  return () => mq.removeEventListener("change", cb);
+}
+const getReduced = () => matchMedia(QUERY).matches;
 
 type Tok = { w: string; mark: boolean };
 
@@ -32,15 +40,8 @@ function W({ tok, i, n, p, still }: { tok: Tok; i: number; n: number; p: MotionV
 // Deuxième écran : la phrase de présentation s'éclaire mot après mot pendant le défilement.
 export function Statement() {
   const ref = useRef<HTMLElement>(null);
-  // Lu après le montage : le rendu serveur et le premier rendu client restent identiques.
-  const [reduce, setReduce] = useState(false);
-  useEffect(() => {
-    const mq = matchMedia("(prefers-reduced-motion: reduce)");
-    setReduce(mq.matches);
-    const on = () => setReduce(mq.matches);
-    mq.addEventListener("change", on);
-    return () => mq.removeEventListener("change", on);
-  }, []);
+  // Le rendu serveur suppose du mouvement ; le navigateur corrige juste après l'hydratation.
+  const reduce = useSyncExternalStore(subscribeReduced, getReduced, () => false);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const toks = tokens();
   const factsOpacity = useTransform(scrollYProgress, [0.68, 0.84], [0, 1]);

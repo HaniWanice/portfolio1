@@ -46,7 +46,7 @@ const projetsCommuns = [
     url: SITE + "/labo",
     when: "2026",
     text:
-      "Une page produit codée deux fois en Next.js : d'abord avec les erreurs courantes (tout côté client, images brutes, requêtes en cascade), puis optimisée. Lighthouse mobile : score 57 → 97, poids 4,2 Mo → 219 ko.",
+      "Une boutique en ligne (16 produits, panier, vraies photos) codée deux fois en Next.js : d'abord avec les erreurs courantes, puis optimisée. Lighthouse mobile : score 65 → 97, poids 11,8 Mo → 437 ko.",
   },
   {
     name: "Todo Smart",

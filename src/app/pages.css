@@ -200,7 +200,7 @@ a.prow:hover b {
 /* À propos */
 .about-photo {
   position: relative;
-  width: min(100%, 420px);
+  width: min(100%, 300px);
 }
 .about-photo::before {
   content: "";
