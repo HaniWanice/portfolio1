@@ -3,17 +3,17 @@ format: lettre
 cible: Startup / scale-up produit (équipe tech à l'aise avec l'IA)
 cv: méthode
 entreprise: [Entreprise]
-objet: Stage développeur full-stack, d'avril à fin août 2027
+objet: Stage développeur web, d'avril à fin août 2027
 destinataire: Bonjour [Prénom Nom],
 signature: Bien à vous,
 ---
-J'ai découvert [Entreprise] en [contexte réel : en utilisant le produit, via un article, un meetup]. Ce qui m'a donné envie d'écrire, c'est [un détail concret du produit ou de l'équipe, une phrase maximum]. Je cherche un stage de développeur full-stack d'avril à fin août 2027, dans une équipe qui livre souvent et qui regarde ce que les utilisateurs font vraiment de ce qu'elle construit.
+[Deux phrases sur leur produit, que tu as testé : ce qui t'a surpris, ou la question qu'il t'a posée.] Je suis en L3 informatique à l'Université Paris-Est Créteil, et je cherche un stage de développeur web d'avril à fin août 2027.
 
-Mon expérience la plus sérieuse date de cette année. À la DSI de l'Université Paris-Est Créteil, on m'a confié un problème simple à énoncer et pénible à résoudre : permettre aux étudiants d'écrire au support sans leur ouvrir l'outil interne du personnel. J'ai monté deux GLPI isolés sous Docker, puis une application Next.js qui fait passer les tickets de l'un à l'autre. Pendant la démo de mi-parcours, mon tuteur a ajouté la synchronisation retour à la liste, au moment où je pensais avoir terminé. C'est la partie qui m'a le plus appris, et elle tournait pour la présentation finale.
+Au printemps 2026, j'ai passé huit semaines à la DSI de l'UPEC. Le sujet : laisser les étudiants écrire au support sans leur ouvrir le GLPI du personnel. J'ai monté deux instances isolées sous Docker et une application Next.js qui écrit dans les deux. À la première démo, mon tuteur a demandé que la clôture d'un ticket d'un côté ferme aussi l'autre. Trois jours plus tard ça marchait, avec en prime une boucle infinie et des sessions API qui ne se fermaient jamais. Ces deux bugs m'ont plus appris que tout le reste du stage.
 
-Je code beaucoup avec des agents comme Claude Code, et je préfère le dire tout de suite. Je les configure pour chaque projet, je leur confie le mécanique et une partie de la relecture, puis je relis chaque modification. Je ne garde que ce que je sais expliquer. Sur haniwanice.com, il y a une démo qui montre ce que ça donne : la même page Next.js écrite deux fois, avec les mesures de performance prises en direct dans votre navigateur. C'est plus parlant que ce paragraphe.
+Je développe avec Claude Code au quotidien : un fichier de règles par projet, des étapes courtes, chaque diff relu avant le commit, et un sous-agent qui relit avec une autre grille que la mienne. Les règles de mon portfolio sont publiques sur GitHub, avec tout l'historique. Sur le site, la page Labo compare deux versions de la même page Next.js : le score Lighthouse mobile passe de 53 à 98, et le poids de 4,2 Mo à 227 ko, sans changer de framework.
 
-Je suis disponible pour en parler quand vous voulez, en visio ou dans vos locaux. J'aurais d'ailleurs une question à vous poser : [ta vraie question, technique ou produit].
+Je peux passer vous voir, ou en parler en visio, quand vous voulez. [Facultatif : une vraie question sur leur stack ou leur produit.]
 <!-- notes -->
-À personnaliser : tout ce qui est entre crochets. Le premier paragraphe doit prouver que tu as regardé leur produit.
-Si tu ne trouves rien de précis à dire sur la boîte, n'envoie pas la lettre : envoie le message court (06).
+Le premier paragraphe est ce qui fait passer la lettre ou non. S'il est générique, n'envoie pas la lettre : envoie le message court (06).
+Round 1 : retiré « une équipe qui livre souvent… », « simple à énoncer et pénible à résoudre », « plus parlant que ce paragraphe », « je préfère le dire tout de suite ».

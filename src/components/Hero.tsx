@@ -1,154 +1,122 @@
-import type { CSSProperties } from "react";
-import { availability, site } from "@/lib/site";
-import { Arrow } from "./Arrow";
-import { Marquee } from "./Marquee";
-import { PointerGlow } from "./PointerGlow";
+"use client";
 
-const NAME = "Hani";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { motion, useReducedMotion } from "motion/react";
+import { quick, site } from "@/lib/content";
+import { ArrowRight } from "./Icons";
+import photo from "../../public/images/hani.jpg";
+
+const ease = [0.16, 1, 0.3, 1] as const;
+
+function ParisTime() {
+  const [t, setT] = useState<string | null>(null);
+  useEffect(() => {
+    const f = new Intl.DateTimeFormat("fr-FR", {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "Europe/Paris",
+    });
+    const tick = () => setT(f.format(new Date()));
+    tick();
+    const id = setInterval(tick, 20_000);
+    return () => clearInterval(id);
+  }, []);
+  return <>{t ?? "--:--"}</>;
+}
 
 export function Hero() {
+  const reduce = useReducedMotion();
+  const line = (i: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { y: "105%" },
+          animate: { y: "0%" },
+          transition: { duration: 1, ease, delay: 0.15 + i * 0.09 },
+        };
+
   return (
-    <section className="hero" id="top" aria-labelledby="hero-title">
-      <PointerGlow />
-
-      <div className="wrap hero__inner">
-        <div className="hero__lead">
-          <p className="eyebrow">
-            <span className="eyebrow__dot" aria-hidden="true" />
-            Stage 2 à 4 mois dès avril 2027 · alternance dès septembre 2027
+    <section className="hero wrap" aria-labelledby="hero-title">
+      <div className="hero-grid">
+        <div>
+          <p className="status">
+            <i aria-hidden="true" /> Paris, <ParisTime /> · cherche un stage pour avril 2027
           </p>
-
-
-          <h1 className="hero__title" id="hero-title">
-            <span className="hero__name" aria-label="Hani">
-              <span aria-hidden="true">
-                {NAME.split("").map((letter, index) => (
-                  <span
-                    className="hero__letter"
-                    key={`${letter}-${index}`}
-                    style={{ "--i": index } as CSSProperties}
-                  >
-                    {letter}
-                  </span>
-                ))}
-              </span>
+          <h1 id="hero-title">
+            <span className="line">
+              <motion.span {...line(0)}>Hani</motion.span>
             </span>
-            <span className="hero__role">
-              développeur <em>full-stack</em>
+            <span className="line">
+              <motion.span {...line(1)}>Wanice</motion.span>
             </span>
           </h1>
-
-          <p className="hero__meta">
-            <span>Hani Wanice · {site.age} ans</span>
-            <span>Licence 3 informatique · université Paris‑Est</span>
-          </p>
-
-          <p className="hero__exp">
-            <span className="hero__exp-badge">2 mois</span>
-            d&apos;expérience en entreprise · DSI, université Paris‑Est
-          </p>
-
-          <p className="hero__text">
-            Étudiant en licence 3 d&apos;informatique à l&apos;université
-            Paris‑Est, j&apos;ai passé deux mois dans son service informatique.
-            Mission : faire dialoguer deux outils qui s&apos;ignoraient, pour
-            40&nbsp;000 étudiants — sans qu&apos;aucune donnée du personnel ne
-            fuite.
-          </p>
-
-          <div className="hero__actions">
-            <a
-              className="btn btn--accent"
-              href={site.cv}
-              target="_blank"
-              rel="noreferrer"
-              data-magnetic
-            >
-              Télécharger mon CV
-              <span className="btn__meta">PDF</span>
+          <motion.p
+            className="hero-lead"
+            initial={reduce ? false : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease, delay: 0.45 }}
+          >
+            Je construis des applications web, et je peux vous expliquer{" "}
+            <em>pourquoi elles tiennent debout</em>.
+          </motion.p>
+          <motion.p
+            className="hero-sub"
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9, delay: 0.6 }}
+          >
+            En L3 informatique à l&apos;Université Paris-Est Créteil. Je cherche un stage de
+            développeur de 2 à 5 mois, d&apos;avril à fin août 2027.
+          </motion.p>
+          <motion.div
+            className="hero-actions"
+            initial={reduce ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 0.72 }}
+          >
+            <a className="btn btn-ink" href="#stage">
+              Commencer par le stage
+              <ArrowRight />
             </a>
-            <a className="btn btn--line" href="#projets">
-              Voir mes projets
-              <span className="btn__down" aria-hidden="true">
-                ↓
-              </span>
+            <a className="btn btn-line" href={`mailto:${site.email}`}>
+              {site.email}
             </a>
-          </div>
-
-          <ul className="hero__contact">
-            <li>
-              <a href={`mailto:${site.email}`}>{site.email}</a>
-            </li>
-            <li>
-              <a href={`tel:${site.phoneHref}`}>{site.phone}</a>
-            </li>
-            <li>
-              <a href={site.linkedin} target="_blank" rel="noreferrer">
-                LinkedIn
-                <Arrow />
-              </a>
-            </li>
-            <li>
-              <a href={site.github} target="_blank" rel="noreferrer">
-                GitHub
-                <Arrow />
-              </a>
-            </li>
-          </ul>
+          </motion.div>
         </div>
 
-        <aside className="search" aria-labelledby="search-title">
-          <div className="search__head">
-            <div>
-              <p className="search__eyebrow">Ma recherche</p>
-              <h2 className="search__title" id="search-title">
-                Ce que je cherche
-              </h2>
-            </div>
-            <span className="search__pulse" aria-hidden="true" />
-          </div>
-
-          <dl className="search__list">
-            {availability.map((item) => (
-              <div className="search__row" key={item.label}>
-                <dt>
-                  <span className="search__label">{item.label}</span>
-                  <span className="search__value">{item.value}</span>
-                </dt>
-                <dd>
-                  <strong>{item.when}</strong>
-                  <span>{item.note}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="search__facts">
-            <p>
-              <span className="search__key">Formation</span>
-              Licence 3 informatique · Université Paris‑Est
-            </p>
-            <p>
-              <span className="search__key">Zone</span>
-              Paris-Est et Île-de-France
-            </p>
-            <p>
-              <span className="search__key">Langues</span>
-              Français · anglais courant · espagnol
-            </p>
-          </div>
-
-          <a
-            className="search__mail"
-            href={`mailto:${site.email}?subject=Stage%20ou%20alternance%20%E2%80%94%20Hani%20Wanice`}
+        <motion.figure
+          className="portrait"
+          initial={reduce ? false : { clipPath: "inset(100% 0% 0% 0% round 20px)" }}
+          animate={{ clipPath: "inset(0% 0% 0% 0% round 20px)" }}
+          transition={{ duration: 1.3, ease, delay: 0.1 }}
+        >
+          <motion.div
+            style={{ height: "100%" }}
+            initial={reduce ? false : { scale: 1.12 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.6, ease, delay: 0.1 }}
           >
-            Écrire un message
-            <Arrow />
-          </a>
-        </aside>
+            <Image
+              src={photo}
+              alt="Hani Wanice, portrait en extérieur"
+              priority
+              placeholder="blur"
+              sizes="(min-width: 900px) 440px, 78vw"
+            />
+          </motion.div>
+          <figcaption>Disponible dès avril 2027</figcaption>
+        </motion.figure>
       </div>
 
-      <Marquee />
+      <dl className="quick reveal" aria-label="En vingt secondes">
+        {quick.map((q) => (
+          <div key={q.k}>
+            <dt>{q.k}</dt>
+            <dd>{q.v}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }
