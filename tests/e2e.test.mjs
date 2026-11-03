@@ -85,11 +85,51 @@ test("simulateur GLPI : escalade, anti-doublon, retour, panne", async () => {
   await page.close();
 });
 
-test("les deux versions du labo affichent les six vélos", async () => {
+test("les deux versions du labo affichent la boutique : 16 produits, onglets et tiroir panier", async () => {
   for (const v of ["naive", "optim"]) {
     const { page, errors } = await open(`/demo/${v}`);
-    await page.locator(".d-card").nth(5).waitFor();
-    assert.equal(await page.locator(".d-card").count(), 6, v);
+    await page.locator(".card").nth(15).waitFor();
+    assert.equal(await page.locator(".card").count(), 16, `${v} : 16 produits`);
+    assert.match(await page.locator("#produits [role=status]").innerText(), /références en stock, prix médian/, `${v} : ligne du catalogue`);
+
+    // Onglets : chaque catégorie ne montre que ses 4 produits, « Tout » les remet.
+    await page.getByRole("tab", { name: "Thé" }).click();
+    assert.equal(await page.locator(".card:visible").count(), 4, `${v} : onglet Thé`);
+    await page.getByRole("tab", { name: "Tout" }).click();
+    assert.equal(await page.locator(".card:visible").count(), 16, `${v} : onglet Tout`);
+
+    // Tiroir : ajouter un produit l'ouvre, la quantité se modifie, le total suit.
+    await page.locator(".card .btn").first().click();
+    assert.equal(await page.locator(".drawer-root").getAttribute("data-open"), "true", `${v} : tiroir ouvert`);
+    assert.equal(await page.locator(".cart-btn .count").innerText(), "1");
+    await page.getByRole("button", { name: "Ajouter un" }).click();
+    assert.match((await page.locator(".sum").innerText()).replace(/\s+/g, " "), /25,80/, `${v} : total pour 2 articles`);
+    await page.getByRole("button", { name: "Fermer le panier" }).click();
+    assert.equal(await page.locator(".drawer-root").getAttribute("data-open"), "false");
+    assert.deepEqual(errors, [], v);
+    await page.close();
+  }
+});
+
+test("les deux fiches produit : galerie, variante et onglets Description, Détails, Avis", async () => {
+  for (const v of ["naive", "optim"]) {
+    const { page, errors } = await open(`/demo/${v}/produit/tasses-gres-modelees`);
+    await page.locator(".card").nth(3).waitFor(); // produits associés
+    assert.equal(await page.locator("h1").innerText(), "Lot de 4 tasses en grès modelées à la main");
+    assert.equal(await page.locator(".thumb").count(), 3, `${v} : trois photos`);
+    await page.locator(".thumb").nth(1).click();
+    assert.equal(await page.locator(".gm[data-on=true]").count(), 1);
+
+    assert.equal(await page.locator("#panel-description").isVisible(), true);
+    await page.getByRole("tab", { name: "Détails" }).click();
+    assert.equal(await page.locator("#panel-details").isVisible(), true, `${v} : onglet Détails`);
+    assert.equal(await page.locator("#panel-description").isVisible(), false);
+    await page.getByRole("tab", { name: /^Avis/ }).click();
+    assert.ok((await page.locator("#panel-reviews .avis").count()) >= 2, `${v} : avis`);
+
+    await page.getByRole("button", { name: "Argile rose" }).click();
+    await page.getByRole("button", { name: "Ajouter au panier" }).first().click();
+    assert.match(await page.locator(".line small").innerText(), /Argile rose/, `${v} : la variante est dans le panier`);
     assert.deepEqual(errors, [], v);
     await page.close();
   }

@@ -1,26 +1,22 @@
-// Gabarit HTML du CV (A4, une page). Les chemins d'assets sont relatifs au
-// dossier 01-cv/ où le fichier HTML final est écrit.
+// Gabarit du CV : mise en page n°2 (barre latérale pastel + récit à droite), A4, une page.
+// La palette vient de 05-design/palettes.json. Les chemins d'assets sont relatifs à 01-cv/.
 
-const esc = (s) =>
-  String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const sup = (s) => s.replace(/\b1er\b/g, "1<sup>er</sup>");
+const link = (url, label = url) => `<a href="https://${url}">${esc(label)}</a>`;
 
-const link = (url, label = url) =>
-  `<a href="https://${url}">${esc(label)}</a>`;
-
-export function renderCV(v, c) {
+export function renderCV(v, c, p) {
   const exp = v.experiences
     .map(
       (e) => `
     <article class="item">
       <header>
         <h3>${esc(e.role)}</h3>
-        <p class="when">${sup(esc(e.when))}${e.length ? ` <span>(${esc(e.length)})</span>` : ""}</p>
+        <p class="when">${sup(esc(e.when))}</p>
       </header>
       <p class="org">${esc(e.org)}</p>
       ${e.lead ? `<p class="lead">${esc(e.lead)}</p>` : ""}
-      <ul>${e.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
+      <ul>${e.points.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
       <p class="stack">${esc(e.stack)}</p>
     </article>`,
     )
@@ -28,13 +24,10 @@ export function renderCV(v, c) {
 
   const projets = v.projets
     .map(
-      (p) => `
+      (x) => `
     <article class="proj">
-      <header>
-        <h3>${esc(p.name)}</h3>
-        <p class="when">${esc(p.when)}</p>
-      </header>
-      <p>${esc(p.text)}${p.url ? ` <span class="url">${link(p.url, "→ " + p.url)}</span>` : ""}</p>
+      <header><h3>${esc(x.name)}</h3><p class="when">${esc(x.when)}</p></header>
+      <p>${esc(x.text)}${x.url ? ` <span class="url">${link(x.url, x.url)}</span>` : ""}</p>
     </article>`,
     )
     .join("");
@@ -45,7 +38,6 @@ export function renderCV(v, c) {
     <div class="side-item">
       <h3>${esc(f.title)}</h3>
       <p class="meta">${esc(f.org)}${f.when ? `<br>${esc(f.when)}` : ""}</p>
-      <p>${esc(f.detail)}</p>
     </div>`,
     )
     .join("");
@@ -55,10 +47,7 @@ export function renderCV(v, c) {
     .join("");
 
   const methode = v.methode
-    ? `<section class="methode">
-        <h2>${esc(v.methode.title)}</h2>
-        ${v.methode.text.map((t) => `<p>${esc(t)}</p>`).join("")}
-      </section>`
+    ? `<section class="methode"><h2>${esc(v.methode.title)}</h2>${v.methode.text.map((t) => `<p>${esc(t)}</p>`).join("")}</section>`
     : "";
 
   return `<!doctype html>
@@ -68,116 +57,84 @@ export function renderCV(v, c) {
 <title>Hani Wanice, CV</title>
 <meta name="author" content="Hani Wanice">
 <style>
-@font-face{font-family:"Gambarino";src:url(../_assets/fonts/gambarino.woff2) format("woff2");font-display:block}
-@font-face{font-family:"General";src:url(../_assets/fonts/general-400.woff2) format("woff2");font-weight:400}
-@font-face{font-family:"General";src:url(../_assets/fonts/general-500.woff2) format("woff2");font-weight:500}
-@font-face{font-family:"General";src:url(../_assets/fonts/general-600.woff2) format("woff2");font-weight:600}
-@font-face{font-family:"Mono";src:url(../_assets/fonts/jetbrains-400.woff2) format("woff2")}
+@font-face{font-family:"Bricolage";src:url(../_assets/fonts/bricolage.woff2) format("woff2");font-weight:200 800;font-stretch:75% 100%;font-display:block}
 @page{size:A4;margin:0}
-:root{--ink:#19181d;--muted:#5c5a63;--soft:#8a8790;--line:#e3dfd8;--accent:#b4410f;--tint:#f6efe8}
+:root{--ink:${p.ink};--muted:${p.muted};--accent:${p.accent};--hl:${p.hl};--side:${p.f1};--block:${p.block}}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#fff}
-body{width:210mm;height:297mm;padding:13mm 13mm 11mm;color:var(--ink);font:400 8.6pt/1.42 "General",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden}
+body{position:relative;width:210mm;height:297mm;overflow:hidden;color:var(--ink);font:400 8.5pt/1.45 "Bricolage",system-ui,sans-serif;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-/* En-tête */
-.top{display:grid;grid-template-columns:1fr 27mm;gap:8mm;align-items:start}
-.top.nophoto{grid-template-columns:1fr}
-h1{font:400 30pt/1 "Gambarino",Georgia,serif;letter-spacing:-.01em}
-.title{margin-top:2.2mm;font-weight:500;font-size:10.4pt}
-.search{margin-top:2mm;color:var(--accent);font-weight:600;font-size:9pt}
-.contact{margin-top:3mm;display:flex;flex-wrap:wrap;gap:.6mm 3.6mm;font:400 8.2pt/1.5 "General",sans-serif;color:var(--muted)}
-.contact a{border-bottom:.25mm solid var(--line)}
-.photo{width:27mm;height:33.75mm;object-fit:cover;border-radius:1.6mm;filter:saturate(.92)}
-.accroche{margin-top:5.2mm;padding:3mm 0 3.4mm;border-top:.3mm solid var(--ink);border-bottom:.3mm solid var(--line);font-size:9.6pt;line-height:1.5;}
-/* Grille */
-.grid{display:grid;grid-template-columns:1fr 56mm;gap:8mm;margin-top:5mm}
-h2{font:600 7.2pt/1 "General",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:2.6mm}
-section+section{margin-top:5mm}
-.item+.item{margin-top:3.8mm}
-.item header,.proj header{display:flex;justify-content:space-between;align-items:baseline;gap:3mm}
-h3{font-weight:600;font-size:9.3pt;line-height:1.3}
-.org{margin-top:.3mm;font-weight:500;color:var(--muted)}
-.when{flex:none;font:400 7.4pt/1.3 "Mono",monospace;color:var(--muted);white-space:nowrap}
-.when span{color:var(--soft)}
-.lead{margin-top:1.2mm;font-style:normal;color:var(--ink)}
-ul{margin-top:1.2mm;list-style:none}
-li{position:relative;padding-left:3.4mm;margin-top:.9mm;color:#2c2b31}
-li::before{content:"";position:absolute;left:.3mm;top:2mm;width:1.6mm;height:.4mm;background:var(--accent)}
-sup{font-size:.7em;line-height:0}
-.stack{margin-top:1.4mm;font:400 7.2pt/1.4 "Mono",monospace;color:var(--soft)}
+.side{position:absolute;left:0;top:0;bottom:0;width:68mm;background:var(--side);padding:12mm 8mm 10mm}
+.photo{width:44mm;height:44mm;border-radius:11mm;object-fit:cover;display:block}
+.side h2{margin:6.5mm 0 2mm;font:700 7.2pt/1 "Bricolage";letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.side h2:first-of-type{margin-top:7mm}
+.side p,.side dd{font-size:8.2pt;line-height:1.42}
+.contact{display:grid;gap:1.2mm;list-style:none}
+.contact li{overflow-wrap:anywhere}
+.side-item+.side-item{margin-top:2.4mm}
+.side-item h3{font-size:8.6pt;font-weight:700;line-height:1.25}
+.meta{margin-top:.4mm;color:color-mix(in srgb,var(--ink) 78%,transparent);font-size:7.8pt}
+.kv+.kv{margin-top:2mm}
+dt{font-weight:700;font-size:8pt}
+.langues,.interets{list-style:none}
+.interets li+li{margin-top:.8mm}
+main{position:absolute;left:68mm;right:0;top:0;bottom:0;padding:12mm 13mm 9mm 12mm}
+h1{font:700 33pt/.92 "Bricolage";letter-spacing:-.045em;font-variation-settings:"wdth" 88}
+.title{margin-top:3mm;font-weight:600;font-size:10pt;letter-spacing:-.01em}
+.search{display:inline-block;margin-top:2.4mm;padding:1mm 3mm;border-radius:2.4mm;background:var(--hl);font-weight:600;font-size:8.6pt}
+.accroche{margin-top:5mm;font-size:9.4pt;line-height:1.45;font-weight:500;letter-spacing:-.005em}
+main h2{margin:6mm 0 2.4mm;font:700 7.2pt/1 "Bricolage";letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.item+.item{margin-top:3.6mm}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:3mm}
+h3{font-weight:700;font-size:9.2pt;line-height:1.25;letter-spacing:-.01em}
+.when{flex:none;font-size:7.6pt;color:var(--muted);white-space:nowrap}
+.org{margin-top:.3mm;color:var(--muted);font-weight:500}
+.lead{margin-top:1.2mm}
+ul{list-style:none;margin-top:1.2mm}
+main li{position:relative;padding-left:3.4mm;margin-top:.9mm}
+main li::before{content:"";position:absolute;left:0;top:2mm;width:1.6mm;height:1.6mm;border-radius:50%;background:var(--accent)}
+.stack{margin-top:1.4mm;font-size:7.5pt;color:var(--muted)}
 .proj+.proj{margin-top:2.6mm}
-.proj p{margin-top:.6mm;color:#2c2b31}
-.url{white-space:nowrap;font:400 7.2pt "Mono",monospace;color:var(--accent)}
-/* Colonne de droite */
-aside{border-left:.3mm solid var(--line);padding-left:5mm}
-.side-item+.side-item{margin-top:3mm}
-.side-item h3{font-size:8.9pt}
-.meta{margin:.4mm 0 .8mm;font-size:7.9pt;line-height:1.45;color:var(--muted)}
-.side-item p:last-child{color:#2c2b31}
-dl .kv+.kv{margin-top:1.8mm}
-dt{font-weight:600;font-size:7.8pt}
-dd{color:#2c2b31}
-.methode{background:var(--tint);padding:3mm 3.4mm 3.2mm;border-radius:1.6mm}
+.proj p{margin-top:.4mm}
+.url{white-space:nowrap;font-size:7.6pt;font-weight:600;color:var(--accent)}
+.methode{margin-top:5mm;padding:3mm 3.6mm 3.2mm;border-radius:3mm;background:color-mix(in srgb,var(--hl) 55%,#fff)}
+.methode h2{margin:0 0 1.6mm}
 .methode p+p{margin-top:1.4mm}
-.methode p{color:#2c2b31}
-.interets{list-style:none}
-.interets li{padding-left:0;margin-top:.8mm}
-.interets li::before{display:none}
-.plain{color:#2c2b31}
-.foot{position:absolute;left:13mm;right:13mm;bottom:8mm;font:400 6.8pt "Mono",monospace;color:var(--soft);display:flex;justify-content:space-between}
+sup{font-size:.7em;line-height:0}
 </style>
 </head>
 <body>
-  <header class="top${v.photo ? "" : " nophoto"}">
-    <div>
-      <h1>${esc(c.name)}</h1>
-      <p class="title">${esc(v.title)}</p>
-      <p class="search">${esc(v.search)}</p>
-      <p class="contact">
-        <span>${esc(c.phone)}</span>
-        <a href="mailto:${c.email}">${esc(c.email)}</a>
-        ${link(c.site)}
-        ${link(c.github)}
-        ${link(c.linkedin, "LinkedIn")}
-        <span>${esc(c.location)}</span>
-      </p>
-    </div>
+  <aside class="side">
     ${v.photo ? `<img class="photo" src="../_assets/photo-cv.jpg" alt="Photo de Hani Wanice">` : ""}
-  </header>
-
-  <p class="accroche">${esc(v.accroche)}</p>
-
-  <div class="grid">
-    <main>
-      <section>
-        <h2>Expérience</h2>
-        ${exp}
-      </section>
-      <section>
-        <h2>Projets</h2>
-        ${projets}
-      </section>
-      ${methode}
-    </main>
-    <aside>
-      <section>
-        <h2>Formation</h2>
-        ${formation}
-      </section>
-      <section>
-        <h2>Compétences</h2>
-        <dl>${comp}</dl>
-      </section>
-      <section>
-        <h2>Langues</h2>
-        <p class="plain">${esc(v.langues)}</p>
-      </section>
-      <section>
-        <h2>En dehors</h2>
-        <ul class="interets">${v.interets.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>
-      </section>
-    </aside>
-  </div>
+    <h2>Contact</h2>
+    <ul class="contact">
+      <li><a href="mailto:${c.email}">${esc(c.email)}</a></li>
+      <li>${esc(c.phone)}</li>
+      <li>${link(c.site)}</li>
+      <li>${link(c.github)}</li>
+      <li>${link(c.linkedin, "LinkedIn")}</li>
+      <li>${esc(c.location)}</li>
+    </ul>
+    <h2>Formation</h2>
+    ${formation}
+    <h2>Compétences</h2>
+    <dl>${comp}</dl>
+    <h2>Langues</h2>
+    <ul class="langues"><li>${esc(v.langues)}</li></ul>
+    <h2>En dehors</h2>
+    <ul class="interets">${v.interets.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>
+  </aside>
+  <main>
+    <h1>${esc(c.name)}</h1>
+    <p class="title">${esc(v.title)}</p>
+    <p class="search">${esc(v.search)}</p>
+    <p class="accroche">${esc(v.accroche)}</p>
+    <h2>Expérience</h2>
+    ${exp}
+    <h2>Projets</h2>
+    ${projets}
+    ${methode}
+  </main>
 </body>
 </html>`;
 }
