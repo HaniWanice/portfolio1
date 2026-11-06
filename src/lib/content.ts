@@ -55,8 +55,8 @@ export const learning = {
 };
 
 export const glpi = {
-  title: "Deux logiciels indépendant qui communique via une seul interface et qui arrive a se transmettre les données de maniere sécurisé.",
-  caption: "2 mois de Stage à la DSI de l'UPEC, 2026 · deux logiciels de support (GLPI), deux bases de données séparées",
+  title: "2 mois de Stage à la DSI de l'UPEC",
+  caption: "deux logiciels de support (GLPI) deux bases de données séparées et indépendant qui communique via une seul interface et qui arrive a se transmettre les données de maniere sécurisé",
   stack: ["Next.js", "TypeScript", "Docker Compose", "MariaDB", "API REST"],
   nodes: [
     { name: "GLPI étudiants", sub: "base MariaDB n°1", note: "L'étudiant écrit au support" },
