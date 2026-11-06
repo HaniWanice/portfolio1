@@ -9,6 +9,7 @@
 
 /* ---------- Premier écran ---------- */
 .hero {
+  --portrait-w: min(38vw, 240px);
   position: relative;
   min-height: 100svh;
   padding: calc(var(--nav-h) + 24px) var(--gutter) clamp(32px, 6vh, 56px);
@@ -19,12 +20,10 @@
   overflow: clip;
 }
 .portrait-scroll {
-  --pw: 40vw;
   position: relative;
   z-index: 1;
   align-self: flex-end;
-  width: var(--pw);
-  max-width: 240px;
+  width: var(--portrait-w);
   margin-right: 22px;
 }
 .portrait-depth {
@@ -71,7 +70,6 @@
   width: 100%;
   max-width: 1480px;
   margin-inline: auto;
-  margin-top: -9vw;
 }
 .status {
   display: inline-flex;
@@ -99,7 +97,8 @@
 
 .name {
   margin: 14px 0 20px -0.04em;
-  font-size: min(23vw, 27svh);
+  /* Plafonné : le nom reste un titre, il ne mange pas tout l'écran. */
+  font-size: clamp(2.7rem, min(23vw, 27svh), 12rem);
   line-height: 0.84;
   font-weight: 700;
   letter-spacing: -0.055em;
@@ -177,6 +176,7 @@
 
 @media (min-width: 900px) {
   .hero {
+    --portrait-w: min(27vw, 40svh);
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     justify-content: stretch;
@@ -196,11 +196,10 @@
     margin-top: 0;
   }
   .portrait-scroll {
-    --pw: min(27vw, 40svh);
     position: absolute;
     right: calc(var(--gutter) + 8vw);
     top: calc(var(--nav-h) + 11svh);
-    width: var(--pw);
+    width: var(--portrait-w);
     max-width: none;
     margin: 0;
   }
@@ -208,7 +207,57 @@
     margin-top: 0;
   }
   .name {
-    font-size: min(24vw, 34svh);
+    font-size: clamp(3rem, min(19vw, 24svh), 13rem);
+  }
+}
+
+/* Fenêtre basse ou navigateur zoomé : le premier écran doit tenir et rester lisible.
+   On serre les marges, on plafonne encore le nom et on range les contacts sur une ligne. */
+@media (max-height: 720px) {
+  .hero {
+    gap: 14px;
+    padding-top: calc(var(--nav-h) + 10px);
+    padding-bottom: 20px;
+  }
+  .hero-text {
+    margin-top: 0;
+  }
+  .status {
+    padding: 6px 13px;
+    font-size: 0.875rem;
+  }
+  .name {
+    margin: 10px 0 12px -0.04em;
+    font-size: clamp(2.2rem, min(19vw, 21svh), 9rem);
+  }
+  .role {
+    font-size: clamp(1.15rem, 2.4vw, 2rem);
+  }
+  .pitch {
+    margin-top: 6px;
+    font-size: 1rem;
+  }
+  .contacts {
+    margin-top: 12px;
+    gap: 4px 20px;
+  }
+  .hero-cta {
+    margin-top: 14px;
+  }
+  .hero .btn {
+    min-height: 46px;
+    padding: 0 20px;
+    font-size: 1rem;
+  }
+}
+
+/* Très bas : la photo laisse la place au texte. */
+@media (max-height: 560px) {
+  .portrait-scroll {
+    display: none;
+  }
+  .name {
+    font-size: clamp(2rem, min(17vw, 19svh), 6rem);
   }
 }
 
