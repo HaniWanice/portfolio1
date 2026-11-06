@@ -65,7 +65,7 @@ export default function Labo() {
       <h1 className="page-title">Même boutique, deux versions.</h1>
       <p className="lead">
         Maison Brume est une boutique fictive de café, de thé et de vaisselle, avec 16 produits, des fiches, un panier et
-        de vraies photos. Elle est codée deux fois avec Next.js : une version qui accumule les erreurs courantes, et une
+        de vraies photos. Je l&apos;ai codée deux fois avec Next.js : une version qui accumule les erreurs courantes, et une
         version optimisée. Même rendu, même contenu. Les deux se chargent ci-dessous, dans votre navigateur.
       </p>
 

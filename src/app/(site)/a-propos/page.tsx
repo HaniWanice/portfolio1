@@ -7,7 +7,8 @@ import { about, site } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Qui je suis",
-  description: "Hani Wanice, 24 ans, étudiant en L3 informatique à l'Université Paris-Est Créteil.",
+  description:
+    "Hani Wanice, étudiant en L3 informatique à l'Université Paris-Est Créteil. Son parcours, ses projets et ce qu'il fait en dehors de l'écran.",
   alternates: { canonical: "/a-propos" },
 };
 
@@ -24,7 +25,7 @@ export default function APropos() {
           <p className="lead">{about.lead}</p>
         </div>
         <div className="about-photo" style={{ justifySelf: "end", marginRight: 20 }}>
-          <Image src="/images/hani.jpg" alt="Hani Wanice" width={960} height={1200} sizes="(min-width: 900px) 300px, 70vw" priority />
+          <Image src="/images/hani.jpg" alt="Portrait de Hani Wanice" width={960} height={1200} sizes="(min-width: 900px) 300px, 70vw" priority />
         </div>
       </section>
 

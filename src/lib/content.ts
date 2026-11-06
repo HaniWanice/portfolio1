@@ -1,11 +1,11 @@
 // Tout le texte du site. Chaque fait doit exister dans candidature/00-base/FAITS.md.
-// Règle de ce fichier : on décrit ce que Hani a fait, pas comment il travaille.
+// Le ton : première personne, phrases simples, pas de vocabulaire de CV.
 
 import lighthouse from "./demo/lighthouse.json";
 
 export const site = {
   name: "Hani Wanice",
-  role: "Développeur web full-stack",
+  role: "Étudiant en L3 informatique",
   email: "haniwanice@gmail.com",
   phone: "07 83 63 60 58",
   phoneHref: "+33783636058",
@@ -18,53 +18,53 @@ export const site = {
 
 export const hero = {
   status: "Stage dès avril 2027",
-  pitch: "Je développe des applications web, de l'interface à la base de données.",
-  detail: "Étudiant en L3 informatique à l'Université Paris-Est Créteil. Je cherche un stage de 2 à 5 mois, à Paris ou en Île-de-France.",
+  detail:
+    "Je développe des applications web, de l'interface à la base de données. Je cherche un stage de 2 à 5 mois à partir d'avril 2027, en Île-de-France.",
 };
 
 // La phrase qui s'éclaire pendant le défilement. Les segments "mark" reçoivent un surlignage.
 export const statement: { t: string; mark?: boolean }[] = [
-  { t: "J'ai relié " },
-  { t: "deux logiciels", mark: true },
-  { t: " qui n'avaient pas le droit de se parler. Je fais " },
-  { t: "l'interface", mark: true },
-  { t: ", le serveur et la base de données. Et je " },
-  { t: "mesure", mark: true },
-  { t: " ce que je livre." },
+  { t: "J'aime " },
+  { t: "comprendre", mark: true },
+  { t: " comment les choses marchent. Après, j'essaie de les " },
+  { t: "faire marcher", mark: true },
+  { t: " pour de vrai. Pendant deux mois, j'ai relié deux logiciels qui n'avaient pas le droit de se parler. L'outil concerne " },
+  { t: "40 000 étudiants", mark: true },
+  { t: " : une demande part en un clic, et les données du personnel restent de leur côté." },
 ];
 
 export const facts = [
-  { big: "8 semaines", small: "à la DSI de l'université Paris-Est Créteil, au printemps 2026" },
+  { big: "2 mois", small: "à la DSI de l'université Paris-Est Créteil, au printemps 2026" },
   { big: "L3", small: "informatique, à l'UPEC" },
   { big: "Avril 2027", small: "début de stage possible, jusqu'à fin août" },
 ];
 
 export const strengths = {
-  title: "Ce que je fais bien",
+  title: "Ce que je sais faire",
   items: [
-    "Comprendre le problème avant de choisir la solution. Au stage, j'ai écarté plusieurs pistes avant de fixer l'architecture.",
-    "Aller au bout. Un prototype validé en huit semaines, avec un rapport de 37 pages.",
-    "Soigner l'interface. J'ai dessiné des maquettes avant de coder.",
-    "Mesurer. Mon labo compare deux versions d'une boutique avec Lighthouse.",
+    "J'apprends vite. React et Next.js, je les ai appris sur des projets à moi.",
+    "Je prends le temps de comprendre. Au stage, j'ai écarté trois pistes avant de commencer à coder.",
+    "Ce que je commence, je le finis. Mon tuteur a validé le prototype en deux mois, et j'ai rendu un rapport de 37 pages.",
+    "L'interface compte pour moi. Pour Keewic, j'ai dessiné les écrans avant de les confier à un développeur.",
   ],
 };
 
 export const learning = {
-  title: "Ce que je dois encore apprendre",
+  title: "Ce qu'il me reste à apprendre",
   items: [
-    "Travailler à plusieurs sur un même dépôt, avec des revues de code.",
-    "Écrire des tests sur une vraie base de code.",
+    "Travailler dans une équipe de développement, avec des relectures de code en entreprise.",
+    "Écrire des tests qui tournent tout seuls sur un vrai projet.",
     "Mettre en production un outil que des milliers de personnes utilisent.",
   ],
 };
 
 export const glpi = {
   title: "Deux logiciels qui ne devaient pas se parler.",
-  caption: "Stage à la DSI de l'UPEC, 2026",
+  caption: "Stage à la DSI de l'UPEC, 2026 · deux logiciels de support, deux bases séparées",
   stack: ["Next.js", "TypeScript", "Docker Compose", "MariaDB", "API REST"],
   nodes: [
     { name: "GLPI étudiants", sub: "base MariaDB n°1", note: "L'étudiant écrit au support" },
-    { name: "Application Next.js", sub: "Server Actions, API REST", note: "Le pont copie, sans mélanger les bases" },
+    { name: "Application Next.js", sub: "Server Actions, API REST", note: "Le pont fait passer la demande, sans mélanger les bases" },
     { name: "GLPI DSI", sub: "base MariaDB n°2", note: "Le technicien traite le ticket" },
   ],
   forward: "escalade en un clic",
@@ -73,7 +73,8 @@ export const glpi = {
 
 export const todo = {
   title: "Todo Smart",
-  link: "haniwanice.github.io/todo-smart",
+  caption: "Ma liste de tâches, synchronisée entre le téléphone et l'ordinateur. Je m'en sers tous les jours.",
+  label: "Ouvrir l'application",
 };
 
 const lh = lighthouse as {
@@ -83,7 +84,7 @@ const lh = lighthouse as {
 
 export const labo = {
   title: "Même boutique, deux versions.",
-  caption: "Une boutique en ligne codée de deux façons, mesurée avec Lighthouse sur mobile",
+  caption: "Une boutique en ligne codée deux fois, mesurée avec Lighthouse sur mobile",
   naive: lh.naive?.score ?? 0,
   optim: lh.optim?.score ?? 0,
 };
@@ -95,15 +96,15 @@ export const others = [
 
 export const contactBlock = {
   title: "Parlons-en.",
-  text: "Un stage de 2 à 5 mois à partir d'avril 2027. Le plus simple : un e-mail.",
+  text: "Je cherche un stage de 2 à 5 mois à partir d'avril 2027, en Île-de-France. Je suis plus à l'aise à l'écrit. Le plus simple est un e-mail.",
 };
 
 /* ---- Pages détaillées ---- */
 
 export const glpiDetail = {
   intro: [
-    "La DSI de l'université gère ses demandes de support dans GLPI. Les étudiants, jusqu'à 40 000 personnes, avaient aussi besoin d'écrire au support. Mais pas question de leur ouvrir l'instance du personnel.",
-    "Mon travail : faire passer une demande d'un monde à l'autre, sans que les deux bases se touchent. J'ai travaillé seul sur ce sujet, avec un ingénieur de la DSI qui validait chaque étape, du 4 mai au 1er juillet 2026.",
+    "La DSI de l'université gère ses demandes de support dans GLPI. Les étudiants, jusqu'à 40 000 personnes, avaient aussi besoin d'écrire au support. Mais je ne pouvais pas leur ouvrir l'instance du personnel.",
+    "J'ai fait passer une demande d'un logiciel à l'autre, sans que les deux bases se touchent. J'ai travaillé seul sur ce sujet, avec un ingénieur de la DSI qui validait chaque étape, du 4 mai au 1er juillet 2026.",
   ],
   rejected: [
     {
@@ -128,9 +129,9 @@ export const glpiDetail = {
     "Un coupe-circuit contre les boucles de synchronisation, et des sessions API fermées dans un finally, après avoir saturé GLPI de sessions fantômes.",
   ],
   limits:
-    "Ce que le prototype ne prouve pas : la tenue à 40 000 utilisateurs, l'authentification centralisée, les pièces jointes. Je l'ai écrit dans mon rapport de 37 pages, pour que la personne qui reprendra le projet le sache avant moi.",
+    "Ce que le prototype ne prouve pas : la tenue à 40 000 utilisateurs, l'authentification centralisée, les pièces jointes. Je l'ai écrit dans mon rapport de 37 pages, pour que la personne qui reprendra le projet ne découvre pas ces limites toute seule.",
   lesson:
-    "Le plus dur n'était pas technique. Il a fallu comprendre ce que la DSI avait le droit de faire avant de chercher comment le faire.",
+    "Le plus dur a été de comprendre ce que la DSI avait le droit de faire, avant de chercher comment le faire.",
 };
 
 export const allProjects = [
@@ -178,7 +179,7 @@ export const allProjects = [
 export const about = {
   title: "Qui je suis.",
   lead:
-    "J'ai 24 ans et je suis en troisième année de licence informatique à l'Université Paris-Est Créteil. Je cherche un stage de développeur web de 2 à 5 mois, à partir d'avril 2027.",
+    "Je suis en troisième année de licence informatique à l'Université Paris-Est Créteil. En dehors des cours, je passe une bonne partie de mon temps libre sur des projets web. Je cherche un stage de développeur web de 2 à 5 mois à partir d'avril 2027, en Île-de-France.",
   story: [
     {
       when: "Au collège",
@@ -186,21 +187,22 @@ export const about = {
     },
     {
       when: "2025",
-      text: "Une mission de design : parcours, écrans et maquettes Figma d'une application mobile, remis à un développeur. Et la certification Responsive Web Design de freeCodeCamp, suivie en plus des cours.",
+      text: "Une mission de design rémunérée pour une application mobile. J'ai dessiné le parcours et les écrans dans Figma, puis remis les maquettes à un développeur. La même année, j'ai obtenu la certification Responsive Web Design de freeCodeCamp, en plus des cours.",
     },
     {
       when: "Printemps 2026",
-      text: "Huit semaines à la DSI de l'université. Un vrai sujet, un ingénieur qui valide chaque étape, et un prototype qui relie deux GLPI.",
+      text: "Huit semaines à la DSI de l'université, sur un vrai sujet. Un ingénieur validait chaque étape. À la fin, un prototype reliait les deux logiciels de support.",
     },
     {
       when: "Avril 2027",
-      text: "Un stage de 2 à 5 mois dans une équipe qui me confie un vrai sujet.",
+      text: "J'aimerais un stage de 2 à 5 mois dans une équipe qui me laisse prendre un sujet en main.",
     },
   ],
   outside: [
-    { t: "Piano", d: "Depuis 8 ans. Beaucoup d'Einaudi, un peu de violon en débutant." },
+    { t: "Piano", d: "Depuis 8 ans. Beaucoup d'Einaudi. Un peu de violon aussi, en débutant." },
     { t: "Dessin", d: "Surtout au crayon, dans un carnet." },
     { t: "Natation, vélo", d: "Pour sortir un peu de l'écran." },
-    { t: "Refuge", d: "Je promène des chiens dans un refuge, en bénévole." },
+    { t: "Voyages", d: "Grèce, Espagne, Italie, Portugal. J'aime marcher dans une ville que je ne connais pas." },
+    { t: "Refuge", d: "Je promène des chiens dans un refuge, avec l'association Booglaw." },
   ],
 };

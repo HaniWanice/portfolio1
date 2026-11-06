@@ -8,7 +8,7 @@ import { Figure } from "@/components/Figure";
 import { Magnetic } from "@/components/Magnetic";
 import { Reveal } from "@/components/Reveal";
 import { ArrowRight, ArrowUpRight, Download } from "@/components/Icons";
-import { contactBlock, glpi, labo, learning, others, site, strengths, todo } from "@/lib/content";
+import { about, contactBlock, glpi, labo, learning, others, site, strengths, todo } from "@/lib/content";
 
 export default function Home() {
   return (
@@ -67,11 +67,12 @@ export default function Home() {
               <h2 id="t-todo" className="screen-title mega">
                 {todo.title}
               </h2>
+              <p className="screen-caption">{todo.caption}</p>
             </Reveal>
             <Reveal delay={0.15}>
               <Magnetic>
                 <a className="btn btn-ink on-field" href={site.todo} target="_blank" rel="noreferrer">
-                  {todo.link}
+                  {todo.label}
                   <ArrowUpRight />
                 </a>
               </Magnetic>
@@ -132,6 +133,30 @@ export default function Home() {
         <Reveal delay={0.2}>
           <Link className="btn btn-line" href="/projets">
             Tous les projets
+            <ArrowRight />
+          </Link>
+        </Reveal>
+      </section>
+
+      <section className="outside-home wrap" aria-labelledby="t-outside">
+        <Reveal>
+          <h2 id="t-outside" className="outside-home-title">
+            En dehors de l&apos;écran.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <ul className="outside">
+            {about.outside.map((o) => (
+              <li key={o.t}>
+                <b>{o.t}</b>
+                <p>{o.d}</p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+        <Reveal delay={0.2}>
+          <Link className="btn btn-line" href="/a-propos">
+            Qui je suis
             <ArrowRight />
           </Link>
         </Reveal>

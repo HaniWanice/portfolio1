@@ -17,7 +17,7 @@ const main = localFont({
 });
 
 const description =
-  "Hani Wanice, développeur web full-stack. Étudiant en L3 informatique à l'Université Paris-Est Créteil, il cherche un stage de 2 à 5 mois à partir d'avril 2027.";
+  "Hani Wanice, développeur web full-stack. Étudiant en L3 informatique à l'Université Paris-Est Créteil, il cherche un stage de 2 à 5 mois à partir d'avril 2027, en Île-de-France.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

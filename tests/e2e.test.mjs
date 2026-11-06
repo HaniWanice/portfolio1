@@ -3,10 +3,12 @@
 import { test, before, after } from "node:test";
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
+import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 
 const PORT = 3217;
 const BASE = `http://localhost:${PORT}`;
+const NEXT = fileURLToPath(new URL("../node_modules/next/dist/bin/next", import.meta.url));
 let server, browser;
 
 async function waitForServer() {
@@ -20,7 +22,10 @@ async function waitForServer() {
 }
 
 before(async () => {
-  server = spawn("npx", ["next", "start", "-p", String(PORT)], { stdio: "ignore", detached: true });
+  server = spawn(process.execPath, [NEXT, "start", "-p", String(PORT)], {
+    stdio: "ignore",
+    detached: process.platform !== "win32",
+  });
   await waitForServer();
   browser = await chromium.launch();
 });
@@ -28,7 +33,11 @@ before(async () => {
 after(async () => {
   await browser?.close();
   try {
-    process.kill(-server.pid);
+    if (process.platform === "win32") {
+      spawn("taskkill", ["/pid", String(server.pid), "/T", "/F"], { stdio: "ignore" });
+    } else {
+      process.kill(-server.pid);
+    }
   } catch {}
 });
 
