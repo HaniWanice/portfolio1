@@ -24,19 +24,15 @@ export const hero = {
 
 // La phrase qui s'éclaire pendant le défilement. Les segments "mark" reçoivent un surlignage.
 export const statement: { t: string; mark?: boolean }[] = [
-  { t: "J'aime " },
-  { t: "comprendre", mark: true },
-  { t: " comment les choses marchent. Après, j'essaie de les " },
-  { t: "faire marcher", mark: true },
-  { t: " pour de vrai. Pendant deux mois, j'ai relié deux logiciels qui n'avaient pas le droit de se parler. L'outil concerne " },
-  { t: "40 000 étudiants", mark: true },
-  { t: " : une demande part en un clic, et les données du personnel restent de leur côté." },
+  { t: "Comprendre", mark: true },
+  { t: "S'adapter", mark: true },
+  { t: "Résoudre", mark: true },
 ];
 
 export const facts = [
-  { big: "2 mois", small: "à la DSI de l'université Paris-Est Créteil, au printemps 2026" },
+  { big: "8 semaines d'expérience", small: "à la DSI de l'université Paris-Est, au printemps 2026" },
   { big: "L3", small: "informatique, à l'UPEC" },
-  { big: "Avril 2027", small: "début de stage possible, jusqu'à fin août" },
+  { big: "Avril 2027", small: "future de stage (en recherche), jusqu'à fin août" },
 ];
 
 export const strengths = {
@@ -59,15 +55,15 @@ export const learning = {
 };
 
 export const glpi = {
-  title: "Deux logiciels qui ne devaient pas se parler.",
-  caption: "Stage à la DSI de l'UPEC, 2026 · deux logiciels de support, deux bases séparées",
+  title: "Deux logiciels indépendant qui communique via une seul interface et qui arrive a se transmettre les données de maniere sécurisé.",
+  caption: "2 mois de Stage à la DSI de l'UPEC, 2026 · deux logiciels de support (GLPI), deux bases de données séparées",
   stack: ["Next.js", "TypeScript", "Docker Compose", "MariaDB", "API REST"],
   nodes: [
     { name: "GLPI étudiants", sub: "base MariaDB n°1", note: "L'étudiant écrit au support" },
     { name: "Application Next.js", sub: "Server Actions, API REST", note: "Le pont fait passer la demande, sans mélanger les bases" },
     { name: "GLPI DSI", sub: "base MariaDB n°2", note: "Le technicien traite le ticket" },
   ],
-  forward: "escalade en un clic",
+  forward: "transfere de données en un clic",
   back: "statut et réponses",
 };
 
